@@ -10,18 +10,18 @@ package org.bff.slimserver;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import org.bff.slimserver.musicobjects.SlimGenre;
 import org.bff.slimserver.musicobjects.SlimArtist;
 import org.bff.slimserver.musicobjects.SlimAlbum;
+
 import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Properties;
+
 import org.bff.slimserver.comm.SlimCommunicator;
 import org.bff.slimserver.comm.SlimCommunicatorCLI;
 import org.bff.slimserver.exception.SlimConnectionException;
@@ -32,7 +32,7 @@ import org.bff.slimserver.musicobjects.SlimTrack;
 
 /**
  * Represents the main communication object for all slimserver activities.
- * 
+ *
  * @author bfindeisen
  * @version 1.0
  */
@@ -66,7 +66,7 @@ public class SlimServer {
      * Server Preferences
      */
     private static String PREF_GROUP_DISCS;
-    private static String PREF_AUDIO_DIR;
+    private static String PREF_MEDIA_DIRS;
     private static String PREF_PLAYLIST_DIR;
     /**
      * Server Defaults
@@ -106,7 +106,9 @@ public class SlimServer {
         loadProperties();
     }
 
-    /** Creates a new instance of SlimServer */
+    /**
+     * Creates a new instance of SlimServer
+     */
     public SlimServer(String server) throws SlimConnectionException {
         this(server, DEFAULT_CLI_PORT, DEFAULT_WEB_PORT);
     }
@@ -127,11 +129,11 @@ public class SlimServer {
         this(server, cliPort, DEFAULT_WEB_PORT, user, password);
     }
 
-    public SlimServer(String server, 
-            int cliPort,
-            int webPort,
-            String user,
-            String password) throws SlimConnectionException {
+    public SlimServer(String server,
+                      int cliPort,
+                      int webPort,
+                      String user,
+                      String password) throws SlimConnectionException {
         try {
             this.serverAddress = InetAddress.getByName(server);
             this.serverPort = cliPort;
@@ -158,7 +160,7 @@ public class SlimServer {
             CMD_PLAYER_COUNT = prop.getProperty(SlimConstants.PROP_CMD_PLAYER_COUNT);
             CMD_PLAYER_QUERY = prop.getProperty(SlimConstants.PROP_CMD_PLAYER_QUERY);
             PREF_GROUP_DISCS = prop.getProperty(SlimConstants.PROP_PREF_GROUP_DISCS);
-            PREF_AUDIO_DIR = prop.getProperty(SlimConstants.PROP_PREF_AUDIO_DIR);
+            PREF_MEDIA_DIRS = prop.getProperty(SlimConstants.PROP_PREF_MEDIA_DIRS);
             PREF_PLAYLIST_DIR = prop.getProperty(SlimConstants.PROP_PREF_PLAYLIST_DIR);
             CMD_PODCAST_TEST = prop.getProperty(SlimConstants.PROP_CMD_PODCAST_TEST);
             CMD_LISTEN = prop.getProperty(SlimConstants.PROP_CMD_LISTEN);
@@ -175,7 +177,7 @@ public class SlimServer {
             }
         }
     }
-    
+
     public SlimPlaylist getSlimPlaylist(SlimPlayer player) {
         return new SlimPlaylist(player);
     }
@@ -218,7 +220,7 @@ public class SlimServer {
     /**
      * Sets whether to group multiple disc sets.  Pass true to group
      * together, false to list albums them separately.
-     * 
+     *
      * @param grouping true to group, false otherwise
      */
     public void setDiscGrouping(boolean grouping) throws SlimConnectionException {
@@ -230,22 +232,26 @@ public class SlimServer {
     }
 
     /**
-     * Returns the audio directory for this SlimServer
-     * @return the audio directory
+     * Returns the media directories for this SlimServer
+     *
+     * @return a collection of the media directories
      */
-    public String getAudioDirectory() throws SlimConnectionException {
+    public Collection<String> getMediaDirectories() throws SlimConnectionException {
         String cmd = CMD_PREF_QUERY;
-        cmd = cmd.replaceFirst(PARAM_PREF_NAME, PREF_AUDIO_DIR);
+        cmd = cmd.replaceFirst(PARAM_PREF_NAME, PREF_MEDIA_DIRS);
 
-        String retString = "";
+        List<String> mediaDirs = new ArrayList<String>();
         String[] response = sendCommand(new SlimCommand(cmd));
-        retString = response[0];
+        if (response.length > 0) {
+            mediaDirs.addAll(Arrays.asList(response[0].split(",")));
+        }
 
-        return retString;
+        return mediaDirs;
     }
 
     /**
      * Returns the playlist directory for this SlimServer
+     *
      * @return the playlist directory
      */
     public String getPlaylistDirectory() throws SlimConnectionException {
@@ -262,7 +268,7 @@ public class SlimServer {
 
     /**
      * Returns true if multi discs are grouped as 1 disc.
-     * 
+     *
      * @return true is multi discs are grouped as 1 disc
      */
     public boolean isDiscsGroupedAsSingle() throws SlimConnectionException {
@@ -288,6 +294,7 @@ public class SlimServer {
     /**
      * Returns the {@link SlimPlayer} for the requested id.  Returns
      * {@code null} is there is no player matching the id.
+     *
      * @param id
      * @return the matching {@SlimPlayer}
      */
@@ -353,9 +360,9 @@ public class SlimServer {
 
     /**
      * Send an array containing the response and get back a SlimPlayableItem
-     * 
-     * @param item the item to fill, passing null will result in a new {@link SlimPlayableItem}
-     * being created and returned;
+     *
+     * @param item     the item to fill, passing null will result in a new {@link SlimPlayableItem}
+     *                 being created and returned;
      * @param response the {@link SlimServer} response
      * @return the {@link SlimPlayableItem} for the response
      */
@@ -478,7 +485,7 @@ public class SlimServer {
             }
         }
 
-        if(item.getId() == null) {
+        if (item.getId() == null) {
             throw new IllegalArgumentException("Item id must not be null");
         }
 
@@ -512,6 +519,7 @@ public class SlimServer {
 
     /**
      * Returns the properties file containing the command list for the SlimServer.
+     *
      * @return the command list properties file
      */
     static Properties getSlimProperties() {
@@ -520,8 +528,9 @@ public class SlimServer {
 
     /**
      * Returns trus if podcasts are currently supported by this SlimServer
+     *
      * @return true if podcasts are supported, false if not
-     * @throws SlimConnectionException 
+     * @throws SlimConnectionException
      */
     public boolean isPodcastsSupported() throws SlimConnectionException {
         String command = CMD_CAN;
@@ -533,7 +542,6 @@ public class SlimServer {
     }
 
     /**
-     * 
      * @param index
      * @return
      */

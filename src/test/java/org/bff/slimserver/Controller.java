@@ -29,7 +29,8 @@ public class Controller {
     private static final String PROP_PATH = "path.testmp3";
     private static final String PROP_PORT_WEB = "port.web";
     private static final String PROP_PORT_CLI = "port.cli";
-    private static final String PROP_SERVER_PATH = "path.server.mp3";
+    private static final String PROP_MP3_PATH = "path.server.mp3";
+    private static final String PROP_MP3_PATH_2 = "path.server.mp3Path2";
     public static final String EXTENSION = ".mp3";
     public static final String FILE_PROPS = System.getProperty("user.dir") + "/src/test/java/TestProperties.properties";
     private static final String URL_PREFIX = "file://";
@@ -38,7 +39,8 @@ public class Controller {
     private String server;
     private int webPort;
     private int cliPort;
-    private String serverPath;
+    private String mp3Path;
+    private String mp3Path2;
     private static Controller instance;
     private static final int INDEX_ARTIST = 0;
     private static final int INDEX_ALBUM = 1;
@@ -90,7 +92,8 @@ public class Controller {
             setPath(props.getProperty(PROP_PATH));
             setWebPort(Integer.parseInt(props.getProperty(PROP_PORT_WEB)));
             setCliPort(Integer.parseInt(props.getProperty(PROP_PORT_CLI)));
-            setServerPath(props.getProperty(PROP_SERVER_PATH));
+            setMp3Path(props.getProperty(PROP_MP3_PATH));
+            setMp3Path2(props.getProperty(PROP_MP3_PATH_2));
             version = props.getProperty(PROP_VERSION);
         } finally {
             in.close();
@@ -156,7 +159,7 @@ public class Controller {
                 if (file.getName().endsWith(EXTENSION)) {
                     String[] s = file.getName().replace(EXTENSION, "").split("-");
                     SlimSong song = new SlimSong();
-                    song.setUrl(URL_PREFIX + getServerPath() + (f.isDirectory() ? f.getName() : "") + "/" + file.getName());
+                    song.setUrl(URL_PREFIX + getMp3Path() + "/" + (f.isDirectory() ? f.getName() : "") + "/" + file.getName());
                     SlimAlbum album = new SlimAlbum();
                     SlimArtist artist = new SlimArtist();
                     SlimGenre genre = new SlimGenre();
@@ -552,15 +555,15 @@ public class Controller {
     /**
      * @return the serverPath
      */
-    public String getServerPath() {
-        return serverPath;
+    public String getMp3Path() {
+        return mp3Path;
     }
 
     /**
-     * @param serverPath the serverPath to set
+     * @param mp3Path the serverPath to set
      */
-    public void setServerPath(String serverPath) {
-        this.serverPath = serverPath;
+    public void setMp3Path(String mp3Path) {
+        this.mp3Path = mp3Path;
     }
 
     /**
@@ -724,5 +727,13 @@ public class Controller {
      */
     public static String getVersion() {
         return version;
+    }
+
+    public String getMp3Path2() {
+        return mp3Path2;
+    }
+
+    public void setMp3Path2(String mp3Path2) {
+        this.mp3Path2 = mp3Path2;
     }
 }

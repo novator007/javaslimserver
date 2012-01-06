@@ -142,7 +142,7 @@ public class SlimConstants {
     public static final String PROP_CMD_PLAYER_COUNT = "SS_PLAYER_COUNT";
     public static final String PROP_CMD_PLAYER_QUERY = "SS_PLAYER_ID";
     public static final String PROP_PREF_GROUP_DISCS = "SS_PREF_GROUP_DISCS";
-    public static final String PROP_PREF_AUDIO_DIR = "SS_PREF_AUDIO_DIR";
+    public static final String PROP_PREF_MEDIA_DIRS = "SS_PREF_MEDIA_DIRS";
     public static final String PROP_PREF_PLAYLIST_DIR = "SS_PREF_PLAYLIST_DIR";
     public static final String PROP_CMD_PODCAST_TEST = "SS_PODCAST_TEST";
     public static final String PROP_CMD_LISTEN = "SS_CMD_LISTEN";

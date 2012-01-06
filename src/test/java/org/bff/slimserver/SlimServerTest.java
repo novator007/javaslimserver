@@ -4,7 +4,11 @@
  */
 package org.bff.slimserver;
 
+import org.bff.slimserver.exception.SlimConnectionException;
 import org.junit.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author bfindeisen
@@ -41,6 +45,18 @@ public class SlimServerTest {
     @Test
     public void testEncoding() {
         Assert.assertEquals(SlimServer.getEncoding(), SlimConstants.DEFAULT_ENCODING);
+    }
+
+    @Test
+    public void testGetAudioDirectory1() throws SlimConnectionException {
+        List<String> mediaList = new ArrayList<String>(getSlimServer().getMediaDirectories());
+        Assert.assertTrue(mediaList.contains(Controller.getInstance().getMp3Path()));
+    }
+
+    @Test
+    public void testGetAudioDirectory2() throws SlimConnectionException {
+        List<String> mediaList = new ArrayList<String>(getSlimServer().getMediaDirectories());
+        Assert.assertTrue(mediaList.contains(Controller.getInstance().getMp3Path2()));
     }
 
     /**

@@ -13,7 +13,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Properties;
 import org.apache.log4j.Logger;
-import org.bff.slimserver.exception.SlimNetworkException;
 import org.bff.slimserver.exception.SlimResponseException;
 import org.bff.slimserver.musicobjects.SlimFolderObject;
 
