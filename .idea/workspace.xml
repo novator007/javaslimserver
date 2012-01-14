@@ -1,134 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f39bfe5-775b-45e2-84a0-e1f96f62cf26" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimAppPlugin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimCommand.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimConstants.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimDatabase.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimDiscoverer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimFavoritePlugin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimFolderBrowser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimMusicServicesPlugin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimPlayer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimPlaylist.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimPlugin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimPodcaster.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimRadioPlugin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimSavedPlaylistManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimSearchResult.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimServer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SlimServerJSON.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/comm/SlimCommunicator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/comm/SlimCommunicatorCLI.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/SlimErrorEvent.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/SlimErrorListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/exception/SlimConnectionException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/exception/SlimDatabaseException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/exception/SlimException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/exception/SlimNetworkException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/exception/SlimPlayerException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/exception/SlimPlaylistException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/exception/SlimResponseException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/monitor/SlimEventListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/monitor/SlimEventMonitor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/monitor/SlimStandAloneMonitor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimAlbum.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimArtist.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimContributor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimDatabaseProgress.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimFolder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimFolderObject.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimGenre.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimObject.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimPlayableItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimPlayableObject.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimPlayableTags.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimPlaylistItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimPlaylistObject.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimPluginObject.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimPodcast.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimPodcastAudioDetails.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimPodcastItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimSavedPlaylist.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimSong.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimTrack.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimXMLBrowserAudioDetails.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/SlimXMLPluginItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/app/AppObject.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/app/SlimApp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/app/SlimAppAudioDetails.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/app/SlimAppItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/app/SlimAvailableApp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/favorite/SlimFavorite.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/favorite/SlimFavoriteAudioDetails.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/favorite/SlimFavoriteItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/radio/RadioObject.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/radio/SlimAvailableRadio.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/radio/SlimRadio.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/radio/SlimRadioAudioDetails.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/musicobjects/radio/SlimRadioItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/AppTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/RadioTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SlimDatabaseTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SlimDiscovererTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SlimFavoritePluginTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SlimServerTest.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javaslimserver.iml" afterPath="$PROJECT_DIR$/javaslimserver.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/Utils.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/ConnectionChangeEvent.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/ConnectionChangeEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/ConnectionChangeListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/ConnectionChangeListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/DatabaseScanEvent.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/DatabaseScanEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/DatabaseScanListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/DatabaseScanListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/FavoriteChangeEvent.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/FavoriteChangeEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/FavoriteChangeListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/FavoriteChangeListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/PlayerChangeEvent.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/PlayerChangeEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/PlayerChangeListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/PlayerChangeListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/PlaylistChangeEvent.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/PlaylistChangeEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/PlaylistChangeListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/PlaylistChangeListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/SavedPlaylistChangeEvent.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/SavedPlaylistChangeEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/SavedPlaylistChangeListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/SavedPlaylistChangeListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/SleepChangeEvent.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/SleepChangeEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/SleepChangeListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/SleepChangeListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/TrackPositionChangeEvent.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/TrackPositionChangeEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/TrackPositionChangeListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/TrackPositionChangeListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/VolumeChangeEvent.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/VolumeChangeEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/VolumeChangeListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/VolumeChangeListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/CDL.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/CDL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/Cookie.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/Cookie.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/CookieList.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/CookieList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/HTTP.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/HTTP.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/HTTPTokener.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/HTTPTokener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/JSONArray.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/JSONArray.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/JSONException.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/JSONException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/JSONML.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/JSONML.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/JSONObject.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/JSONObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/JSONString.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/JSONString.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/JSONStringer.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/JSONStringer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/JSONTokener.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/JSONTokener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/JSONWriter.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/JSONWriter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/Test.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/XML.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/XML.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/XMLTokener.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/XMLTokener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j.xml" afterPath="$PROJECT_DIR$/src/main/resources/log4j.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/org/bff/slimserver/slimserver.properties" afterPath="$PROJECT_DIR$/src/main/resources/org/bff/slimserver/slimserver.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/Base.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/Base.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/Controller.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/EventListenerTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/EventListenerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/MusicFolderTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/MusicFolderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/PlaylistTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/PlaylistTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SavedPlaylistManagerTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SavedPlaylistManagerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SlimFavoriteEventListenerTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SlimFavoriteEventListenerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Albums.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Albums.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Artists.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Artists.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Genres.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Genres.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/RadioTestData.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/RadioTestData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Songs.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Songs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Years.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Years.java" />
-    </list>
+    <list default="true" id="5f39bfe5-775b-45e2-84a0-e1f96f62cf26" name="Default" comment="" />
     <ignored path="javaslimserver.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -859,9 +732,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="25" width="1444" height="854" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.58036983" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
