@@ -4,8 +4,8 @@
  */
 package org.bff.slimserver;
 
-import org.bff.slimserver.exception.SlimException;
-import org.bff.slimserver.musicobjects.SlimFolderObject;
+import org.bff.slimserver.domain.Folder;
+import org.bff.slimserver.exception.SqueezeException;
 import org.junit.*;
 
 import java.util.ArrayList;
@@ -36,10 +36,10 @@ public class MusicFolderTest extends Base {
     }
 
     @Test
-    public void testAllFolders() throws SlimException {
-        List<SlimFolderObject> folders = new ArrayList<SlimFolderObject>(getFolderBrowser().getFolders());
+    public void testAllFolders() throws SqueezeException {
+        List<Folder> folders = new ArrayList<Folder>(getFOLDER_BROWSER().getFolders());
 
-        for (SlimFolderObject folder : folders) {
+        for (Folder folder : folders) {
             //System.out.println(folder.getId());
             //System.out.println(folder.getName());
             //System.out.println(folder.getFileName());

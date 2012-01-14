@@ -4,9 +4,9 @@
  */
 package org.bff.slimserver;
 
-import org.bff.slimserver.exception.SlimDatabaseException;
-import org.bff.slimserver.exception.SlimException;
-import org.bff.slimserver.musicobjects.SlimSavedPlaylist;
+import org.bff.slimserver.exception.DatabaseException;
+import org.bff.slimserver.exception.SqueezeException;
+import org.bff.slimserver.domain.SavedPlaylist;
 import org.junit.*;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class SavedPlaylistManagerTest extends Base {
     }
 
     @Before
-    public void setUp() throws SlimException {
+    public void setUp() throws SqueezeException {
         deleteSavedPlaylists();
     }
 
@@ -37,20 +37,20 @@ public class SavedPlaylistManagerTest extends Base {
     }
 
     @Test
-    public void testSavedPlaylistRename() throws SlimException {
-        SlimSavedPlaylist pl = getSavedPlaylistManager().createEmptyPlaylist("Temp");
-        getSavedPlaylistManager().renamePlaylist(pl, "Temp1");
+    public void testSavedPlaylistRename() throws SqueezeException {
+        SavedPlaylist pl = getSAVED_PLAYLIST_MANAGER().createEmptyPlaylist("Temp");
+        getSAVED_PLAYLIST_MANAGER().renamePlaylist(pl, "Temp1");
 
-        SlimSavedPlaylist ssp = new ArrayList<SlimSavedPlaylist>(getSavedPlaylistManager().getPlaylists()).get(0);
+        SavedPlaylist ssp = new ArrayList<SavedPlaylist>(getSAVED_PLAYLIST_MANAGER().getPlaylists()).get(0);
 
         Assert.assertEquals(ssp.getName(), "Temp1");
 
     }
 
-    @Test(expected = SlimDatabaseException.class)
-    public void testSavedPlaylistRenameDup() throws SlimException {
-        SlimSavedPlaylist pl = getSavedPlaylistManager().createEmptyPlaylist("Temp");
-        getSavedPlaylistManager().renamePlaylist(pl, "Temp");
+    @Test(expected = DatabaseException.class)
+    public void testSavedPlaylistRenameDup() throws SqueezeException {
+        SavedPlaylist pl = getSAVED_PLAYLIST_MANAGER().createEmptyPlaylist("Temp");
+        getSAVED_PLAYLIST_MANAGER().renamePlaylist(pl, "Temp");
     }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
@@ -58,9 +58,9 @@ public class SavedPlaylistManagerTest extends Base {
     // @Test
     // public void hello() {}
 
-    private static void deleteSavedPlaylists() throws SlimException {
-        for (SlimSavedPlaylist pl : getSavedPlaylistManager().getPlaylists()) {
-            getSavedPlaylistManager().deleteSavedPlaylist(pl);
+    private static void deleteSavedPlaylists() throws SqueezeException {
+        for (SavedPlaylist pl : getSAVED_PLAYLIST_MANAGER().getPlaylists()) {
+            getSAVED_PLAYLIST_MANAGER().deleteSavedPlaylist(pl);
         }
     }
 

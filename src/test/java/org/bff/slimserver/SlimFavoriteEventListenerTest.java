@@ -6,7 +6,7 @@ package org.bff.slimserver;
 
 import org.bff.slimserver.events.FavoriteChangeEvent;
 import org.bff.slimserver.events.FavoriteChangeListener;
-import org.bff.slimserver.musicobjects.SlimArtist;
+import org.bff.slimserver.domain.Artist;
 import org.junit.*;
 
 import java.util.ArrayList;
@@ -54,9 +54,9 @@ public class SlimFavoriteEventListenerTest extends Base {
             }
         };
 
-        getFavoritePlugin().addFavoriteChangeListener(listener);
+        getFAVORITE_PLUGIN().addFavoriteChangeListener(listener);
 
-        getFavoritePlugin().addFavorite(new ArrayList<SlimArtist>(getDatabase().searchArtists(TEST_ARTIST)).get(0));
+        getFAVORITE_PLUGIN().addFavorite(new ArrayList<Artist>(getDATABASE().searchArtists(TEST_ARTIST)).get(0));
 
         int count = 0;
         while (!success && count++ < 10) {

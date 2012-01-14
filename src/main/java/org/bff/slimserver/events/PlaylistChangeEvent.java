@@ -12,19 +12,20 @@ package org.bff.slimserver.events;
 import java.util.Collection;
 import java.util.EventObject;
 import java.util.List;
-import org.bff.slimserver.musicobjects.SlimObject;
-import org.bff.slimserver.musicobjects.SlimPlayableObject;
-import org.bff.slimserver.musicobjects.SlimPlaylistItem;
+
+import org.bff.slimserver.domain.Playable;
+import org.bff.slimserver.domain.PlaylistItem;
 
 /**
  * Represents a change in the status of a Slim Server playlist.
+ *
  * @author Bill Findeisen
  */
 public class PlaylistChangeEvent extends EventObject {
 
     private int id;
-    private SlimPlayableObject slimObject;
-    private Collection<SlimPlaylistItem> newPlaylist;
+    private Playable object;
+    private Collection<PlaylistItem> newPlaylist;
     private int itemCount;
     private String message;
     /**
@@ -121,50 +122,50 @@ public class PlaylistChangeEvent extends EventObject {
      * Albums were shuffled
      */
     public static final int SHUFFLE_ALBUMS = 29;
-    
-    private Collection<SlimPlayableObject> slimObjects;
+
+    private Collection<Playable> objects;
 
     /**
-     * 
      * Creates a new instance of PlayListChangeEvent
+     *
      * @param source the object on which the Event initially occurred
-     * @param id the specific event that occurred
+     * @param id     the specific event that occurred
      * @param object the {@@link SlimObject} for the event
      */
-    public PlaylistChangeEvent(Object source, int id, SlimPlayableObject object) {
+    public PlaylistChangeEvent(Object source, int id, Playable object) {
         this(source, id, object, null, null);
     }
 
-    public PlaylistChangeEvent(Object source, int id, SlimPlayableObject object, String message) {
+    public PlaylistChangeEvent(Object source, int id, Playable object, String message) {
         this(source, id, object, null, message);
     }
 
-    public PlaylistChangeEvent(Object source, int id, Collection<SlimPlaylistItem> playlist) {
+    public PlaylistChangeEvent(Object source, int id, Collection<PlaylistItem> playlist) {
         this(source, id, null, playlist, null);
     }
 
     /*
-    public PlaylistChangeEvent(Object source, int id, Collection<SlimPlayableObject> playlist) {
+    public PlaylistChangeEvent(Object source, int id, Collection<Playable> playlist) {
     this(source, id, null, null, playlist, null);
     }
      */
+
     /**
-     *
      * @param source
      * @param id
-     * @param object the {@@link SlimObject} for the event
-     * @param objects 
+     * @param object   the {@@link SlimObject} for the event
+     * @param objects
      * @param playlist
      * @param message
      */
     public PlaylistChangeEvent(Object source,
-            int id,
-            SlimPlayableObject object,
-            Collection<SlimPlaylistItem> playlist,
-            String message) {
+                               int id,
+                               Playable object,
+                               Collection<PlaylistItem> playlist,
+                               String message) {
         super(source);
         this.id = id;
-        this.slimObject = object;
+        this.object = object;
         this.newPlaylist = playlist;
         this.message = message;
     }
@@ -172,48 +173,51 @@ public class PlaylistChangeEvent extends EventObject {
     /**
      * Returns specific id of the event that occurred.  The ids are public static
      * fields in the class.
+     *
      * @return the specific id
      */
     public int getId() {
         return (id);
     }
 
-    public Collection<SlimPlaylistItem> getNewPlaylist() {
+    public Collection<PlaylistItem> getNewPlaylist() {
         return newPlaylist;
     }
 
-    public void setNewPlaylist(List<SlimPlaylistItem> newPlaylist) {
+    public void setNewPlaylist(List<PlaylistItem> newPlaylist) {
         this.newPlaylist = newPlaylist;
     }
 
     /**
      * Returns the {@@link SlimObject} that generated the event
+     *
      * @return the slimobject
      */
-    public SlimPlayableObject getSlimObject() {
-        return slimObject;
+    public Playable getObject() {
+        return object;
     }
 
     /**
      * Sets the {@@link SlimObject} that generated the event
+     *
      * @param slimobject the slimobject to set
      */
-    public void setSlimObject(SlimPlayableObject slimobject) {
-        this.slimObject = slimobject;
+    public void setObject(Playable slimobject) {
+        this.object = slimobject;
     }
 
     /**
-     * @return the slimObjects
+     * @return the objects
      */
-    public Collection<SlimPlayableObject> getSlimObjects() {
-        return slimObjects;
+    public Collection<Playable> getObjects() {
+        return objects;
     }
 
     /**
-     * @param slimObjects the slimObjects to set
+     * @param objects the objects to set
      */
-    public void setSlimObjects(Collection<SlimPlayableObject> slimObjects) {
-        this.slimObjects = slimObjects;
+    public void setObjects(Collection<Playable> objects) {
+        this.objects = objects;
     }
 
     /**

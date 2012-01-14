@@ -11,63 +11,63 @@
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
 
     <appender name="playlist" class="org.apache.log4j.FileAppender">
-        <param name="File" value="${user.home}/.bjj/logs/playlist.log" />
-        <param name="Append" value="true" />
-        <param name="Threshold" value="WARN" />
+        <param name="File" value="${user.home}/.bjj/logs/playlist.log"/>
+        <param name="Append" value="true"/>
+        <param name="Threshold" value="WARN"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%t %-5p %c{2} - %m%n"/>
         </layout>
     </appender>
 
     <appender name="general" class="org.apache.log4j.FileAppender">
-        <param name="File" value="${user.home}/.bjj/logs/general.log" />
-        <param name="Append" value="true" />
-        <param name="Threshold" value="WARN" />
+        <param name="File" value="${user.home}/.bjj/logs/general.log"/>
+        <param name="Append" value="true"/>
+        <param name="Threshold" value="WARN"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%t %-5p %c{2} - %m%n"/>
         </layout>
     </appender>
 
     <appender name="podcast" class="org.apache.log4j.FileAppender">
-        <param name="File" value="${user.home}/.bjj/logs/podcasts.log" />
-        <param name="Append" value="true" />
-        <param name="Threshold" value="WARN" />
+        <param name="File" value="${user.home}/.bjj/logs/podcasts.log"/>
+        <param name="Append" value="true"/>
+        <param name="Threshold" value="WARN"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%t %-5p %c{2} - %m%n"/>
         </layout>
     </appender>
 
     <appender name="discover" class="org.apache.log4j.FileAppender">
-        <param name="File" value="${user.home}/.bjj/logs/discover.log" />
-        <param name="Append" value="true" />
-        <param name="Threshold" value="WARN" />
+        <param name="File" value="${user.home}/.bjj/logs/discover.log"/>
+        <param name="Append" value="true"/>
+        <param name="Threshold" value="WARN"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d %t %-5p %c{2} - %m%n"/>
         </layout>
     </appender>
 
     <appender name="radio" class="org.apache.log4j.FileAppender">
-        <param name="File" value="${user.home}/.bjj/logs/radios.log" />
-        <param name="Append" value="true" />
-        <param name="Threshold" value="TRACE" />
+        <param name="File" value="${user.home}/.bjj/logs/radios.log"/>
+        <param name="Append" value="true"/>
+        <param name="Threshold" value="TRACE"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%t %-5p %c{2} - %m%n"/>
         </layout>
     </appender>
 
     <appender name="favorites" class="org.apache.log4j.FileAppender">
-        <param name="File" value="${user.home}/.bjj/logs/favorites.log" />
-        <param name="Append" value="true" />
-        <param name="Threshold" value="TRACE" />
+        <param name="File" value="${user.home}/.bjj/logs/favorites.log"/>
+        <param name="Append" value="true"/>
+        <param name="Threshold" value="TRACE"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%t %-5p %c{2} - %m%n"/>
         </layout>
     </appender>
 
     <appender name="apps" class="org.apache.log4j.FileAppender">
-        <param name="File" value="${user.home}/.bjj/logs/apps.log" />
-        <param name="Append" value="true" />
-        <param name="Threshold" value="TRACE" />
+        <param name="File" value="${user.home}/.bjj/logs/apps.log"/>
+        <param name="Append" value="true"/>
+        <param name="Threshold" value="TRACE"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%t %-5p %c{2} - %m%n"/>
         </layout>
@@ -92,7 +92,7 @@
     <logger name="AppLogger" additivity="false">
         <appender-ref ref="apps"/>
     </logger>
-    
+
     <root>
         <appender-ref ref="general"/>
     </root>

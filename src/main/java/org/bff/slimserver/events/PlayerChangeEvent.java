@@ -1,7 +1,8 @@
 package org.bff.slimserver.events;
 
 /**
- * Represents a change in the status of a SlimServer music player.
+ * Represents a change in the status of a SqueezeServer music player.
+ *
  * @author Bill Findeisen
  */
 public class PlayerChangeEvent extends java.util.EventObject {
@@ -53,12 +54,13 @@ public class PlayerChangeEvent extends java.util.EventObject {
     public static final int PLAYER_DELETED = 14;
     public static final int PLAYER_SYNCED = 15;
     public static final int PLAYER_UNSYNCED = 16;
-    
+
 
     /**
      * Creates a new instance of PlayerChangeEvent
+     *
      * @param source the object on which the Event initially occurred
-     * @param id the specific event that occurred
+     * @param id     the specific event that occurred
      */
     public PlayerChangeEvent(Object source, int id) {
         this(source, id, null);
@@ -66,9 +68,10 @@ public class PlayerChangeEvent extends java.util.EventObject {
 
     /**
      * Creates a new instance of PlayerChangeEvent
+     *
      * @param source the object on which the Event initially occurred
-     * @param id the specific event that occurred
-     * @param msg an optional message
+     * @param id     the specific event that occurred
+     * @param msg    an optional message
      */
     public PlayerChangeEvent(Object source, int id, String msg) {
         super(source);
@@ -79,6 +82,7 @@ public class PlayerChangeEvent extends java.util.EventObject {
     /**
      * Returns specific id of the event that occurred.  The ids are public static
      * fields in the class.
+     *
      * @return the specific id
      */
     public int getId() {
@@ -88,6 +92,7 @@ public class PlayerChangeEvent extends java.util.EventObject {
     /**
      * Returns the message attached to this event.  If there is no message null
      * is returned.
+     *
      * @return the optional message
      */
     public String getMsg() {

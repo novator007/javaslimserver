@@ -4,7 +4,7 @@
  */
 package org.bff.slimserver;
 
-import org.bff.slimserver.exception.SlimException;
+import org.bff.slimserver.exception.SqueezeException;
 import org.junit.*;
 
 /**
@@ -32,10 +32,10 @@ public class PlaylistTest extends Base {
     }
 
     @Test
-    public void testGetCurrentItem() throws SlimException {
-        getPlaylist().clear();
+    public void testGetCurrentItem() throws SqueezeException {
+        getPLAYLIST().clear();
 
-        Assert.assertTrue(getPlaylist().getCurrentItem() == null);
+        Assert.assertTrue(getPLAYLIST().getCurrentItem() == null);
     }
 
 // TODO add test methods here.

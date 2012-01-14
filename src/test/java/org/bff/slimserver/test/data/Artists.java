@@ -7,31 +7,30 @@ package org.bff.slimserver.test.data;
 import java.util.Collection;
 import java.util.HashMap;
 
-import org.bff.slimserver.musicobjects.SlimAlbum;
-import org.bff.slimserver.musicobjects.SlimArtist;
+import org.bff.slimserver.domain.Album;
+import org.bff.slimserver.domain.Artist;
 
 /**
- *
  * @author bfindeisen
  */
 public class Artists {
 
-    public static final HashMap<SlimArtist, Collection<SlimAlbum>> TEST_ARTIST_ALBUM_MAP =
-            new HashMap<SlimArtist, Collection<SlimAlbum>>();
-    
-    private static Collection<SlimArtist> testArtists;
+    public static final HashMap<Artist, Collection<Album>> TEST_ARTIST_ALBUM_MAP =
+            new HashMap<Artist, Collection<Album>>();
+
+    private static Collection<Artist> testArtists;
 
     /**
      * @return the testArtists
      */
-    public static Collection<SlimArtist> getTestArtists() {
+    public static Collection<Artist> getTestArtists() {
         return testArtists;
     }
 
     /**
      * @param aTestArtists the testArtists to set
      */
-    public static void setTestArtists(Collection<SlimArtist> aTestArtists) {
+    public static void setTestArtists(Collection<Artist> aTestArtists) {
         testArtists = aTestArtists;
     }
 }

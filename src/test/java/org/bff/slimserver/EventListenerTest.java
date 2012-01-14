@@ -5,11 +5,11 @@
 package org.bff.slimserver;
 
 import org.bff.slimserver.events.*;
-import org.bff.slimserver.exception.SlimConnectionException;
-import org.bff.slimserver.exception.SlimException;
-import org.bff.slimserver.exception.SlimPlayerException;
-import org.bff.slimserver.musicobjects.*;
-import org.bff.slimserver.musicobjects.favorite.SlimFavorite;
+import org.bff.slimserver.exception.ConnectionException;
+import org.bff.slimserver.exception.SqueezeException;
+import org.bff.slimserver.exception.PlayerException;
+import org.bff.slimserver.domain.*;
+import org.bff.slimserver.domain.favorite.Favorite;
 import org.junit.*;
 
 import java.io.IOException;
@@ -52,21 +52,21 @@ public class EventListenerTest extends Base {
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        getPlaylist().clear();
+        getPLAYLIST().clear();
         deleteSavedPlaylists();
         Thread.sleep(1000);
-        getListener().start();
+        getLISTENER().start();
     }
 
     @AfterClass
     public static void tearDownClass() throws Exception {
-        getListener().stop();
+        getLISTENER().stop();
     }
 
     @Before
-    public void setUp() throws SlimException {
-        if (getPlaylist().getItemCount() < 1) {
-            getPlaylist().addAlbum(new ArrayList<SlimAlbum>(Controller.getInstance().getAlbums()).get(0));
+    public void setUp() throws SqueezeException {
+        if (getPLAYLIST().getItemCount() < 1) {
+            getPLAYLIST().addAlbum(new ArrayList<Album>(Controller.getInstance().getAlbums()).get(0));
 
         }
     }
@@ -75,23 +75,23 @@ public class EventListenerTest extends Base {
     public void tearDown() {
     }
 
-    private static void deleteSavedPlaylists() throws SlimException {
-        for (SlimSavedPlaylist pl : getSavedPlaylistManager().getPlaylists()) {
-            getSavedPlaylistManager().deleteSavedPlaylist(pl);
+    private static void deleteSavedPlaylists() throws SqueezeException {
+        for (SavedPlaylist pl : getSAVED_PLAYLIST_MANAGER().getPlaylists()) {
+            getSAVED_PLAYLIST_MANAGER().deleteSavedPlaylist(pl);
         }
     }
 
     @Test
-    public void testListen() throws SlimException, IOException {
-//        final SlimEventListener listener = new SlimEventListener(getPlayer());
+    public void testListen() throws SqueezeException, IOException {
+//        final EventListener listener = new EventListener(getPLAYER());
 //
 //        new Thread(new Runnable() {
 //
 //            public void run() {
 //                try {
-//                    getListener().listen();
+//                    getLISTENER().listen();
 //
-//                } catch (SlimConnectionException ex) {
+//                } catch (ConnectionException ex) {
 //                    Logger.getLogger(EventListenerTest.class.getName()).log(Level.SEVERE, null, ex);
 //                } catch (IOException ex) {
 //                    Logger.getLogger(EventListenerTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -105,16 +105,16 @@ public class EventListenerTest extends Base {
 //            Logger.getLogger(EventListenerTest.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //
-//        getListener().stopListening();
+//        getLISTENER().stopListening();
     }
 
     boolean success = false;
 
     @Test
-    public void testPlayerSleepStart() throws SlimConnectionException, SlimPlayerException {
+    public void testPlayerSleepStart() throws ConnectionException, PlayerException {
         success = false;
 
-        getListener().addSleepChangeListener(new SleepChangeListener() {
+        getLISTENER().addSleepChangeListener(new SleepChangeListener() {
 
             @Override
             public void sleepTimeChanged(SleepChangeEvent event) {
@@ -127,7 +127,7 @@ public class EventListenerTest extends Base {
         });
 
 
-        getPlayer().setSleepTime(1000);
+        getPLAYER().setSleepTime(1000);
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -138,17 +138,17 @@ public class EventListenerTest extends Base {
             }
         }
 
-        getPlayer().setSleepTime(0);
+        getPLAYER().setSleepTime(0);
         Assert.assertTrue(success);
     }
 
     @Test
-    public void testPlayerSleepStop() throws SlimConnectionException, SlimPlayerException {
+    public void testPlayerSleepStop() throws ConnectionException, PlayerException {
         success = false;
 
-        getPlayer().setSleepTime(1000);
+        getPLAYER().setSleepTime(1000);
 
-        getListener().addSleepChangeListener(new SleepChangeListener() {
+        getLISTENER().addSleepChangeListener(new SleepChangeListener() {
 
             @Override
             public void sleepTimeChanged(SleepChangeEvent event) {
@@ -161,7 +161,7 @@ public class EventListenerTest extends Base {
         });
 
 
-        getPlayer().setSleepTime(0);
+        getPLAYER().setSleepTime(0);
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -176,11 +176,11 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testPlayerOn() throws SlimConnectionException, SlimPlayerException {
-        getPlayer().powerOff();
+    public void testPlayerOn() throws ConnectionException, PlayerException {
+        getPLAYER().powerOff();
         success = false;
 
-        getListener().addPlayerChangeListener(new PlayerChangeListener() {
+        getLISTENER().addPlayerChangeListener(new PlayerChangeListener() {
 
             @Override
             public void playerChanged(PlayerChangeEvent event) {
@@ -192,7 +192,7 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getPlayer().powerOn();
+        getPLAYER().powerOn();
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -207,10 +207,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testPlayerOff() throws SlimConnectionException, SlimPlayerException {
+    public void testPlayerOff() throws ConnectionException, PlayerException {
         success = false;
 
-        getListener().addPlayerChangeListener(new PlayerChangeListener() {
+        getLISTENER().addPlayerChangeListener(new PlayerChangeListener() {
 
             @Override
             public void playerChanged(PlayerChangeEvent event) {
@@ -222,7 +222,7 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getPlayer().powerOff();
+        getPLAYER().powerOff();
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -237,10 +237,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testPlayerPause() throws SlimConnectionException {
+    public void testPlayerPause() throws ConnectionException {
         success = false;
 
-        getListener().addPlayerChangeListener(new PlayerChangeListener() {
+        getLISTENER().addPlayerChangeListener(new PlayerChangeListener() {
 
             @Override
             public void playerChanged(PlayerChangeEvent event) {
@@ -252,13 +252,13 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getPlayer().play();
+        getPLAYER().play();
         try {
             Thread.sleep(1000);
         } catch (InterruptedException ex) {
             Logger.getLogger(EventListenerTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        getPlayer().pause();
+        getPLAYER().pause();
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -273,10 +273,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testPlayerPlay() throws SlimConnectionException {
+    public void testPlayerPlay() throws ConnectionException {
         success = false;
 
-        getListener().addPlayerChangeListener(new PlayerChangeListener() {
+        getLISTENER().addPlayerChangeListener(new PlayerChangeListener() {
 
             @Override
             public void playerChanged(PlayerChangeEvent event) {
@@ -288,7 +288,7 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getPlayer().play();
+        getPLAYER().play();
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -303,10 +303,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testPlayerStop() throws SlimConnectionException {
+    public void testPlayerStop() throws ConnectionException {
         success = false;
 
-        getListener().addPlayerChangeListener(new PlayerChangeListener() {
+        getLISTENER().addPlayerChangeListener(new PlayerChangeListener() {
 
             @Override
             public void playerChanged(PlayerChangeEvent event) {
@@ -318,7 +318,7 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getPlayer().stop();
+        getPLAYER().stop();
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -333,10 +333,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testPlayerSync() throws SlimConnectionException, SlimPlayerException {
+    public void testPlayerSync() throws ConnectionException, PlayerException {
         success = false;
 
-        getListener().addPlayerChangeListener(new PlayerChangeListener() {
+        getLISTENER().addPlayerChangeListener(new PlayerChangeListener() {
 
             @Override
             public void playerChanged(PlayerChangeEvent event) {
@@ -348,7 +348,7 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getPlayer().syncPlayer(getPlayer());
+        getPLAYER().syncPlayer(getPLAYER());
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -363,10 +363,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testPlayerUnSync() throws SlimConnectionException, SlimPlayerException {
+    public void testPlayerUnSync() throws ConnectionException, PlayerException {
         success = false;
 
-        getListener().addPlayerChangeListener(new PlayerChangeListener() {
+        getLISTENER().addPlayerChangeListener(new PlayerChangeListener() {
 
             @Override
             public void playerChanged(PlayerChangeEvent event) {
@@ -378,7 +378,7 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getPlayer().unsyncPlayer();
+        getPLAYER().unsyncPlayer();
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -393,10 +393,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testRepeatOff() throws SlimException {
+    public void testRepeatOff() throws SqueezeException {
         success = false;
 
-        getListener().addPlaylistChangeListener(new PlaylistChangeListener() {
+        getLISTENER().addPlaylistChangeListener(new PlaylistChangeListener() {
 
             @Override
             public void playlistChanged(PlaylistChangeEvent event) {
@@ -409,7 +409,7 @@ public class EventListenerTest extends Base {
         });
 
 
-        getPlaylist().repeatOff();
+        getPLAYLIST().repeatOff();
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -424,10 +424,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testRepeatItem() throws SlimException {
+    public void testRepeatItem() throws SqueezeException {
         success = false;
 
-        getListener().addPlaylistChangeListener(new PlaylistChangeListener() {
+        getLISTENER().addPlaylistChangeListener(new PlaylistChangeListener() {
 
             @Override
             public void playlistChanged(PlaylistChangeEvent event) {
@@ -440,7 +440,7 @@ public class EventListenerTest extends Base {
         });
 
 
-        getPlaylist().repeatItem();
+        getPLAYLIST().repeatItem();
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -455,10 +455,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testRepeatPlaylist() throws SlimException {
+    public void testRepeatPlaylist() throws SqueezeException {
         success = false;
 
-        getListener().addPlaylistChangeListener(new PlaylistChangeListener() {
+        getLISTENER().addPlaylistChangeListener(new PlaylistChangeListener() {
 
             @Override
             public void playlistChanged(PlaylistChangeEvent event) {
@@ -471,7 +471,7 @@ public class EventListenerTest extends Base {
         });
 
 
-        getPlaylist().repeatPlaylist();
+        getPLAYLIST().repeatPlaylist();
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -486,10 +486,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testPlayerVolume() throws SlimConnectionException, SlimPlayerException {
+    public void testPlayerVolume() throws ConnectionException, PlayerException {
         success = false;
 
-        getListener().addVolumeChangeListener(new VolumeChangeListener() {
+        getLISTENER().addVolumeChangeListener(new VolumeChangeListener() {
 
             @Override
             public void volumeChanged(VolumeChangeEvent event) {
@@ -497,7 +497,7 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getPlayer().setVolume(100);
+        getPLAYER().setVolume(100);
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -512,7 +512,7 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testDatabaseScanStart() throws SlimConnectionException {
+    public void testDatabaseScanStart() throws ConnectionException {
         success = false;
 
         DatabaseScanListener dbl = new DatabaseScanListener() {
@@ -525,9 +525,9 @@ public class EventListenerTest extends Base {
             }
         };
 
-        getListener().addDatabaseScanListener(dbl);
+        getLISTENER().addDatabaseScanListener(dbl);
 
-        getDatabase().rescan();
+        getDATABASE().rescan();
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -539,7 +539,7 @@ public class EventListenerTest extends Base {
         }
 
         count = 0;
-        while (getDatabase().isRescanning() && count++ < 100) {
+        while (getDATABASE().isRescanning() && count++ < 100) {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
@@ -547,13 +547,13 @@ public class EventListenerTest extends Base {
             }
         }
 
-        getListener().removeDatabaseScanListener(dbl);
+        getLISTENER().removeDatabaseScanListener(dbl);
 
         Assert.assertTrue(success);
     }
 
     @Test
-    public void testDatabaseScanStop() throws SlimConnectionException {
+    public void testDatabaseScanStop() throws ConnectionException {
         success = false;
 
         DatabaseScanListener dbl = new DatabaseScanListener() {
@@ -566,9 +566,9 @@ public class EventListenerTest extends Base {
             }
         };
 
-        getListener().addDatabaseScanListener(dbl);
+        getLISTENER().addDatabaseScanListener(dbl);
 
-        getDatabase().rescan();
+        getDATABASE().rescan();
 
         int count = 0;
         while (!success && count++ < 120) {
@@ -579,16 +579,16 @@ public class EventListenerTest extends Base {
             }
         }
 
-        getListener().removeDatabaseScanListener(dbl);
+        getLISTENER().removeDatabaseScanListener(dbl);
 
         Assert.assertTrue(success);
     }
 
     @Test
-    public void testSavedPlaylistNew() throws SlimException {
+    public void testSavedPlaylistNew() throws SqueezeException {
         success = false;
 
-        getListener().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
+        getLISTENER().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
 
             @Override
             public void playlistChanged(SavedPlaylistChangeEvent event) {
@@ -600,7 +600,7 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getSavedPlaylistManager().createEmptyPlaylist("Temp");
+        getSAVED_PLAYLIST_MANAGER().createEmptyPlaylist("Temp");
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -615,12 +615,12 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testSavedPlaylistDelete() throws SlimException {
+    public void testSavedPlaylistDelete() throws SqueezeException {
         deleteSavedPlaylists();
 
         success = false;
 
-        getListener().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
+        getLISTENER().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
 
             @Override
             public void playlistChanged(SavedPlaylistChangeEvent event) {
@@ -632,7 +632,7 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getSavedPlaylistManager().createEmptyPlaylist("Temp");
+        getSAVED_PLAYLIST_MANAGER().createEmptyPlaylist("Temp");
 
         deleteSavedPlaylists();
 
@@ -649,12 +649,12 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testSavedPlaylistRename() throws SlimException {
+    public void testSavedPlaylistRename() throws SqueezeException {
         deleteSavedPlaylists();
 
         success = false;
 
-        getListener().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
+        getLISTENER().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
 
             @Override
             public void playlistChanged(SavedPlaylistChangeEvent event) {
@@ -666,8 +666,8 @@ public class EventListenerTest extends Base {
             }
         });
 
-        SlimSavedPlaylist pl = getSavedPlaylistManager().createEmptyPlaylist("Temp");
-        getSavedPlaylistManager().renamePlaylist(pl, "Temp1");
+        SavedPlaylist pl = getSAVED_PLAYLIST_MANAGER().createEmptyPlaylist("Temp");
+        getSAVED_PLAYLIST_MANAGER().renamePlaylist(pl, "Temp1");
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -684,12 +684,12 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testSavedPlaylistAddItem() throws SlimException {
+    public void testSavedPlaylistAddItem() throws SqueezeException {
         deleteSavedPlaylists();
 
         success = false;
 
-        getListener().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
+        getLISTENER().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
 
             @Override
             public void playlistChanged(SavedPlaylistChangeEvent event) {
@@ -701,8 +701,8 @@ public class EventListenerTest extends Base {
             }
         });
 
-        SlimSavedPlaylist pl = getSavedPlaylistManager().createEmptyPlaylist("Temp");
-        getSavedPlaylistManager().addPlaylistSong(pl, new ArrayList<SlimSong>(Controller.getInstance().getSongs()).get(0));
+        SavedPlaylist pl = getSAVED_PLAYLIST_MANAGER().createEmptyPlaylist("Temp");
+        getSAVED_PLAYLIST_MANAGER().addPlaylistSong(pl, new ArrayList<Song>(Controller.getInstance().getSongs()).get(0));
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -719,12 +719,12 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testSavedPlaylistDeleteItem() throws SlimException {
+    public void testSavedPlaylistDeleteItem() throws SqueezeException {
         deleteSavedPlaylists();
 
         success = false;
 
-        getListener().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
+        getLISTENER().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
 
             @Override
             public void playlistChanged(SavedPlaylistChangeEvent event) {
@@ -736,10 +736,10 @@ public class EventListenerTest extends Base {
             }
         });
 
-        SlimSavedPlaylist pl = getSavedPlaylistManager().createEmptyPlaylist("Temp");
-        SlimSong s = new ArrayList<SlimSong>(Controller.getInstance().getSongs()).get(0);
-        getSavedPlaylistManager().addPlaylistSong(pl, s);
-        getSavedPlaylistManager().deletePlaylistSong(pl, s);
+        SavedPlaylist pl = getSAVED_PLAYLIST_MANAGER().createEmptyPlaylist("Temp");
+        Song s = new ArrayList<Song>(Controller.getInstance().getSongs()).get(0);
+        getSAVED_PLAYLIST_MANAGER().addPlaylistSong(pl, s);
+        getSAVED_PLAYLIST_MANAGER().deletePlaylistSong(pl, s);
 
         int count = 0;
         while (!success && count++ < 10) {
@@ -756,12 +756,12 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testSavedPlaylistUpItem() throws SlimException {
+    public void testSavedPlaylistUpItem() throws SqueezeException {
         deleteSavedPlaylists();
 
         success = false;
 
-        getListener().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
+        getLISTENER().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
 
             @Override
             public void playlistChanged(SavedPlaylistChangeEvent event) {
@@ -773,13 +773,13 @@ public class EventListenerTest extends Base {
             }
         });
 
-        SlimSavedPlaylist pl = getSavedPlaylistManager().createEmptyPlaylist("Temp");
-        SlimSong s1 = new ArrayList<SlimSong>(Controller.getInstance().getSongs()).get(0);
-        SlimSong s2 = new ArrayList<SlimSong>(Controller.getInstance().getSongs()).get(1);
-        getSavedPlaylistManager().addPlaylistSong(pl, s1);
-        getSavedPlaylistManager().addPlaylistSong(pl, s2);
+        SavedPlaylist pl = getSAVED_PLAYLIST_MANAGER().createEmptyPlaylist("Temp");
+        Song s1 = new ArrayList<Song>(Controller.getInstance().getSongs()).get(0);
+        Song s2 = new ArrayList<Song>(Controller.getInstance().getSongs()).get(1);
+        getSAVED_PLAYLIST_MANAGER().addPlaylistSong(pl, s1);
+        getSAVED_PLAYLIST_MANAGER().addPlaylistSong(pl, s2);
 
-        getSavedPlaylistManager().movePlaylistSongUp(pl, s2);
+        getSAVED_PLAYLIST_MANAGER().movePlaylistSongUp(pl, s2);
         int count = 0;
         while (!success && count++ < 10) {
             try {
@@ -795,12 +795,12 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testSavedPlaylistDownItem() throws SlimException {
+    public void testSavedPlaylistDownItem() throws SqueezeException {
         deleteSavedPlaylists();
 
         success = false;
 
-        getListener().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
+        getLISTENER().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
 
             @Override
             public void playlistChanged(SavedPlaylistChangeEvent event) {
@@ -812,13 +812,13 @@ public class EventListenerTest extends Base {
             }
         });
 
-        SlimSavedPlaylist pl = getSavedPlaylistManager().createEmptyPlaylist("Temp");
-        SlimSong s1 = new ArrayList<SlimSong>(Controller.getInstance().getSongs()).get(0);
-        SlimSong s2 = new ArrayList<SlimSong>(Controller.getInstance().getSongs()).get(1);
-        getSavedPlaylistManager().addPlaylistSong(pl, s1);
-        getSavedPlaylistManager().addPlaylistSong(pl, s2);
+        SavedPlaylist pl = getSAVED_PLAYLIST_MANAGER().createEmptyPlaylist("Temp");
+        Song s1 = new ArrayList<Song>(Controller.getInstance().getSongs()).get(0);
+        Song s2 = new ArrayList<Song>(Controller.getInstance().getSongs()).get(1);
+        getSAVED_PLAYLIST_MANAGER().addPlaylistSong(pl, s1);
+        getSAVED_PLAYLIST_MANAGER().addPlaylistSong(pl, s2);
 
-        getSavedPlaylistManager().movePlaylistSongDown(pl, s1);
+        getSAVED_PLAYLIST_MANAGER().movePlaylistSongDown(pl, s1);
         int count = 0;
         while (!success && count++ < 10) {
             try {
@@ -834,12 +834,12 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testSavedPlaylistMoveItem() throws SlimException {
+    public void testSavedPlaylistMoveItem() throws SqueezeException {
         deleteSavedPlaylists();
 
         success = false;
 
-        getListener().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
+        getLISTENER().addSavedPlaylistChangeListener(new SavedPlaylistChangeListener() {
 
             @Override
             public void playlistChanged(SavedPlaylistChangeEvent event) {
@@ -851,13 +851,13 @@ public class EventListenerTest extends Base {
             }
         });
 
-        SlimSavedPlaylist pl = getSavedPlaylistManager().createEmptyPlaylist("Temp");
-        SlimSong s1 = new ArrayList<SlimSong>(Controller.getInstance().getSongs()).get(0);
-        SlimSong s2 = new ArrayList<SlimSong>(Controller.getInstance().getSongs()).get(1);
-        getSavedPlaylistManager().addPlaylistSong(pl, s1);
-        getSavedPlaylistManager().addPlaylistSong(pl, s2);
+        SavedPlaylist pl = getSAVED_PLAYLIST_MANAGER().createEmptyPlaylist("Temp");
+        Song s1 = new ArrayList<Song>(Controller.getInstance().getSongs()).get(0);
+        Song s2 = new ArrayList<Song>(Controller.getInstance().getSongs()).get(1);
+        getSAVED_PLAYLIST_MANAGER().addPlaylistSong(pl, s1);
+        getSAVED_PLAYLIST_MANAGER().addPlaylistSong(pl, s2);
 
-        getSavedPlaylistManager().movePlaylistSong(pl, s1, 2);
+        getSAVED_PLAYLIST_MANAGER().movePlaylistSong(pl, s1, 2);
         int count = 0;
         while (!success && count++ < 10) {
             try {
@@ -873,10 +873,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testAddFavorite() throws SlimConnectionException, SlimException {
+    public void testAddFavorite() throws ConnectionException, SqueezeException {
         success = false;
 
-        getListener().addFavoritesChangeListener(new FavoriteChangeListener() {
+        getLISTENER().addFavoritesChangeListener(new FavoriteChangeListener() {
 
             @Override
             public void favoritesChanged(FavoriteChangeEvent event) {
@@ -889,9 +889,9 @@ public class EventListenerTest extends Base {
         });
 
 
-        SlimPlayableItem item = Controller.getInstance().getDatabaseSongs().get(0);
+        PlayableItem item = Controller.getInstance().getDatabaseSongs().get(0);
 
-        getFavoritePlugin().addFavorite(item);
+        getFAVORITE_PLUGIN().addFavorite(item);
 
         int count = 0;
         while (!success && count++ < 100) {
@@ -906,10 +906,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testDeleteFavorite() throws SlimConnectionException, SlimException {
+    public void testDeleteFavorite() throws ConnectionException, SqueezeException {
         success = false;
 
-        getListener().addFavoritesChangeListener(new FavoriteChangeListener() {
+        getLISTENER().addFavoritesChangeListener(new FavoriteChangeListener() {
 
             @Override
             public void favoritesChanged(FavoriteChangeEvent event) {
@@ -922,14 +922,14 @@ public class EventListenerTest extends Base {
         });
 
 
-        SlimPlayableItem item = Controller.getInstance().getDatabaseSongs().get(0);
+        PlayableItem item = Controller.getInstance().getDatabaseSongs().get(0);
 
-        if (getFavoritePlugin().getFavorites().size() < 1) {
-            getFavoritePlugin().addFavorite(item);
+        if (getFAVORITE_PLUGIN().getFavorites().size() < 1) {
+            getFAVORITE_PLUGIN().addFavorite(item);
         }
 
-        SlimFavorite fav = new ArrayList<SlimFavorite>(getFavoritePlugin().getFavorites()).get(0);
-        getFavoritePlugin().deleteFavorite(fav);
+        Favorite fav = new ArrayList<Favorite>(getFAVORITE_PLUGIN().getFavorites()).get(0);
+        getFAVORITE_PLUGIN().deleteFavorite(fav);
 
         int count = 0;
         while (!success && count++ < 100) {
@@ -944,10 +944,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testAddItem() throws SlimConnectionException, SlimException {
+    public void testAddItem() throws ConnectionException, SqueezeException {
         success = false;
 
-        getListener().addPlaylistChangeListener(new PlaylistChangeListener() {
+        getLISTENER().addPlaylistChangeListener(new PlaylistChangeListener() {
 
             @Override
             public void playlistChanged(PlaylistChangeEvent event) {
@@ -959,9 +959,9 @@ public class EventListenerTest extends Base {
             }
         });
 
-        SlimPlayableItem item = Controller.getInstance().getDatabaseSongs().get(0);
+        PlayableItem item = Controller.getInstance().getDatabaseSongs().get(0);
 
-        getPlaylist().addItem(item);
+        getPLAYLIST().addItem(item);
 
         int count = 0;
         while (!success && count++ < 100) {
@@ -976,10 +976,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testDeleteItem() throws SlimConnectionException, SlimException {
+    public void testDeleteItem() throws ConnectionException, SqueezeException {
         success = false;
 
-        getListener().addPlaylistChangeListener(new PlaylistChangeListener() {
+        getLISTENER().addPlaylistChangeListener(new PlaylistChangeListener() {
 
             @Override
             public void playlistChanged(PlaylistChangeEvent event) {
@@ -991,11 +991,11 @@ public class EventListenerTest extends Base {
             }
         });
 
-        SlimPlayableItem item = Controller.getInstance().getDatabaseSongs().get(0);
+        PlayableItem item = Controller.getInstance().getDatabaseSongs().get(0);
 
-        getPlaylist().addItem(item);
+        getPLAYLIST().addItem(item);
 
-        getPlaylist().removeItem(new ArrayList<SlimPlaylistItem>(getPlaylist().getItems()).get(0));
+        getPLAYLIST().removeItem(new ArrayList<PlaylistItem>(getPLAYLIST().getItems()).get(0));
 
         int count = 0;
         while (!success && count++ < 100) {
@@ -1010,10 +1010,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testLoadItem() throws SlimConnectionException, SlimException {
+    public void testLoadItem() throws ConnectionException, SqueezeException {
         success = false;
 
-        getListener().addPlaylistChangeListener(new PlaylistChangeListener() {
+        getLISTENER().addPlaylistChangeListener(new PlaylistChangeListener() {
 
             @Override
             public void playlistChanged(PlaylistChangeEvent event) {
@@ -1025,9 +1025,9 @@ public class EventListenerTest extends Base {
             }
         });
 
-        SlimPlayableItem item = Controller.getInstance().getDatabaseSongs().get(0);
+        PlayableItem item = Controller.getInstance().getDatabaseSongs().get(0);
 
-        getPlaylist().playItemClearPlaylist(item);
+        getPLAYLIST().playItemClearPlaylist(item);
 
         int count = 0;
         while (!success && count++ < 100) {
@@ -1042,10 +1042,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testInsertItem() throws SlimConnectionException, SlimException {
+    public void testInsertItem() throws ConnectionException, SqueezeException {
         success = false;
 
-        getListener().addPlaylistChangeListener(new PlaylistChangeListener() {
+        getLISTENER().addPlaylistChangeListener(new PlaylistChangeListener() {
 
             @Override
             public void playlistChanged(PlaylistChangeEvent event) {
@@ -1057,8 +1057,8 @@ public class EventListenerTest extends Base {
             }
         });
 
-        SlimPlayableItem item = Controller.getInstance().getDatabaseSongs().get(0);
-        getPlaylist().insertItem(item);
+        PlayableItem item = Controller.getInstance().getDatabaseSongs().get(0);
+        getPLAYLIST().insertItem(item);
 
         int count = 0;
         while (!success && count++ < 100) {
@@ -1073,10 +1073,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testPlaylistCleared() throws SlimConnectionException, SlimException {
+    public void testPlaylistCleared() throws ConnectionException, SqueezeException {
         success = false;
 
-        getListener().addPlaylistChangeListener(new PlaylistChangeListener() {
+        getLISTENER().addPlaylistChangeListener(new PlaylistChangeListener() {
 
             @Override
             public void playlistChanged(PlaylistChangeEvent event) {
@@ -1088,7 +1088,7 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getPlaylist().clear();
+        getPLAYLIST().clear();
 
         int count = 0;
         while (!success && count++ < 100) {
@@ -1103,10 +1103,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testPlaylistShuffleItems() throws SlimConnectionException, SlimException {
+    public void testPlaylistShuffleItems() throws ConnectionException, SqueezeException {
         success = false;
 
-        getListener().addPlaylistChangeListener(new PlaylistChangeListener() {
+        getLISTENER().addPlaylistChangeListener(new PlaylistChangeListener() {
 
             @Override
             public void playlistChanged(PlaylistChangeEvent event) {
@@ -1118,7 +1118,7 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getPlaylist().shuffleItems();
+        getPLAYLIST().shuffleItems();
 
         int count = 0;
         while (!success && count++ < 100) {
@@ -1133,10 +1133,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testPlaylistShuffleOff() throws SlimConnectionException, SlimException {
+    public void testPlaylistShuffleOff() throws ConnectionException, SqueezeException {
         success = false;
 
-        getListener().addPlaylistChangeListener(new PlaylistChangeListener() {
+        getLISTENER().addPlaylistChangeListener(new PlaylistChangeListener() {
 
             @Override
             public void playlistChanged(PlaylistChangeEvent event) {
@@ -1148,7 +1148,7 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getPlaylist().shuffleOff();
+        getPLAYLIST().shuffleOff();
 
         int count = 0;
         while (!success && count++ < 100) {
@@ -1163,10 +1163,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testPlaylistShuffleAlbums() throws SlimConnectionException, SlimException {
+    public void testPlaylistShuffleAlbums() throws ConnectionException, SqueezeException {
         success = false;
 
-        getListener().addPlaylistChangeListener(new PlaylistChangeListener() {
+        getLISTENER().addPlaylistChangeListener(new PlaylistChangeListener() {
 
             @Override
             public void playlistChanged(PlaylistChangeEvent event) {
@@ -1178,7 +1178,7 @@ public class EventListenerTest extends Base {
             }
         });
 
-        getPlaylist().shuffleAlbums();
+        getPLAYLIST().shuffleAlbums();
 
         int count = 0;
         while (!success && count++ < 100) {
@@ -1193,10 +1193,10 @@ public class EventListenerTest extends Base {
     }
     /*
     @Test
-    public void testAddPlayer() throws SlimConnectionException, SlimException {
+    public void testAddPlayer() throws ConnectionException, SqueezeException {
     success = false;
 
-    getListener().addPlayerChangeListener(new PlayerChangeListener() {
+    getLISTENER().addPlayerChangeListener(new PlayerChangeListener() {
 
     @Override
     public void playerChanged(PlayerChangeEvent event) {
@@ -1223,10 +1223,10 @@ public class EventListenerTest extends Base {
     }
 
     @Test
-    public void testDeletePlayer() throws SlimConnectionException, SlimException {
+    public void testDeletePlayer() throws ConnectionException, SqueezeException {
     success = false;
 
-    getListener().addPlayerChangeListener(new PlayerChangeListener() {
+    getLISTENER().addPlayerChangeListener(new PlayerChangeListener() {
 
     @Override
     public void playerChanged(PlayerChangeEvent event) {

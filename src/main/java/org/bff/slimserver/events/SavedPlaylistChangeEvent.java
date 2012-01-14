@@ -10,17 +10,18 @@
 package org.bff.slimserver.events;
 
 import java.util.EventObject;
-import org.bff.slimserver.musicobjects.SlimObject;
-import org.bff.slimserver.musicobjects.SlimSavedPlaylist;
+
+import org.bff.slimserver.domain.SavedPlaylist;
 
 /**
  * Represents a change in the status of a Slim Server playlist.
+ *
  * @author Bill Findeisen
  */
 public class SavedPlaylistChangeEvent extends EventObject {
     private static final long serialVersionUID = 20101010L;
     private int id;
-    private transient SlimSavedPlaylist playlist;
+    private transient SavedPlaylist playlist;
     /**
      * a item was added
      */
@@ -101,13 +102,13 @@ public class SavedPlaylistChangeEvent extends EventObject {
 
 
     /**
-     * 
      * Creates a new instance of PlayListChangeEvent
+     *
      * @param source the object on which the Event initially occurred
-     * @param id the specific event that occurred
+     * @param id     the specific event that occurred
      * @param object the {@@link SlimObject} for the event
      */
-    public SavedPlaylistChangeEvent(Object source, int id, SlimSavedPlaylist playlist) {
+    public SavedPlaylistChangeEvent(Object source, int id, SavedPlaylist playlist) {
         super(source);
         this.id = id;
         this.playlist = playlist;
@@ -117,17 +118,18 @@ public class SavedPlaylistChangeEvent extends EventObject {
     /**
      * Returns specific id of the event that occurred.  The ids are public static
      * fields in the class.
+     *
      * @return the specific id
      */
     public int getId() {
         return (id);
     }
 
-    public SlimSavedPlaylist getNewPlaylist() {
+    public SavedPlaylist getNewPlaylist() {
         return playlist;
     }
 
-    public void setNewPlaylist(SlimSavedPlaylist newPlaylist) {
+    public void setNewPlaylist(SavedPlaylist newPlaylist) {
         this.playlist = newPlaylist;
     }
 }

@@ -6,7 +6,6 @@
 package org.bff.slimserver.test.data;
 
 /**
- *
  * @author Bill
  */
 public class RadioTestData {

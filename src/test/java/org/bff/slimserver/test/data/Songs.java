@@ -8,61 +8,61 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-import org.bff.slimserver.musicobjects.SlimArtist;
-import org.bff.slimserver.musicobjects.SlimSong;
+import org.bff.slimserver.domain.Artist;
+import org.bff.slimserver.domain.Song;
 
 /**
  * Song ids must be filled since not reliable
- * 
+ *
  * @author bill
  */
 public class Songs {
 
-    private static HashMap<SlimArtist, Collection<SlimSong>> testSongArtistMap =
-            new HashMap<SlimArtist, Collection<SlimSong>>();
-    private static List<SlimSong> testSongs;
-    private  static HashMap<String, SlimSong> testDatabaseSongMap =
-            new HashMap<String, SlimSong>();
+    private static HashMap<Artist, Collection<Song>> testSongArtistMap =
+            new HashMap<Artist, Collection<Song>>();
+    private static List<Song> testSongs;
+    private static HashMap<String, Song> testDatabaseSongMap =
+            new HashMap<String, Song>();
 
     /**
      * @return the testSongs
      */
-    public static List<SlimSong> getTestSongs() {
+    public static List<Song> getTestSongs() {
         return testSongs;
     }
 
     /**
      * @param aTestSongs the testSongs to set
      */
-    public static void setTestSongs(List<SlimSong> aTestSongs) {
+    public static void setTestSongs(List<Song> aTestSongs) {
         testSongs = aTestSongs;
     }
 
     /**
      * @return the testSongArtistMap
      */
-    public static HashMap<SlimArtist, Collection<SlimSong>> getTestSongArtistMap() {
+    public static HashMap<Artist, Collection<Song>> getTestSongArtistMap() {
         return testSongArtistMap;
     }
 
     /**
      * @param aTestSongArtistMap the testSongArtistMap to set
      */
-    public static void setTestSongArtistMap(HashMap<SlimArtist, Collection<SlimSong>> aTestSongArtistMap) {
+    public static void setTestSongArtistMap(HashMap<Artist, Collection<Song>> aTestSongArtistMap) {
         testSongArtistMap = aTestSongArtistMap;
     }
 
     /**
      * @return the testDatabaseSongMap
      */
-    public static HashMap<String, SlimSong> getTestDatabaseSongMap() {
+    public static HashMap<String, Song> getTestDatabaseSongMap() {
         return testDatabaseSongMap;
     }
 
     /**
      * @param aTestDatabaseSongMap the testDatabaseSongMap to set
      */
-    public static void setTestDatabaseSongMap(HashMap<String, SlimSong> aTestDatabaseSongMap) {
+    public static void setTestDatabaseSongMap(HashMap<String, Song> aTestDatabaseSongMap) {
         testDatabaseSongMap = aTestDatabaseSongMap;
     }
 

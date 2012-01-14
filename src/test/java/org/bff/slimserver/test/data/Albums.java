@@ -4,31 +4,28 @@
  */
 package org.bff.slimserver.test.data;
 
-import java.util.ArrayList;
 import java.util.List;
-import org.bff.slimserver.SlimDatabase;
-import org.bff.slimserver.Controller;
-import org.bff.slimserver.musicobjects.SlimAlbum;
+
+import org.bff.slimserver.domain.Album;
 
 /**
- *
  * @author bfindeisen
  */
 public class Albums {
 
-    private static List<SlimAlbum> testAlbums;
+    private static List<Album> testAlbums;
 
     /**
      * @return the testAlbums
      */
-    public static List<SlimAlbum> getTestAlbums() {
+    public static List<Album> getTestAlbums() {
         return testAlbums;
     }
 
     /**
      * @param aTestAlbums the testAlbums to set
      */
-    public static void setTestAlbums(List<SlimAlbum> aTestAlbums) {
+    public static void setTestAlbums(List<Album> aTestAlbums) {
         testAlbums = aTestAlbums;
     }
 }

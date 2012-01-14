@@ -4,9 +4,9 @@
  */
 package org.bff.slimserver;
 
-import org.bff.slimserver.exception.SlimConnectionException;
-import org.bff.slimserver.exception.SlimException;
-import org.bff.slimserver.musicobjects.*;
+import org.bff.slimserver.exception.ConnectionException;
+import org.bff.slimserver.exception.SqueezeException;
+import org.bff.slimserver.domain.*;
 import org.bff.slimserver.test.data.*;
 import org.junit.Assert;
 
@@ -61,22 +61,22 @@ public class Controller {
     private static final String NULL_COMMENT = "";
     private static final String NULL_TRACK = "0";
     private static final String NULL_DISC_NUM = "";
-    private SlimServer slimServer;
-    private SlimDatabase slimDatabase;
-    private List<SlimArtist> databaseArtists;
-    private List<SlimPlayableItem> databaseSongs;
-    private HashMap<SlimArtist, Collection<SlimSong>> artistSongMap = new HashMap<SlimArtist, Collection<SlimSong>>();
-    private HashMap<String, Collection<SlimAlbum>> albumYearMap = new HashMap<String, Collection<SlimAlbum>>();
-    private HashMap<SlimGenre, Collection<SlimAlbum>> albumGenreMap = new HashMap<SlimGenre, Collection<SlimAlbum>>();
-    private HashMap<SlimGenre, Collection<SlimArtist>> artistGenreMap = new HashMap<SlimGenre, Collection<SlimArtist>>();
-    private HashMap<SlimArtist, Collection<SlimAlbum>> artistAlbumMap;
+    private SqueezeServer squeezeServer;
+    private Database database;
+    private List<Artist> databaseArtists;
+    private List<PlayableItem> databaseSongs;
+    private HashMap<Artist, Collection<Song>> artistSongMap = new HashMap<Artist, Collection<Song>>();
+    private HashMap<String, Collection<Album>> albumYearMap = new HashMap<String, Collection<Album>>();
+    private HashMap<Genre, Collection<Album>> albumGenreMap = new HashMap<Genre, Collection<Album>>();
+    private HashMap<Genre, Collection<Artist>> artistGenreMap = new HashMap<Genre, Collection<Artist>>();
+    private HashMap<Artist, Collection<Album>> artistAlbumMap;
     private HashMap<String, Integer> discAlbumMap = new HashMap<String, Integer>();
-    private Collection<SlimArtist> artists;
-    private Collection<SlimAlbum> albums;
-    private Collection<SlimSong> songs;
-    private Collection<SlimGenre> genres;
+    private Collection<Artist> artists;
+    private Collection<Album> albums;
+    private Collection<Song> songs;
+    private Collection<Genre> genres;
     private Collection<String> years;
-    private SlimPlayer player;
+    private Player player;
     private static String version;
     private boolean songsLoaded;
 
@@ -100,18 +100,18 @@ public class Controller {
         }
     }
 
-    public void printArtist(SlimArtist artist) {
-        List<SlimSong> songs = new ArrayList<SlimSong>(getArtistSongMap().get(artist));
+    public void printArtist(Artist artist) {
+        List<Song> songs = new ArrayList<Song>(getArtistSongMap().get(artist));
         System.out.println(artist);
-        for (SlimSong s : songs) {
+        for (Song s : songs) {
             System.out.println("\t" + s.getId() + s.getTitle());
         }
     }
 
-    public Collection<SlimSong> getSongsForArtist(SlimArtist artist) {
+    public Collection<Song> getSongsForArtist(Artist artist) {
         Iterator it = getArtistSongMap().keySet().iterator();
         while (it.hasNext()) {
-            SlimArtist key = (SlimArtist) it.next();
+            Artist key = (Artist) it.next();
 
             if (key.getName().equals(artist.getName())) {
                 return getArtistSongMap().get(key);
@@ -121,23 +121,23 @@ public class Controller {
         return null;
     }
 
-    private Controller() throws SlimConnectionException, IOException, SlimException {
+    private Controller() throws ConnectionException, IOException, SqueezeException {
         loadProperties();
 
-        setSlimServer(new SlimServer(getServer(), getCliPort(), getWebPort()));
-        setSlimDatabase(new SlimDatabase(getSlimServer()));
-        setGroupedByDisc(getSlimDatabase().getSlimServer().isDiscsGroupedAsSingle());
+        setSqueezeServer(new SqueezeServer(getServer(), getCliPort(), getWebPort()));
+        setDatabase(new Database(getSqueezeServer()));
+        setGroupedByDisc(getDatabase().getSqueezeServer().isDiscsGroupedAsSingle());
     }
 
     public static Controller getInstance() {
         if (instance == null) {
             try {
                 instance = new Controller();
-            } catch (SlimConnectionException ex) {
+            } catch (ConnectionException ex) {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SlimException ex) {
+            } catch (SqueezeException ex) {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -145,7 +145,7 @@ public class Controller {
         return instance;
     }
 
-    private void loadSongs(File f) throws SlimException {
+    private void loadSongs(File f) throws SqueezeException {
 
         File[] files = f.listFiles();
 
@@ -158,11 +158,11 @@ public class Controller {
             } else {
                 if (file.getName().endsWith(EXTENSION)) {
                     String[] s = file.getName().replace(EXTENSION, "").split("-");
-                    SlimSong song = new SlimSong();
+                    Song song = new Song();
                     song.setUrl(URL_PREFIX + getMp3Path() + "/" + (f.isDirectory() ? f.getName() : "") + "/" + file.getName());
-                    SlimAlbum album = new SlimAlbum();
-                    SlimArtist artist = new SlimArtist();
-                    SlimGenre genre = new SlimGenre();
+                    Album album = new Album();
+                    Artist artist = new Artist();
+                    Genre genre = new Genre();
                     String year = "";
 
                     int discNum = 0;
@@ -207,7 +207,7 @@ public class Controller {
                         getDiscAlbumMap().put(album.getName(), discNum);
                     }
 
-                    for (SlimAlbum a : albums) {
+                    for (Album a : albums) {
                         if (a.getName().equals(album.getName())) {
                             album = a;
                         }
@@ -216,7 +216,7 @@ public class Controller {
                     song.setAlbum(album);
                     song.setYear(year);
 
-                    for (SlimGenre g : genres) {
+                    for (Genre g : genres) {
                         if (g.getName().equals(genre.getName())) {
                             genre = g;
                         }
@@ -230,13 +230,13 @@ public class Controller {
                     fillArtistId(artist);
 
                     if (Songs.getTestSongArtistMap().get(artist) == null) {
-                        Songs.getTestSongArtistMap().put(artist, new ArrayList<SlimSong>());
+                        Songs.getTestSongArtistMap().put(artist, new ArrayList<Song>());
                     }
 
                     Songs.getTestSongArtistMap().get(artist).add(song);
 
                     boolean found = false;
-                    for (SlimArtist a : artists) {
+                    for (Artist a : artists) {
                         if (a.getName().equals(artist.getName())) {
                             found = true;
                             break;
@@ -251,7 +251,7 @@ public class Controller {
                     fillAlbum(album);
 
                     found = false;
-                    for (SlimAlbum a : albums) {
+                    for (Album a : albums) {
                         if (a.getName().equals(album.getName())) {
                             found = true;
                         }
@@ -262,7 +262,7 @@ public class Controller {
                     }
 
                     if (Artists.TEST_ARTIST_ALBUM_MAP.get(artist) == null) {
-                        Artists.TEST_ARTIST_ALBUM_MAP.put(artist, new ArrayList<SlimAlbum>());
+                        Artists.TEST_ARTIST_ALBUM_MAP.put(artist, new ArrayList<Album>());
                     }
 
                     if (!Artists.TEST_ARTIST_ALBUM_MAP.get(artist).contains(album)) {
@@ -270,7 +270,7 @@ public class Controller {
                     }
 
                     if (Songs.getTestSongArtistMap().get(artist) == null) {
-                        Songs.getTestSongArtistMap().put(artist, new ArrayList<SlimSong>());
+                        Songs.getTestSongArtistMap().put(artist, new ArrayList<Song>());
                     }
 
                     if (!Songs.getTestSongArtistMap().get(artist).contains(song)) {
@@ -278,7 +278,7 @@ public class Controller {
                     }
 
                     found = false;
-                    for (SlimGenre g : genres) {
+                    for (Genre g : genres) {
                         if (g.getName().equals(genre.getName())) {
                             found = true;
                         }
@@ -288,7 +288,7 @@ public class Controller {
                     }
 
                     if (Genres.GENRE_ALBUM_MAP.get(genre) == null) {
-                        Genres.GENRE_ALBUM_MAP.put(genre, new ArrayList<SlimAlbum>());
+                        Genres.GENRE_ALBUM_MAP.put(genre, new ArrayList<Album>());
                     }
 
                     if (!Genres.GENRE_ALBUM_MAP.get(genre).contains(album)) {
@@ -306,7 +306,7 @@ public class Controller {
                     }
 
                     if (Years.YEAR_ALBUM_MAP.get(year) == null) {
-                        Years.YEAR_ALBUM_MAP.put(year, new ArrayList<SlimAlbum>());
+                        Years.YEAR_ALBUM_MAP.put(year, new ArrayList<Album>());
                     }
 
                     if (!Years.YEAR_ALBUM_MAP.get(year).contains(album)) {
@@ -317,43 +317,43 @@ public class Controller {
         }
     }
 
-    public void loadSongs() throws SlimException {
+    public void loadSongs() throws SqueezeException {
         if (!songsLoaded) {
             System.out.println(Calendar.getInstance().getTime() + "Loading");
-            songs = new ArrayList<SlimSong>();
-            artists = new ArrayList<SlimArtist>();
+            songs = new ArrayList<Song>();
+            artists = new ArrayList<Artist>();
 //            artists.add()
-            albums = new ArrayList<SlimAlbum>();
-            genres = new ArrayList<SlimGenre>();
+            albums = new ArrayList<Album>();
+            genres = new ArrayList<Genre>();
             years = new ArrayList<String>();
 
-            artistAlbumMap = new HashMap<SlimArtist, Collection<SlimAlbum>>();
+            artistAlbumMap = new HashMap<Artist, Collection<Album>>();
 
             loadSongs(new File(getPath()));
 
-            Songs.setTestSongs(new ArrayList<SlimSong>(getSongs()));
-            Albums.setTestAlbums(new ArrayList<SlimAlbum>(getAlbums()));
-            Artists.setTestArtists(new ArrayList<SlimArtist>(getArtists()));
-            Genres.setTestGenres(new ArrayList<SlimGenre>(getGenres()));
+            Songs.setTestSongs(new ArrayList<Song>(getSongs()));
+            Albums.setTestAlbums(new ArrayList<Album>(getAlbums()));
+            Artists.setTestArtists(new ArrayList<Artist>(getArtists()));
+            Genres.setTestGenres(new ArrayList<Genre>(getGenres()));
             Years.setTestYears(new ArrayList<String>(getYears()));
-            setDatabaseSongs(new ArrayList<SlimPlayableItem>(Songs.getTestDatabaseSongMap().values()));
+            setDatabaseSongs(new ArrayList<PlayableItem>(Songs.getTestDatabaseSongMap().values()));
             fillGenreIds();
             songsLoaded = true;
         }
     }
 
     /**
-     * @return the slimServer
+     * @return the squeezeServer
      */
-    public SlimServer getSlimServer() {
-        return slimServer;
+    public SqueezeServer getSqueezeServer() {
+        return squeezeServer;
     }
 
     /**
-     * @param slimServer the slimServer to set
+     * @param squeezeServer the squeezeServer to set
      */
-    private void setSlimServer(SlimServer slimServer) {
-        this.slimServer = slimServer;
+    private void setSqueezeServer(SqueezeServer squeezeServer) {
+        this.squeezeServer = squeezeServer;
     }
 
     /**
@@ -387,126 +387,126 @@ public class Controller {
     /**
      * @return the artistSongMap
      */
-    public HashMap<SlimArtist, Collection<SlimSong>> getArtistSongMap() {
+    public HashMap<Artist, Collection<Song>> getArtistSongMap() {
         return artistSongMap;
     }
 
     /**
      * @param artistSongMap the artistSongMap to set
      */
-    public void setArtistSongMap(HashMap<SlimArtist, Collection<SlimSong>> artistSongMap) {
+    public void setArtistSongMap(HashMap<Artist, Collection<Song>> artistSongMap) {
         this.artistSongMap = artistSongMap;
     }
 
     /**
      * @return the albumYearMap
      */
-    public HashMap<String, Collection<SlimAlbum>> getAlbumYearMap() {
+    public HashMap<String, Collection<Album>> getAlbumYearMap() {
         return albumYearMap;
     }
 
     /**
      * @param albumYearMap the albumYearMap to set
      */
-    public void setAlbumYearMap(HashMap<String, Collection<SlimAlbum>> albumYearMap) {
+    public void setAlbumYearMap(HashMap<String, Collection<Album>> albumYearMap) {
         this.albumYearMap = albumYearMap;
     }
 
     /**
      * @return the albumGenreMap
      */
-    public HashMap<SlimGenre, Collection<SlimAlbum>> getAlbumGenreMap() {
+    public HashMap<Genre, Collection<Album>> getAlbumGenreMap() {
         return albumGenreMap;
     }
 
     /**
      * @param albumGenreMap the albumGenreMap to set
      */
-    public void setAlbumGenreMap(HashMap<SlimGenre, Collection<SlimAlbum>> albumGenreMap) {
+    public void setAlbumGenreMap(HashMap<Genre, Collection<Album>> albumGenreMap) {
         this.albumGenreMap = albumGenreMap;
     }
 
     /**
      * @return the artistGenreMap
      */
-    public HashMap<SlimGenre, Collection<SlimArtist>> getArtistGenreMap() {
+    public HashMap<Genre, Collection<Artist>> getArtistGenreMap() {
         return artistGenreMap;
     }
 
     /**
      * @param artistGenreMap the artistGenreMap to set
      */
-    public void setArtistGenreMap(HashMap<SlimGenre, Collection<SlimArtist>> artistGenreMap) {
+    public void setArtistGenreMap(HashMap<Genre, Collection<Artist>> artistGenreMap) {
         this.artistGenreMap = artistGenreMap;
     }
 
     /**
      * @return the artistAlbumMap
      */
-    public HashMap<SlimArtist, Collection<SlimAlbum>> getArtistAlbumMap() {
+    public HashMap<Artist, Collection<Album>> getArtistAlbumMap() {
         return artistAlbumMap;
     }
 
     /**
      * @param albumArtistMap the artistAlbumMap to set
      */
-    public void setArtistAlbumMap(HashMap<SlimArtist, Collection<SlimAlbum>> albumArtistMap) {
+    public void setArtistAlbumMap(HashMap<Artist, Collection<Album>> albumArtistMap) {
         this.artistAlbumMap = albumArtistMap;
     }
 
     /**
      * @return the artists
      */
-    public Collection<SlimArtist> getArtists() {
+    public Collection<Artist> getArtists() {
         return artists;
     }
 
     /**
      * @param artists the artists to set
      */
-    public void setArtists(Collection<SlimArtist> artists) {
+    public void setArtists(Collection<Artist> artists) {
         this.artists = artists;
     }
 
     /**
      * @return the albums
      */
-    public Collection<SlimAlbum> getAlbums() {
+    public Collection<Album> getAlbums() {
         return albums;
     }
 
     /**
      * @param albums the albums to set
      */
-    public void setAlbums(Collection<SlimAlbum> albums) {
+    public void setAlbums(Collection<Album> albums) {
         this.albums = albums;
     }
 
     /**
      * @return the songs
      */
-    public Collection<SlimSong> getSongs() {
+    public Collection<Song> getSongs() {
         return songs;
     }
 
     /**
      * @param songs the songs to set
      */
-    public void setSongs(Collection<SlimSong> songs) {
+    public void setSongs(Collection<Song> songs) {
         this.songs = songs;
     }
 
     /**
      * @return the genres
      */
-    public Collection<SlimGenre> getGenres() {
+    public Collection<Genre> getGenres() {
         return genres;
     }
 
     /**
      * @param genres the genres to set
      */
-    public void setGenres(Collection<SlimGenre> genres) {
+    public void setGenres(Collection<Genre> genres) {
         this.genres = genres;
     }
 
@@ -580,12 +580,12 @@ public class Controller {
         this.discAlbumMap = discAlbumMap;
     }
 
-    public void fillArtistId(SlimArtist artist) throws SlimException {
+    public void fillArtistId(Artist artist) throws SqueezeException {
         if (databaseArtists == null) {
-            databaseArtists = new ArrayList<SlimArtist>(getSlimDatabase().getArtists());
+            databaseArtists = new ArrayList<Artist>(getDatabase().getArtists());
         }
 
-        for (SlimArtist a : databaseArtists) {
+        for (Artist a : databaseArtists) {
             if (artist.getName().equals(a.getName())) {
                 artist.setId(a.getId());
                 break;
@@ -597,12 +597,12 @@ public class Controller {
         }
     }
 
-    public void fillSongId(SlimSong song) {
-        SlimPlayableItem s = getSlimDatabase().lookupItemByUrl(song.getUrl());
+    public void fillSongId(Song song) {
+        PlayableItem s = getDatabase().lookupItemByUrl(song.getUrl());
         //songs.add(s);
         //this cast may need to be removed someday
         try {
-            Songs.getTestDatabaseSongMap().put(s.getUrl(), (SlimSong) s);
+            Songs.getTestDatabaseSongMap().put(s.getUrl(), (Song) s);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -621,12 +621,12 @@ public class Controller {
         //}
     }
 
-    List<SlimAlbum> databaseAlbums;
+    List<Album> databaseAlbums;
     private boolean groupedByDisc;
 
-    public void fillAlbum(SlimAlbum album) throws SlimException {
+    public void fillAlbum(Album album) throws SqueezeException {
         if (databaseAlbums == null) {
-            databaseAlbums = new ArrayList<SlimAlbum>(getSlimDatabase().getAlbums());
+            databaseAlbums = new ArrayList<Album>(getDatabase().getAlbums());
         }
 
         if (!isGroupedByDisc()) {
@@ -636,7 +636,7 @@ public class Controller {
             }
         }
 
-        for (SlimAlbum a : databaseAlbums) {
+        for (Album a : databaseAlbums) {
             if (album.getName().equals(a.getName())) {
                 album.setId(a.getId());
                 break;
@@ -646,7 +646,7 @@ public class Controller {
         //maybe multi disc
         if (album.getId() == null
                 && getDiscAlbumMap().get(album.getName()) != null) {
-            for (SlimAlbum a : databaseAlbums) {
+            for (Album a : databaseAlbums) {
                 int disc = getDiscAlbumMap().get(album.getName());
                 if ((album.getName() + " (Disc " + disc + ")").equals(a.getName())) {
                     album.setId(a.getId());
@@ -661,9 +661,9 @@ public class Controller {
     }
 
     public void fillGenreIds() {
-        List<SlimGenre> databaseGenres = new ArrayList<SlimGenre>(getSlimDatabase().getGenres());
-        for (SlimGenre genre : Genres.getTestGenres()) {
-            for (SlimGenre g : databaseGenres) {
+        List<Genre> databaseGenres = new ArrayList<Genre>(getDatabase().getGenres());
+        for (Genre genre : Genres.getTestGenres()) {
+            for (Genre g : databaseGenres) {
                 if (genre.getName().equals(g.getName())) {
                     genre.setId(g.getId());
                     break;
@@ -673,36 +673,36 @@ public class Controller {
     }
 
     /**
-     * @return the slimDatabase
+     * @return the database
      */
-    public SlimDatabase getSlimDatabase() {
-        return slimDatabase;
+    public Database getDatabase() {
+        return database;
     }
 
     /**
-     * @param slimDatabase the slimDatabase to set
+     * @param database the database to set
      */
-    private void setSlimDatabase(SlimDatabase slimDatabase) {
-        this.slimDatabase = slimDatabase;
+    private void setDatabase(Database database) {
+        this.database = database;
     }
 
     /**
      * @return the databaseSongs
      */
-    public List<SlimPlayableItem> getDatabaseSongs() {
+    public List<PlayableItem> getDatabaseSongs() {
         return databaseSongs;
     }
 
     /**
      * @param databaseSongs the databaseSongs to set
      */
-    public void setDatabaseSongs(List<SlimPlayableItem> databaseSongs) {
+    public void setDatabaseSongs(List<PlayableItem> databaseSongs) {
         this.databaseSongs = databaseSongs;
     }
 
-    public SlimPlayer getFirstPlayer() {
+    public Player getFirstPlayer() {
         if (player == null) {
-            player = new ArrayList<SlimPlayer>(getSlimServer().getSlimPlayers()).get(0);
+            player = new ArrayList<Player>(getSqueezeServer().getSlimPlayers()).get(0);
         }
 
         return player;

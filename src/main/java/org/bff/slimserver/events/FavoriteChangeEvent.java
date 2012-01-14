@@ -1,7 +1,8 @@
 package org.bff.slimserver.events;
 
 /**
- * Represents a change in the status of a SlimServer music player.
+ * Represents a change in the status of a SqueezeServer music player.
+ *
  * @author Bill Findeisen
  */
 public class FavoriteChangeEvent extends java.util.EventObject {
@@ -20,8 +21,9 @@ public class FavoriteChangeEvent extends java.util.EventObject {
 
     /**
      * Creates a new instance of PlayerChangeEvent
+     *
      * @param source the object on which the Event initially occurred
-     * @param id the specific event that occurred
+     * @param id     the specific event that occurred
      */
     public FavoriteChangeEvent(Object source, int id) {
         this(source, id, null);
@@ -29,9 +31,10 @@ public class FavoriteChangeEvent extends java.util.EventObject {
 
     /**
      * Creates a new instance of PlayerChangeEvent
+     *
      * @param source the object on which the Event initially occurred
-     * @param id the specific event that occurred
-     * @param msg an optional message
+     * @param id     the specific event that occurred
+     * @param msg    an optional message
      */
     public FavoriteChangeEvent(Object source, int id, String title) {
         super(source);
@@ -42,6 +45,7 @@ public class FavoriteChangeEvent extends java.util.EventObject {
     /**
      * Returns specific id of the event that occurred.  The ids are public static
      * fields in the class.
+     *
      * @return the specific id
      */
     public int getId() {

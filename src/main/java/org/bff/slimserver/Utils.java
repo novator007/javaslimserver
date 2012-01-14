@@ -11,7 +11,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author bfindeisen
  */
 public class Utils {
@@ -21,12 +20,12 @@ public class Utils {
         try {
             encodedString = URLEncoder.encode(string, encoding);
         } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(SlimDatabase.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         return encodedString.replaceAll("\\+", "%20");
     }
-    
+
     public static String decode(String string, String encoding) {
         String decodedString = null;
         try {

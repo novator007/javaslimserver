@@ -4,7 +4,7 @@
     <groupId>org.bff.javaslimserver</groupId>
     <artifactId>javaslimserver</artifactId>
     <packaging>jar</packaging>
-    <version>4.1-SNAPSHOT</version>
+    <version>5.0-SNAPSHOT</version>
     <name>JavaSlimServer</name>
     <description>A front end for Logitechs Squeezecenter</description>
     <url>http://www.thejavashop.net/javaslimserver/index.shtml</url>

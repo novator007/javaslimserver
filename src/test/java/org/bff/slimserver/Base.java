@@ -7,102 +7,94 @@ package org.bff.slimserver;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.bff.slimserver.Controller;
-import org.bff.slimserver.SlimDatabase;
-import org.bff.slimserver.SlimFavoritePlugin;
-import org.bff.slimserver.SlimFolderBrowser;
-import org.bff.slimserver.SlimPlayer;
-import org.bff.slimserver.SlimPlaylist;
-import org.bff.slimserver.SlimRadioPlugin;
-import org.bff.slimserver.SlimSavedPlaylistManager;
-import org.bff.slimserver.SlimServer;
-import org.bff.slimserver.exception.SlimException;
-import org.bff.slimserver.monitor.SlimEventListener;
+
+import org.bff.slimserver.exception.SqueezeException;
+import org.bff.slimserver.monitor.EventListener;
 
 /**
- *
  * @author bill
  */
 public abstract class Base {
 
-    private static final SlimServer slimServer = Controller.getInstance().getSlimServer();
-    private static final SlimPlayer player = new ArrayList<SlimPlayer>(Controller.getInstance().getSlimServer().getSlimPlayers()).get(0);
-    private static final SlimPlaylist playlist = new SlimPlaylist(getPlayer());
-    private static final SlimEventListener listener = new SlimEventListener(player);
-    private static final SlimDatabase database = new SlimDatabase(getSlimServer());
-    private static final SlimSavedPlaylistManager savedPlaylistManager = new SlimSavedPlaylistManager(slimServer);
-    private static final SlimFavoritePlugin favoritePlugin = new SlimFavoritePlugin(slimServer);
-    private static final SlimFolderBrowser folderBrowser= new SlimFolderBrowser(getSlimServer());
-    private static final SlimRadioPlugin radioPlugin = new SlimRadioPlugin(getSlimServer());;
+    private static final SqueezeServer SQUEEZE_SERVER = Controller.getInstance().getSqueezeServer();
+    private static final Player PLAYER = new ArrayList<Player>(Controller.getInstance().getSqueezeServer().getSlimPlayers()).get(0);
+    private static final Playlist PLAYLIST = new Playlist(getPLAYER());
+    private static final EventListener LISTENER = new EventListener(PLAYER);
+    private static final Database DATABASE = new Database(getSQUEEZE_SERVER());
+    private static final SavedPlaylistManager SAVED_PLAYLIST_MANAGER = new SavedPlaylistManager(SQUEEZE_SERVER);
+    private static final FavoritePlugin FAVORITE_PLUGIN = new FavoritePlugin(SQUEEZE_SERVER);
+    private static final FolderBrowser FOLDER_BROWSER = new FolderBrowser(getSQUEEZE_SERVER());
+    private static final RadioPlugin radioPlugin = new RadioPlugin(getSQUEEZE_SERVER());
+    ;
 
     static {
         try {
             Controller.getInstance().loadSongs();
-        } catch (SlimException ex) {
+        } catch (SqueezeException ex) {
             Logger.getLogger(Base.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     /**
-     * @return the database
+     * @return the DATABASE
      */
-    public static SlimDatabase getDatabase() {
-        return database;
+    public static Database getDATABASE() {
+        return DATABASE;
     }
 
     /**
-     * @return the slimServer
+     * @return the SQUEEZE_SERVER
      */
-    public static SlimServer getSlimServer() {
-        return slimServer;
+    public static SqueezeServer getSQUEEZE_SERVER() {
+        return SQUEEZE_SERVER;
     }
 
     /**
-     * @return the playlist
+     * @return the PLAYLIST
      */
-    public static SlimPlaylist getPlaylist() {
-        return playlist;
+    public static Playlist getPLAYLIST() {
+        return PLAYLIST;
     }
 
     /**
-     * @return the listener
+     * @return the LISTENER
      */
-    public static SlimEventListener getListener() {
-        return listener;
+    public static EventListener getLISTENER() {
+        return LISTENER;
     }
 
     /**
-     * @return the savedPlaylistManager
+     * @return the SAVED_PLAYLIST_MANAGER
      */
-    public static SlimSavedPlaylistManager getSavedPlaylistManager() {
-        return savedPlaylistManager;
+    public static SavedPlaylistManager getSAVED_PLAYLIST_MANAGER() {
+        return SAVED_PLAYLIST_MANAGER;
     }
 
     /**
-     * @return the favoritePlugin
+     * @return the FAVORITE_PLUGIN
      */
-    public static SlimFavoritePlugin getFavoritePlugin() {
-        return favoritePlugin;
+    public static FavoritePlugin getFAVORITE_PLUGIN() {
+        return FAVORITE_PLUGIN;
     }
 
     /**
-     * @return the player
+     * @return the PLAYER
      */
-    public static SlimPlayer getPlayer() {
-        return player;
+    public static Player getPLAYER() {
+        return PLAYER;
     }
 
     /**
-     * @return the folderBrowser
+     * @return the FOLDER_BROWSER
      */
-    public static SlimFolderBrowser getFolderBrowser() {
-        return folderBrowser;
+    public static FolderBrowser getFOLDER_BROWSER() {
+        return FOLDER_BROWSER;
     }
 
     /**
      * @return the radioPlugin
      */
-    public static SlimRadioPlugin getRadioPlugin() {
+    public static RadioPlugin getRadioPlugin() {
         return radioPlugin;
     }
 }
