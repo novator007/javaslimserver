@@ -9,25 +9,25 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * Represents a podcast
+ * Represents a Radio plugin
  *
  * @author Bill Findeisen
  */
-class Radio extends XMLPlugin {
+class RadioPlugin extends XMLPlugin {
 
     private int count;
-    private Collection<RadioItem> radioItems;
+    private Collection<RadioPluginItem> radioItems;
     private boolean error;
     private String errorMessage;
     private String radioId;
     private AvailableRadio radio;
 
-    public Radio(AvailableRadio radio) {
+    public RadioPlugin(AvailableRadio radio) {
         this.setRadio(radio);
-        this.radioItems = new ArrayList<RadioItem>();
+        this.radioItems = new ArrayList<RadioPluginItem>();
     }
 
-    public void addRadioItem(RadioItem item) {
+    public void addRadioItem(RadioPluginItem item) {
         getRadioItems().add(item);
     }
 
@@ -48,14 +48,14 @@ class Radio extends XMLPlugin {
     /**
      * @return the radioItems
      */
-    public Collection<RadioItem> getRadioItems() {
+    public Collection<RadioPluginItem> getRadioItems() {
         return radioItems;
     }
 
     /**
      * @param radioItems the radioItems to set
      */
-    public void setRadioItems(Collection<RadioItem> radioItems) {
+    public void setRadioItems(Collection<RadioPluginItem> radioItems) {
         this.radioItems = radioItems;
     }
 

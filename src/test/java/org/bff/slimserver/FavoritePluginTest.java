@@ -12,7 +12,6 @@ import org.bff.slimserver.domain.Artist;
 import org.bff.slimserver.domain.Song;
 import org.bff.slimserver.domain.favorite.Favorite;
 import org.bff.slimserver.domain.favorite.FavoriteAudioDetails;
-import org.bff.slimserver.domain.favorite.FavoriteItem;
 import org.junit.*;
 
 import java.util.ArrayList;
@@ -121,10 +120,8 @@ public class FavoritePluginTest extends Base {
      */
     @Test
     public void testGetFavoriteAudioDetails() throws Exception {
-        //System.out.println("getFavoriteAudioDetails");
-
         getFAVORITE_PLUGIN().addFavorite(getTestSong());
-        FavoriteItem favorite = new ArrayList<FavoriteItem>(getFAVORITE_PLUGIN().getFavorites()).get(0);
+        Favorite favorite = new ArrayList<Favorite>(getFAVORITE_PLUGIN().getFavorites()).get(0);
         FavoriteAudioDetails details = getFAVORITE_PLUGIN().getFavoriteAudioDetails(favorite);
 
         assertEquals(details.isAudio(), true);
@@ -137,7 +134,6 @@ public class FavoritePluginTest extends Base {
      */
     @Test
     public void testGetFavorites_0args() throws Exception {
-        //System.out.println("getFavorites");
         List<Artist> artists = new ArrayList<Artist>(getDATABASE().getArtists());
         for (Artist artist : artists) {
             getFAVORITE_PLUGIN().addFavorite(artist);
@@ -213,27 +209,27 @@ public class FavoritePluginTest extends Base {
     String testFolder = "TestFolder";
 
     getFAVORITE_PLUGIN().addFolder(testFolder);
-    FavoriteItem folder = new ArrayList<FavoriteItem>(getFAVORITE_PLUGIN().getFavorites()).get(0);
+    Favorite folder = new ArrayList<Favorite>(getFAVORITE_PLUGIN().getFavorites()).get(0);
     getFAVORITE_PLUGIN().addFavorite(getTestArtist2());
     getFAVORITE_PLUGIN().addFavoriteToFolder(getTestArtist(), folder);
     getFAVORITE_PLUGIN().addFavoriteToFolder(getTestArtist2(), folder);
 
-    getFAVORITE_PLUGIN().loadFavoriteItem(folder);
+    getFAVORITE_PLUGIN().loadFavorite(folder);
 
     Assert.assertTrue(folder.getXmlItems().size() == 2);
     }    
 
     
     @Test
-    public void testLoadFavoriteItem() throws Exception {
+    public void testLoadFavorite() throws Exception {
     String testFolder = "TestFolder";
 
     getFAVORITE_PLUGIN().addFolder(testFolder);
-    FavoriteItem folder = new ArrayList<FavoriteItem>(getFAVORITE_PLUGIN().getFavorites()).get(0);
+    Favorite folder = new ArrayList<Favorite>(getFAVORITE_PLUGIN().getFavorites()).get(0);
     getFAVORITE_PLUGIN().addFavoriteToFolder(getTestArtist(), folder);
     getFAVORITE_PLUGIN().addFavoriteToFolder(getTestArtist2(), folder);
 
-    getFAVORITE_PLUGIN().loadFavoriteItem(folder);
+    getFAVORITE_PLUGIN().loadFavorite(folder);
 
     Assert.assertTrue(folder.getXmlItems().size() == 2);
     }

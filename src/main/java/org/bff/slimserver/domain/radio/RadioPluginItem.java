@@ -19,24 +19,24 @@ import org.bff.slimserver.domain.Genre;
 /**
  * @author bfindeisen
  */
-public class RadioItem extends Radio {
+public class RadioPluginItem extends RadioPlugin {
 
     private boolean audio;
     private boolean containsItems;
     private URL imageUrl;
     private String title;
     private String type;
-    private Collection<RadioItem> radioItems;
+    private Collection<RadioPluginItem> radioItems;
     private String smallIconUrl;
 
     private static HashMap<String, ImageIcon> iconMap =
             new HashMap<String, ImageIcon>();
 
-    public RadioItem(AvailableRadio radio) {
+    public RadioPluginItem(AvailableRadio radio) {
         super(radio);
         setRadio(radio);
         setSmallIconUrl(getRadio().getSmallIconURL().replace("_25x25_f", "_16x16_f"));
-        radioItems = new ArrayList<RadioItem>();
+        radioItems = new ArrayList<RadioPluginItem>();
     }
 
     /**
@@ -114,14 +114,14 @@ public class RadioItem extends Radio {
     /**
      * @return the radioItems
      */
-    public Collection<RadioItem> getRadioItems() {
+    public Collection<RadioPluginItem> getRadioItems() {
         return radioItems;
     }
 
     /**
      * @param radioItems the radioItems to set
      */
-    public void setRadioItems(Collection<RadioItem> radioItems) {
+    public void setRadioItems(Collection<RadioPluginItem> radioItems) {
         this.radioItems = radioItems;
     }
 
@@ -129,7 +129,7 @@ public class RadioItem extends Radio {
         return getRadio().getCommand();
     }
 
-    public void addRadioItem(RadioItem item) {
+    public void addRadioItem(RadioPluginItem item) {
         getRadioItems().add(item);
     }
 
@@ -233,7 +233,7 @@ public class RadioItem extends Radio {
             return false;
         }
 
-        RadioItem item = (RadioItem) object;
+        RadioPluginItem item = (RadioPluginItem) object;
         if (this.getRadioId().equals(item.getRadioId())) {
             return (true);
         } else {
@@ -265,7 +265,7 @@ public class RadioItem extends Radio {
                 icon = new ImageIcon(new URL(getSmallIconUrl()));
                 iconMap.put(getSmallIconUrl(), icon);
             } catch (MalformedURLException ex) {
-                Logger.getLogger(RadioItem.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RadioPluginItem.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 

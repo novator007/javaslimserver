@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f39bfe5-775b-45e2-84a0-e1f96f62cf26" name="Default" comment="" />
+    <list default="true" id="5f39bfe5-775b-45e2-84a0-e1f96f62cf26" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/FavoriteItem.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/App.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPlugin.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppItem.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPluginItem.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/Radio.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPlugin.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioItem.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPluginItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/FavoritePlugin.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/FavoritePlugin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/Favorite.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/Favorite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/FavoritePluginTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/FavoritePluginTest.java" />
+    </list>
     <ignored path="javaslimserver.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -63,90 +73,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FavoriteItem.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/FavoriteItem.java">
+      <file leaf-file-name="RadioPluginItem.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPluginItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="4" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0">
+            <state line="21" column="13" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FolderBrowser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/FolderBrowser.java">
+      <file leaf-file-name="Favorite.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/Favorite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="70" selection-start="2237" selection-end="2237" vertical-scroll-proportion="-3.44">
-              <folding>
-                <element signature="e#0#8492#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-                <element signature="e#3263#3271#0" expanded="true" />
-                <element signature="e#5660#5668#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MusicFolderTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/MusicFolderTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="18" selection-start="749" selection-end="749" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#775#783#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Base.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/Base.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="25" selection-start="2605" selection-end="2605" vertical-scroll-proportion="0.0">
+            <state line="20" column="45" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RadioPlugin.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/RadioPlugin.java">
+      <file leaf-file-name="FavoritePlugin.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/FavoritePlugin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="27" selection-start="348" selection-end="348" vertical-scroll-proportion="0.45882353">
+            <state line="418" column="63" selection-start="18444" selection-end="18444" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppItem.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppItem.java">
+      <file leaf-file-name="SqueezeServerTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/SqueezeServerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="19" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.0">
+            <state line="17" column="19" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AvailableApp.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AvailableApp.java">
+      <file leaf-file-name="FavoritePluginTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/FavoritePluginTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="5" selection-start="1295" selection-end="1295" vertical-scroll-proportion="-9.2">
+            <state line="82" column="65" selection-start="2571" selection-end="2571" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppPlugin.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/AppPlugin.java">
+      <file leaf-file-name="RadioPlugin.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPlugin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="33" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0">
+            <state line="17" column="32" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Folder.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/Folder.java">
+      <file leaf-file-name="RadioAudioDetails.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioAudioDetails.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="16" selection-start="933" selection-end="946" vertical-scroll-proportion="-10.12">
+            <state line="13" column="13" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppPlugin.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPlugin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="43" selection-start="576" selection-end="576" vertical-scroll-proportion="0.2769231">
               <folding />
             </state>
           </provider>
@@ -167,22 +160,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/monitor/EventListener.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/Playlist.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/SlimObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/PodcastAudioDetails.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/PlayableItem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/AvailableRadio.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/PodcastItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/SavedPlaylist.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/PlaylistItem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/FavoriteItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/Folder.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/FolderBrowser.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/MusicFolderTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/AppTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AvailableApp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/Favorite.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/FavoriteItem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/FavoritePlugin.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/FavoritePluginTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPlugin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/Radio.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPlugin.java" />
       </list>
     </option>
   </component>
@@ -195,10 +188,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
     <option name="y" value="25" />
-    <option name="width" value="1444" />
-    <option name="height" value="854" />
+    <option name="width" value="1440" />
+    <option name="height" value="850" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -226,6 +218,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -491,6 +484,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="favorite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javaslimserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javaslimserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="slimserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -531,7 +562,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -731,29 +761,29 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="25" width="1444" height="854" extended-state="6" />
+    <frame x="0" y="25" width="1440" height="850" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.58036983" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299712" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3998559" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28663793" sideWeight="0.67140824" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5533428" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26080692" sideWeight="0.6700143" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.55277777" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299712" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.58036983" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -814,115 +844,86 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/Song.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPluginItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="34" selection-start="148" selection-end="148" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/PlaylistItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="11" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/XMLPluginItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/Favorite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="35" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/FavoritePlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="325" column="45" selection-start="14596" selection-end="14596" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/FavoriteItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="4" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/Folder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="16" selection-start="933" selection-end="946" vertical-scroll-proportion="-10.12">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/FolderBrowser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="70" selection-start="2237" selection-end="2237" vertical-scroll-proportion="-3.44">
-          <folding>
-            <element signature="e#0#8492#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#3263#3271#0" expanded="true" />
-            <element signature="e#5660#5668#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AvailableApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="5" selection-start="1295" selection-end="1295" vertical-scroll-proportion="-9.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="19" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="44" column="19" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.20827179" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/Plugin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="22" selection-start="544" selection-end="544" vertical-scroll-proportion="0.3276699">
-          <folding />
-        </state>
+        <state line="22" column="22" selection-start="544" selection-end="544" vertical-scroll-proportion="0.3276699" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/AppPlugin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="33" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/MusicFolderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="18" selection-start="749" selection-end="749" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#775#783#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/Base.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="25" selection-start="2605" selection-end="2605" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="9" column="33" selection-start="192" selection-end="192" vertical-scroll-proportion="0.13293944" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/RadioPlugin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="27" selection-start="348" selection-end="348" vertical-scroll-proportion="0.45882353">
+        <state line="16" column="27" selection-start="348" selection-end="348" vertical-scroll-proportion="0.2972561" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/Base.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="25" selection-start="2605" selection-end="2605" vertical-scroll-proportion="0.77134144" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/MusicFolderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="18" selection-start="749" selection-end="749" vertical-scroll-proportion="0.49695122" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/FolderBrowser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="70" selection-start="2237" selection-end="2237" vertical-scroll-proportion="0.27432218" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/XMLPluginItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="13" selection-start="362" selection-end="362" vertical-scroll-proportion="0.17725259" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPluginItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="13" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/FavoritePlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="418" column="63" selection-start="18444" selection-end="18444" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/SqueezeServerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="19" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/FavoritePluginTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="65" selection-start="2571" selection-end="2571" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="32" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioAudioDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/Favorite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="45" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="43" selection-start="576" selection-end="576" vertical-scroll-proportion="0.2769231">
           <folding />
         </state>
       </provider>

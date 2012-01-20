@@ -21,7 +21,6 @@ import org.bff.slimserver.exception.ResponseException;
 import org.bff.slimserver.exception.SqueezeException;
 import org.bff.slimserver.domain.favorite.Favorite;
 import org.bff.slimserver.domain.favorite.FavoriteAudioDetails;
-import org.bff.slimserver.domain.favorite.FavoriteItem;
 
 /**
  * @author bfindeisen
@@ -243,19 +242,19 @@ public class FavoritePlugin extends Plugin {
         fireFavoriteEvent(new FavoriteChangeEvent(this, FavoriteChangeEvent.FAVORITES_CLEARED));
     }
 
-    public Collection<FavoriteItem> getFavorites() throws SqueezeException {
+    public Collection<Favorite> getFavorites() throws SqueezeException {
         return getFavorites((String) null);
     }
 
-    public Collection<FavoriteItem> getFavorites(Favorite favorite) throws SqueezeException {
+    public Collection<Favorite> getFavorites(Favorite favorite) throws SqueezeException {
         return getFavorites(favorite.getId());
     }
 
-    public void loadFavoriteItem(FavoriteItem item) throws SqueezeException {
-        logger.trace("Starting LoadFavoriteItem  for " + item.getName());
+    public void loadFavorite(Favorite item) throws SqueezeException {
+        logger.trace("Starting LoadFavorite  for " + item.getName());
 
-        for (FavoriteItem sfi : getFavorites(item.getId())) {
-            item.addFavoriteItem(sfi);
+        for (Favorite sfi : getFavorites(item.getId())) {
+            item.addFavorite(sfi);
         }
 
     }
@@ -287,9 +286,9 @@ public class FavoritePlugin extends Plugin {
 
     }
       */
-    private Collection<FavoriteItem> getFavorites(String id) throws SqueezeException {
+    private Collection<Favorite> getFavorites(String id) throws SqueezeException {
         logger.trace("Starting GetFavorites");
-        List<FavoriteItem> favs = new ArrayList<FavoriteItem>();
+        List<Favorite> favs = new ArrayList<Favorite>();
         String command = SS_PROP_FAVORITE_ITEMS.replaceAll(PARAM_START, "0");
         command = command.replaceAll(PARAM_ITEMS, Long.toString(MAX_SEARCH_RESULTS));
         if (id == null) {
@@ -326,7 +325,7 @@ public class FavoritePlugin extends Plugin {
                         str = str.replace(str.split("\\.")[0] + ".", "");
                     }
                 }
-                FavoriteItem fav = new FavoriteItem(str);
+                Favorite fav = new Favorite(str);
 
                 logger.trace("GetFavorites setting id: " + fav.getId());
                 ++i;
@@ -356,7 +355,7 @@ public class FavoritePlugin extends Plugin {
                 --i;
 
                 if (fav.isContainsItems() && !fav.isAudio()) {
-                    fav.setSlimType(FavoriteItem.SLIMTYPE.FOLDER);
+                    fav.setSlimType(Favorite.SLIMTYPE.FOLDER);
                 }
 
                 //System.out.println("type:" + fav.getType());
@@ -417,7 +416,7 @@ public class FavoritePlugin extends Plugin {
         return false;
     }
 
-    public void addFavoriteToFolder(Playable item, FavoriteItem folder) throws SqueezeException {
+    public void addFavoriteToFolder(Playable item, Favorite folder) throws SqueezeException {
         String command = SS_PROP_FAVORITE_INSERT;
         command = command.replaceAll(PARAM_TAGS,
                 "index:" + encode(folder.getId()) + " "

@@ -19,24 +19,24 @@ import org.bff.slimserver.domain.Genre;
 /**
  * @author bfindeisen
  */
-public class AppItem extends App {
+public class AppPluginItem extends AppPlugin {
 
     private boolean audio;
     private boolean containsItems;
     private URL imageUrl;
     private String title;
     private String type;
-    private Collection<AppItem> appItems;
+    private Collection<AppPluginItem> appItems;
     private String smallIconUrl;
 
     private static HashMap<String, ImageIcon> iconMap =
             new HashMap<String, ImageIcon>();
 
-    public AppItem(AvailableApp app) {
+    public AppPluginItem(AvailableApp app) {
         super(app);
         setApp(app);
         this.smallIconUrl = getApp().getSmallIconURL().replace("_25x25_f", "_16x16_f");
-        appItems = new ArrayList<AppItem>();
+        appItems = new ArrayList<AppPluginItem>();
     }
 
     /**
@@ -121,7 +121,7 @@ public class AppItem extends App {
      * @return the radioItems
      */
     @Override
-    public Collection<AppItem> getAppItems() {
+    public Collection<AppPluginItem> getAppItems() {
         return appItems;
     }
 
@@ -129,7 +129,7 @@ public class AppItem extends App {
      * @param radioItems the radioItems to set
      */
     @Override
-    public void setAppItems(Collection<AppItem> appItems) {
+    public void setAppItems(Collection<AppPluginItem> appItems) {
         this.appItems = appItems;
     }
 
@@ -139,7 +139,7 @@ public class AppItem extends App {
     }
 
     @Override
-    public void addAppItem(AppItem item) {
+    public void addAppItem(AppPluginItem item) {
         getAppItems().add(item);
     }
 
@@ -244,7 +244,7 @@ public class AppItem extends App {
             return false;
         }
 
-        AppItem item = (AppItem) object;
+        AppPluginItem item = (AppPluginItem) object;
         if (this.getAppId().equals(item.getAppId())) {
             return (true);
         } else {
@@ -278,7 +278,7 @@ public class AppItem extends App {
                 icon = new ImageIcon(new URL(getSmallIconUrl()));
                 iconMap.put(getSmallIconUrl(), icon);
             } catch (MalformedURLException ex) {
-                Logger.getLogger(AppItem.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AppPluginItem.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 

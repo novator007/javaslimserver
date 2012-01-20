@@ -13,21 +13,21 @@ import java.util.Collection;
  *
  * @author Bill Findeisen
  */
-class App extends XMLPlugin {
+class AppPlugin extends XMLPlugin {
 
     private int count;
-    private Collection<AppItem> appItems;
+    private Collection<AppPluginItem> appItems;
     private boolean error;
     private String errorMessage;
     private String appId;
     private AvailableApp app;
 
-    public App(AvailableApp app) {
+    public AppPlugin(AvailableApp app) {
         this.setApp(app);
-        this.appItems = new ArrayList<AppItem>();
+        this.appItems = new ArrayList<AppPluginItem>();
     }
 
-    public void addAppItem(AppItem item) {
+    public void addAppItem(AppPluginItem item) {
         getAppItems().add(item);
     }
 
@@ -49,14 +49,14 @@ class App extends XMLPlugin {
     /**
      * @return the radioItems
      */
-    public Collection<AppItem> getAppItems() {
+    public Collection<AppPluginItem> getAppItems() {
         return appItems;
     }
 
     /**
      * @param appItems the radioItems to set
      */
-    public void setAppItems(Collection<AppItem> appItems) {
+    public void setAppItems(Collection<AppPluginItem> appItems) {
         this.appItems = appItems;
     }
 
