@@ -4,9 +4,9 @@
  */
 package org.bff.slimserver;
 
+import org.bff.slimserver.domain.*;
 import org.bff.slimserver.exception.DatabaseException;
 import org.bff.slimserver.exception.SqueezeException;
-import org.bff.slimserver.domain.*;
 import org.bff.slimserver.test.data.*;
 import org.junit.*;
 
@@ -42,15 +42,15 @@ public class DatabaseTest extends Base {
     public void setUp() throws SqueezeException {
 
         if (getArtistList() == null) {
-            setArtistList(new ArrayList<Artist>(getDATABASE().getArtists()));
+            setArtistList(new ArrayList<Artist>(getDatabase().getArtists()));
         }
 
         if (getAlbumList() == null) {
-            setAlbumList(new ArrayList<Album>(getDATABASE().getAlbums()));
+            setAlbumList(new ArrayList<Album>(getDatabase().getAlbums()));
         }
 
         if (getGenreList() == null) {
-            setGenreList(new ArrayList<Genre>(getDATABASE().getGenres()));
+            setGenreList(new ArrayList<Genre>(getDatabase().getGenres()));
         }
 
         if (getSongList() == null) {
@@ -64,22 +64,22 @@ public class DatabaseTest extends Base {
 
     @Test
     public void testArtistCount() throws SqueezeException {
-        Assert.assertEquals(Artists.getTestArtists().size(), getDATABASE().getArtistCount());
+        Assert.assertEquals(Artists.getTestArtists().size(), getDatabase().getArtistCount());
     }
 
     @Test
     public void testAlbumCount() throws SqueezeException {
-        Assert.assertEquals(Albums.getTestAlbums().size(), getDATABASE().getAlbumCount());
+        Assert.assertEquals(Albums.getTestAlbums().size(), getDatabase().getAlbumCount());
     }
 
     @Test
     public void testSongCount() throws SqueezeException {
-        Assert.assertEquals(Songs.getTestSongs().size(), getDATABASE().getSongCount());
+        Assert.assertEquals(Songs.getTestSongs().size(), getDatabase().getSongCount());
     }
 
     @Test
     public void testGenreCount() throws SqueezeException {
-        Assert.assertEquals(Genres.getTestGenres().size(), getDATABASE().getGenreCount());
+        Assert.assertEquals(Genres.getTestGenres().size(), getDatabase().getGenreCount());
     }
 
     @Test
@@ -136,7 +136,7 @@ public class DatabaseTest extends Base {
 
     @Test
     public void testGetYears() {
-        List<String> resultYears = new ArrayList<String>(getDATABASE().getYears());
+        List<String> resultYears = new ArrayList<String>(getDatabase().getYears());
 
         List<String> foundYears = new ArrayList<String>(Years.getTestYears());
 
@@ -160,7 +160,7 @@ public class DatabaseTest extends Base {
 
     @Test
     public void testSearchAll() throws DatabaseException {
-        SearchResult results = getDATABASE().searchAll(SEARCH_CRITERIA_ALL);
+        SearchResult results = getDatabase().searchAll(SEARCH_CRITERIA_ALL);
 
         List<Album> resultsAlbums = new ArrayList<Album>(results.getAlbums());
         List<Artist> resultsArtists = new ArrayList<Artist>(results.getArtists());
@@ -271,7 +271,7 @@ public class DatabaseTest extends Base {
     @Test
     public void testSearchArtists() throws DatabaseException {
 
-        List<Artist> resultsArtists = new ArrayList<Artist>(getDATABASE().searchArtists(SEARCH_CRITERIA_ARTIST));
+        List<Artist> resultsArtists = new ArrayList<Artist>(getDatabase().searchArtists(SEARCH_CRITERIA_ARTIST));
 
         if (resultsArtists.size() < 1) {
             Assert.fail("No artists found from search.");
@@ -306,7 +306,7 @@ public class DatabaseTest extends Base {
     @Test
     public void testSearchAlbums() throws DatabaseException {
 
-        List<Album> resultsAlbums = new ArrayList<Album>(getDATABASE().searchAlbums(SEARCH_CRITERIA_ALBUM));
+        List<Album> resultsAlbums = new ArrayList<Album>(getDatabase().searchAlbums(SEARCH_CRITERIA_ALBUM));
 
         if (resultsAlbums.size() < 1) {
             Assert.fail("No albums found from search.");
@@ -341,7 +341,7 @@ public class DatabaseTest extends Base {
     @Test
     public void testSearchTitles() throws DatabaseException {
 
-        List<Song> resultsSongs = new ArrayList<Song>(getDATABASE().searchTitles(SEARCH_CRITERIA_TITLE));
+        List<Song> resultsSongs = new ArrayList<Song>(getDatabase().searchTitles(SEARCH_CRITERIA_TITLE));
 
         if (resultsSongs.size() < 1) {
             Assert.fail("No songs found from search.");
@@ -415,7 +415,7 @@ public class DatabaseTest extends Base {
     public void testListAlbumsForArtist() throws DatabaseException {
 
         for (Artist a : Artists.getTestArtists()) {
-            List<Album> resultsAlbums = new ArrayList<Album>(getDATABASE().listAlbumsForArtist(a));
+            List<Album> resultsAlbums = new ArrayList<Album>(getDatabase().listAlbumsForArtist(a));
 
             if (resultsAlbums.size() < 1) {
                 Assert.fail("No albums found for artist.");
@@ -440,7 +440,7 @@ public class DatabaseTest extends Base {
     public void testListAlbumsForYear() throws DatabaseException {
 
         for (String y : Years.getTestYears()) {
-            List<Album> resultsAlbums = new ArrayList<Album>(getDATABASE().listAlbumsForYear(y));
+            List<Album> resultsAlbums = new ArrayList<Album>(getDatabase().listAlbumsForYear(y));
 
             if (resultsAlbums.size() < 1) {
                 Assert.fail("No albums found for year.");
@@ -467,7 +467,7 @@ public class DatabaseTest extends Base {
         for (Artist a : Artists.getTestArtists()) {
             for (Genre g : Genres.getTestGenres()) {
                 for (String y : Years.getTestYears()) {
-                    List<Album> resultsAlbums = new ArrayList<Album>(getDATABASE().listAlbums(a, g, y));
+                    List<Album> resultsAlbums = new ArrayList<Album>(getDatabase().listAlbums(a, g, y));
 
                     List<Album> foundAlbumsArtist = new ArrayList<Album>(Artists.TEST_ARTIST_ALBUM_MAP.get(a));
                     List<Album> foundAlbumsGenre = new ArrayList<Album>(Genres.GENRE_ALBUM_MAP.get(g));
@@ -507,7 +507,7 @@ public class DatabaseTest extends Base {
     @Test
     public void testListArtistsForGenre() throws DatabaseException {
         for (Genre g : Genres.getTestGenres()) {
-            List<Artist> resultsArtists = new ArrayList<Artist>(getDATABASE().listArtistsForGenre(g));
+            List<Artist> resultsArtists = new ArrayList<Artist>(getDatabase().listArtistsForGenre(g));
 
             List<Artist> foundArtists = new ArrayList<Artist>();
 
@@ -540,7 +540,7 @@ public class DatabaseTest extends Base {
     @Test
     public void testGetArtistForAlbum() throws DatabaseException {
         for (Album album : Albums.getTestAlbums()) {
-            List<Artist> resultsArtists = new ArrayList<Artist>(getDATABASE().getArtistsForAlbum(album));
+            List<Artist> resultsArtists = new ArrayList<Artist>(getDatabase().getArtistsForAlbum(album));
 
             List<Artist> foundArtists = new ArrayList<Artist>();
             for (Artist artist : Artists.getTestArtists()) {
@@ -569,7 +569,7 @@ public class DatabaseTest extends Base {
     @Test
     public void testListSongsForArtist() throws DatabaseException {
         for (Artist artist : Artists.getTestArtists()) {
-            List<Song> resultsArtists = new ArrayList<Song>(getDATABASE().listSongsForArtist(artist));
+            List<Song> resultsArtists = new ArrayList<Song>(getDatabase().listSongsForArtist(artist));
 
             for (Song song : resultsArtists) {
                 boolean exists = false;
@@ -592,7 +592,7 @@ public class DatabaseTest extends Base {
     @Test
     public void testListSongsForYear() throws DatabaseException {
         for (String year : Years.getTestYears()) {
-            List<Song> resultsYears = new ArrayList<Song>(getDATABASE().listSongsForYear(year));
+            List<Song> resultsYears = new ArrayList<Song>(getDatabase().listSongsForYear(year));
             List<Song> foundSongs = new ArrayList<Song>();
 
             for (Song s : Songs.getTestSongs()) {
@@ -623,7 +623,7 @@ public class DatabaseTest extends Base {
     @Test
     public void testListSongsForGenre() throws DatabaseException {
         for (Genre genre : Genres.getTestGenres()) {
-            List<Song> resultsGenres = new ArrayList<Song>(getDATABASE().listSongsForGenre(genre));
+            List<Song> resultsGenres = new ArrayList<Song>(getDatabase().listSongsForGenre(genre));
             List<Song> foundSongs = new ArrayList<Song>();
 
             for (Song s : Songs.getTestSongs()) {
@@ -656,7 +656,7 @@ public class DatabaseTest extends Base {
     @Test
     public void testListSongsForAlbum() throws DatabaseException {
         for (Album album : Albums.getTestAlbums()) {
-            List<Song> resultsGenres = new ArrayList<Song>(getDATABASE().listSongsForAlbum(album));
+            List<Song> resultsGenres = new ArrayList<Song>(getDatabase().listSongsForAlbum(album));
             List<Song> foundSongs = new ArrayList<Song>();
 
             for (Song s : Songs.getTestSongs()) {
@@ -688,23 +688,23 @@ public class DatabaseTest extends Base {
     @Test
     public void testNewMusic() {
         //for now just make sure not empty
-        for (Album album : getDATABASE().getNewMusic()) {
-            System.out.println(album.getName());
+        for (Album album : getDatabase().getNewMusic()) {
+            //System.out.println(album.getName());
         }
-        Assert.assertFalse(getDATABASE().getNewMusic().isEmpty());
+        Assert.assertFalse(getDatabase().getNewMusic().isEmpty());
     }
 
     @Test
     public void testNewMusicWithArtist() {
         //for now just make sure not empty
-        Assert.assertFalse(getDATABASE().getNewMusic(true).isEmpty());
+        Assert.assertFalse(getDatabase().getNewMusic(true).isEmpty());
     }
 
     @Test(timeout = 60000)
     public void testDatabaseProgress() {
-        getDATABASE().rescan();
+        getDatabase().rescan();
 
-        while (!getDATABASE().isRescanning()) {
+        while (!getDatabase().isRescanning()) {
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
@@ -712,8 +712,8 @@ public class DatabaseTest extends Base {
             }
         }
 
-        while (getDATABASE().isRescanning()) {
-            DatabaseProgress progress = getDATABASE().getScanProgress();
+        while (getDatabase().isRescanning()) {
+            DatabaseProgress progress = getDatabase().getScanProgress();
 
             List<DatabaseProgress.Importer> importers = progress.getImporters();
 

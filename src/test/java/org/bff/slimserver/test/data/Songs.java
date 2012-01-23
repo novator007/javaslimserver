@@ -4,12 +4,12 @@
  */
 package org.bff.slimserver.test.data;
 
+import org.bff.slimserver.domain.Artist;
+import org.bff.slimserver.domain.Song;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
-
-import org.bff.slimserver.domain.Artist;
-import org.bff.slimserver.domain.Song;
 
 /**
  * Song ids must be filled since not reliable

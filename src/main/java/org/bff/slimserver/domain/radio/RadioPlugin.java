@@ -1,10 +1,11 @@
 package org.bff.slimserver.domain.radio;
 
-import java.awt.Image;
+import org.bff.slimserver.domain.Album;
+import org.bff.slimserver.domain.Genre;
+import org.bff.slimserver.domain.XMLPlugin;
+
+import java.awt.*;
 import java.net.URL;
-
-import org.bff.slimserver.domain.*;
-
 import java.util.ArrayList;
 import java.util.Collection;
 

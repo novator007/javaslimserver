@@ -1,7 +1,6 @@
 package org.bff.slimserver;
 
 import org.bff.slimserver.domain.*;
-import org.bff.slimserver.domain.Album;
 
 import java.util.Collection;
 

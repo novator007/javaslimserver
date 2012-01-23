@@ -4,6 +4,14 @@
  */
 package org.bff.slimserver.monitor;
 
+import org.bff.slimserver.*;
+import org.bff.slimserver.domain.Playable;
+import org.bff.slimserver.domain.PlaylistItem;
+import org.bff.slimserver.domain.SavedPlaylist;
+import org.bff.slimserver.events.*;
+import org.bff.slimserver.exception.ConnectionException;
+import org.bff.slimserver.exception.SqueezeException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,30 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import org.bff.slimserver.*;
-import org.bff.slimserver.Constants;
-import org.bff.slimserver.events.ConnectionChangeEvent;
-import org.bff.slimserver.events.ConnectionChangeListener;
-import org.bff.slimserver.events.DatabaseScanEvent;
-import org.bff.slimserver.events.DatabaseScanListener;
-import org.bff.slimserver.events.FavoriteChangeEvent;
-import org.bff.slimserver.events.FavoriteChangeListener;
-import org.bff.slimserver.events.PlayerChangeEvent;
-import org.bff.slimserver.events.PlayerChangeListener;
-import org.bff.slimserver.events.PlaylistChangeEvent;
-import org.bff.slimserver.events.PlaylistChangeListener;
-import org.bff.slimserver.events.SavedPlaylistChangeEvent;
-import org.bff.slimserver.events.SavedPlaylistChangeListener;
-import org.bff.slimserver.events.SleepChangeEvent;
-import org.bff.slimserver.events.SleepChangeListener;
-import org.bff.slimserver.events.VolumeChangeEvent;
-import org.bff.slimserver.events.VolumeChangeListener;
-import org.bff.slimserver.exception.ConnectionException;
-import org.bff.slimserver.exception.SqueezeException;
-import org.bff.slimserver.domain.Playable;
-import org.bff.slimserver.domain.PlaylistItem;
-import org.bff.slimserver.domain.SavedPlaylist;
 
 /**
  * The class uses the listen feature of SqueezeServer to receive events and forward
@@ -195,7 +179,7 @@ public class EventListener extends EventMonitor {
     /**
      * Creates a connection on a new socket.
      */
-    private void initialize() throws IOException, SqueezeException {
+    protected void initialize() throws IOException, SqueezeException {
         this.setSocket(new Socket(getServerAddress(), getServerPort()));
         sendCommand(new Command(CMD_SUBSCRIBE));
     }
@@ -390,8 +374,6 @@ public class EventListener extends EventMonitor {
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
-                            //if (e instanceof ConnectionException) {
-                            //setConnectedState(false);
                             fireConnectionChangeEvent(false);
                             boolean retry = true;
                             while (retry) {
@@ -411,12 +393,6 @@ public class EventListener extends EventMonitor {
                                     fireConnectionChangeEvent(true);
                                 }
                             }
-                            //                    } else {
-                            //                        //fireSlimErrorEvent(e.getMessage());
-                            //                    }
-                            //                    } else {
-                            //                        //fireSlimErrorEvent(e.getMessage());
-                            //                    }
                         }
                     }
                 } catch (IOException ex) {

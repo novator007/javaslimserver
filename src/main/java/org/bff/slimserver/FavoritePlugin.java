@@ -4,23 +4,23 @@
  */
 package org.bff.slimserver;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Properties;
-
 import org.apache.log4j.Logger;
 import org.bff.slimserver.domain.Playable;
+import org.bff.slimserver.domain.favorite.Favorite;
+import org.bff.slimserver.domain.favorite.FavoriteAudioDetails;
 import org.bff.slimserver.events.FavoriteChangeEvent;
 import org.bff.slimserver.events.FavoriteChangeListener;
 import org.bff.slimserver.events.PlaylistChangeListener;
 import org.bff.slimserver.exception.NetworkException;
 import org.bff.slimserver.exception.ResponseException;
 import org.bff.slimserver.exception.SqueezeException;
-import org.bff.slimserver.domain.favorite.Favorite;
-import org.bff.slimserver.domain.favorite.FavoriteAudioDetails;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Properties;
 
 /**
  * @author bfindeisen

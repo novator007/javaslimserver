@@ -4,7 +4,7 @@
  */
 package org.bff.slimserver.domain;
 
-import org.bff.slimserver.*;
+import org.bff.slimserver.SqueezeServer;
 
 import java.util.Collection;
 

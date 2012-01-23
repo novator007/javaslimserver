@@ -1,13 +1,13 @@
 package org.bff.slimserver.monitor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.bff.slimserver.SqueezeServer;
 import org.bff.slimserver.events.ConnectionChangeEvent;
 import org.bff.slimserver.events.ConnectionChangeListener;
 import org.bff.slimserver.events.TrackPositionChangeEvent;
 import org.bff.slimserver.events.TrackPositionChangeListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * EventMonitor is the abstract base class for all event monitors.

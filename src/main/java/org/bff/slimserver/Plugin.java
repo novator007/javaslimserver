@@ -6,9 +6,9 @@
 package org.bff.slimserver;
 
 import org.apache.log4j.Logger;
-import org.bff.slimserver.exception.NetworkException;
 import org.bff.slimserver.domain.XMLBrowserAudioDetails;
 import org.bff.slimserver.domain.XMLPluginItem;
+import org.bff.slimserver.exception.NetworkException;
 
 import java.net.MalformedURLException;
 import java.net.URL;

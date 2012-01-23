@@ -4,14 +4,14 @@
  */
 package org.bff.slimserver;
 
-import org.bff.slimserver.events.FavoriteChangeEvent;
-import org.bff.slimserver.events.FavoriteChangeListener;
-import org.bff.slimserver.exception.DatabaseException;
-import org.bff.slimserver.exception.SqueezeException;
 import org.bff.slimserver.domain.Artist;
 import org.bff.slimserver.domain.Song;
 import org.bff.slimserver.domain.favorite.Favorite;
 import org.bff.slimserver.domain.favorite.FavoriteAudioDetails;
+import org.bff.slimserver.events.FavoriteChangeEvent;
+import org.bff.slimserver.events.FavoriteChangeListener;
+import org.bff.slimserver.exception.DatabaseException;
+import org.bff.slimserver.exception.SqueezeException;
 import org.junit.*;
 
 import java.util.ArrayList;
@@ -31,9 +31,9 @@ public class FavoritePluginTest extends Base {
 
     public FavoritePluginTest() throws DatabaseException {
         if (testArtist == null) {
-            testArtist = new ArrayList<Artist>(getDATABASE().getArtists()).get(0);
-            testArtist2 = new ArrayList<Artist>(getDATABASE().getArtists()).get(1);
-            testSong = new ArrayList<Song>(getDATABASE().listSongsForArtist(testArtist)).get(0);
+            testArtist = new ArrayList<Artist>(getDatabase().getArtists()).get(0);
+            testArtist2 = new ArrayList<Artist>(getDatabase().getArtists()).get(1);
+            testSong = new ArrayList<Song>(getDatabase().listSongsForArtist(testArtist)).get(0);
         }
     }
 
@@ -47,7 +47,7 @@ public class FavoritePluginTest extends Base {
 
     @Before
     public void setUp() throws SqueezeException {
-        getFAVORITE_PLUGIN().clearFavorites();
+        getFavoritePlugin().clearFavorites();
     }
 
     @After
@@ -67,7 +67,7 @@ public class FavoritePluginTest extends Base {
                 //throw new UnsupportedOperationException("Not supported yet.");
             }
         };
-        FavoritePlugin instance = getFAVORITE_PLUGIN();
+        FavoritePlugin instance = getFavoritePlugin();
         instance.addFavoriteChangeListener(listener);
     }
 
@@ -83,7 +83,7 @@ public class FavoritePluginTest extends Base {
                 //throw new UnsupportedOperationException("Not supported yet.");
             }
         };
-        FavoritePlugin instance = getFAVORITE_PLUGIN();
+        FavoritePlugin instance = getFavoritePlugin();
         instance.addFavoriteChangeListener(listener);
         instance.removeFavoriteChangeListener(listener);
     }
@@ -93,26 +93,26 @@ public class FavoritePluginTest extends Base {
      */
     @Test
     public void testIsFavorite() throws Exception {
-        getFAVORITE_PLUGIN().addFavorite(getTestArtist());
+        getFavoritePlugin().addFavorite(getTestArtist());
 
-        Assert.assertTrue(getFAVORITE_PLUGIN().isFavorite(getTestArtist().getUrl()));
+        Assert.assertTrue(getFavoritePlugin().isFavorite(getTestArtist().getUrl()));
     }
 
     @Test
     public void testClearFavorites() throws Exception {
 
-        List<Artist> artists = new ArrayList<Artist>(getDATABASE().getArtists());
+        List<Artist> artists = new ArrayList<Artist>(getDatabase().getArtists());
         for (Artist artist : artists) {
-            getFAVORITE_PLUGIN().addFavorite(artist);
+            getFavoritePlugin().addFavorite(artist);
         }
 
-        if (getFAVORITE_PLUGIN().getCount() != artists.size()) {
+        if (getFavoritePlugin().getCount() != artists.size()) {
             fail("Problem adding items to favorites");
         }
 
-        getFAVORITE_PLUGIN().clearFavorites();
+        getFavoritePlugin().clearFavorites();
 
-        Assert.assertTrue(getFAVORITE_PLUGIN().getFavorites().isEmpty());
+        Assert.assertTrue(getFavoritePlugin().getFavorites().isEmpty());
     }
 
     /**
@@ -120,9 +120,9 @@ public class FavoritePluginTest extends Base {
      */
     @Test
     public void testGetFavoriteAudioDetails() throws Exception {
-        getFAVORITE_PLUGIN().addFavorite(getTestSong());
-        Favorite favorite = new ArrayList<Favorite>(getFAVORITE_PLUGIN().getFavorites()).get(0);
-        FavoriteAudioDetails details = getFAVORITE_PLUGIN().getFavoriteAudioDetails(favorite);
+        getFavoritePlugin().addFavorite(getTestSong());
+        Favorite favorite = new ArrayList<Favorite>(getFavoritePlugin().getFavorites()).get(0);
+        FavoriteAudioDetails details = getFavoritePlugin().getFavoriteAudioDetails(favorite);
 
         assertEquals(details.isAudio(), true);
         assertEquals(details.getTitle(), getTestSong().getTitle());
@@ -134,13 +134,13 @@ public class FavoritePluginTest extends Base {
      */
     @Test
     public void testGetFavorites_0args() throws Exception {
-        List<Artist> artists = new ArrayList<Artist>(getDATABASE().getArtists());
+        List<Artist> artists = new ArrayList<Artist>(getDatabase().getArtists());
         for (Artist artist : artists) {
-            getFAVORITE_PLUGIN().addFavorite(artist);
+            getFavoritePlugin().addFavorite(artist);
         }
 
         boolean success = false;
-        for (Favorite fav : getFAVORITE_PLUGIN().getFavorites()) {
+        for (Favorite fav : getFavoritePlugin().getFavorites()) {
             for (Artist artist : artists) {
                 if (fav.getName().equals(artist.getName())) {
                     success = true;
@@ -158,7 +158,7 @@ public class FavoritePluginTest extends Base {
      //System.out.println("getFavorites");
      String testFolder = "TestFolder";
 
-     getFAVORITE_PLUGIN().addFolder(testFolder);
+     getFavoritePlugin().addFolder(testFolder);
 
      Favorite favorite = null;
      FavoritePlugin instance = null;
@@ -176,12 +176,12 @@ public class FavoritePluginTest extends Base {
     public void testGetFavoritesCount() throws Exception {
         //System.out.println("getFavoritesCount");
 
-        List<Artist> artists = new ArrayList<Artist>(getDATABASE().getArtists());
+        List<Artist> artists = new ArrayList<Artist>(getDatabase().getArtists());
         for (Artist artist : artists) {
-            getFAVORITE_PLUGIN().addFavorite(artist);
+            getFavoritePlugin().addFavorite(artist);
         }
 
-        assertEquals(getFAVORITE_PLUGIN().getCount(), artists.size());
+        assertEquals(getFavoritePlugin().getCount(), artists.size());
     }
 
     /**
@@ -190,7 +190,7 @@ public class FavoritePluginTest extends Base {
     @Test
     public void testGetCommand() {
         //System.out.println("getCommand");
-        assertEquals(getFAVORITE_PLUGIN().getCommand(), FAV_COMMAND);
+        assertEquals(getFavoritePlugin().getCommand(), FAV_COMMAND);
     }
 
     /**
@@ -199,7 +199,7 @@ public class FavoritePluginTest extends Base {
     @Test
     public void testAddFolder() throws Exception {
         String testFolder = "TestFolder";
-        getFAVORITE_PLUGIN().addFolder(testFolder);
+        getFavoritePlugin().addFolder(testFolder);
         Assert.assertTrue(checkFavExists(testFolder));
     }
 
@@ -208,13 +208,13 @@ public class FavoritePluginTest extends Base {
     public void testAddFavoriteToFolder() throws Exception {
     String testFolder = "TestFolder";
 
-    getFAVORITE_PLUGIN().addFolder(testFolder);
-    Favorite folder = new ArrayList<Favorite>(getFAVORITE_PLUGIN().getFavorites()).get(0);
-    getFAVORITE_PLUGIN().addFavorite(getTestArtist2());
-    getFAVORITE_PLUGIN().addFavoriteToFolder(getTestArtist(), folder);
-    getFAVORITE_PLUGIN().addFavoriteToFolder(getTestArtist2(), folder);
+    getFavoritePlugin().addFolder(testFolder);
+    Favorite folder = new ArrayList<Favorite>(getFavoritePlugin().getFavorites()).get(0);
+    getFavoritePlugin().addFavorite(getTestArtist2());
+    getFavoritePlugin().addFavoriteToFolder(getTestArtist(), folder);
+    getFavoritePlugin().addFavoriteToFolder(getTestArtist2(), folder);
 
-    getFAVORITE_PLUGIN().loadFavorite(folder);
+    getFavoritePlugin().loadFavorite(folder);
 
     Assert.assertTrue(folder.getXmlItems().size() == 2);
     }    
@@ -224,12 +224,12 @@ public class FavoritePluginTest extends Base {
     public void testLoadFavorite() throws Exception {
     String testFolder = "TestFolder";
 
-    getFAVORITE_PLUGIN().addFolder(testFolder);
-    Favorite folder = new ArrayList<Favorite>(getFAVORITE_PLUGIN().getFavorites()).get(0);
-    getFAVORITE_PLUGIN().addFavoriteToFolder(getTestArtist(), folder);
-    getFAVORITE_PLUGIN().addFavoriteToFolder(getTestArtist2(), folder);
+    getFavoritePlugin().addFolder(testFolder);
+    Favorite folder = new ArrayList<Favorite>(getFavoritePlugin().getFavorites()).get(0);
+    getFavoritePlugin().addFavoriteToFolder(getTestArtist(), folder);
+    getFavoritePlugin().addFavoriteToFolder(getTestArtist2(), folder);
 
-    getFAVORITE_PLUGIN().loadFavorite(folder);
+    getFavoritePlugin().loadFavorite(folder);
 
     Assert.assertTrue(folder.getXmlItems().size() == 2);
     }
@@ -243,7 +243,7 @@ public class FavoritePluginTest extends Base {
         //System.out.println("addFavorite");
         String title = "TestTitle";
         String url = getTestArtist().getUrl();
-        getFAVORITE_PLUGIN().addFavorite(title, url);
+        getFavoritePlugin().addFavorite(title, url);
 
         Assert.assertTrue(checkFavExists(title));
     }
@@ -253,7 +253,7 @@ public class FavoritePluginTest extends Base {
      */
     @Test
     public void testAddFavorite_SlimPlayableObject() throws Exception {
-        getFAVORITE_PLUGIN().addFavorite(getTestArtist());
+        getFavoritePlugin().addFavorite(getTestArtist());
 
         Assert.assertTrue(checkFavExists(getTestArtist().getName()));
     }
@@ -264,10 +264,10 @@ public class FavoritePluginTest extends Base {
     @Test
     public void testDeleteFavorite() throws Exception {
         //System.out.println("deleteFavorite");
-        getFAVORITE_PLUGIN().addFavorite(testArtist);
-        assertEquals(1, getFAVORITE_PLUGIN().getCount());
-        getFAVORITE_PLUGIN().deleteFavorite(new ArrayList<Favorite>(getFAVORITE_PLUGIN().getFavorites()).get(0));
-        assertEquals(0, getFAVORITE_PLUGIN().getCount());
+        getFavoritePlugin().addFavorite(testArtist);
+        assertEquals(1, getFavoritePlugin().getCount());
+        getFavoritePlugin().deleteFavorite(new ArrayList<Favorite>(getFavoritePlugin().getFavorites()).get(0));
+        assertEquals(0, getFavoritePlugin().getCount());
     }
 
     /**
@@ -277,9 +277,9 @@ public class FavoritePluginTest extends Base {
     public void testRenameFavorite() throws Exception {
         //System.out.println("renameFavorite");
         String newName = "NEW_NAME";
-        getFAVORITE_PLUGIN().addFavorite(testArtist);
-        getFAVORITE_PLUGIN().renameFavorite(new ArrayList<Favorite>(getFAVORITE_PLUGIN().getFavorites()).get(0), newName);
-        assertEquals(new ArrayList<Favorite>(getFAVORITE_PLUGIN().getFavorites()).get(0).getName(), newName);
+        getFavoritePlugin().addFavorite(testArtist);
+        getFavoritePlugin().renameFavorite(new ArrayList<Favorite>(getFavoritePlugin().getFavorites()).get(0), newName);
+        assertEquals(new ArrayList<Favorite>(getFavoritePlugin().getFavorites()).get(0).getName(), newName);
     }
 
     /**
@@ -288,24 +288,24 @@ public class FavoritePluginTest extends Base {
     @Test
     public void testMoveFavorite() throws Exception {
         //System.out.println("moveFavorite");
-        List<Artist> artists = new ArrayList<Artist>(getDATABASE().getArtists());
+        List<Artist> artists = new ArrayList<Artist>(getDatabase().getArtists());
         for (Artist artist : artists) {
-            getFAVORITE_PLUGIN().addFavorite(artist);
+            getFavoritePlugin().addFavorite(artist);
         }
 
-        List<Favorite> favorites = new ArrayList<Favorite>(getFAVORITE_PLUGIN().getFavorites());
+        List<Favorite> favorites = new ArrayList<Favorite>(getFavoritePlugin().getFavorites());
         Favorite fromFavorite = favorites.get(0);
         Favorite toFavorite = favorites.get(1);
 
-        getFAVORITE_PLUGIN().moveFavorite(fromFavorite, toFavorite);
+        getFavoritePlugin().moveFavorite(fromFavorite, toFavorite);
 
-        List<Favorite> favorites2 = new ArrayList<Favorite>(getFAVORITE_PLUGIN().getFavorites());
+        List<Favorite> favorites2 = new ArrayList<Favorite>(getFavoritePlugin().getFavorites());
         assertEquals(toFavorite.getName(), favorites2.get(0).getName());
         assertEquals(fromFavorite.getName(), favorites2.get(1).getName());
     }
 
     private boolean checkFavExists(String name) throws SqueezeException {
-        List<Favorite> favs = new ArrayList<Favorite>(getFAVORITE_PLUGIN().getFavorites());
+        List<Favorite> favs = new ArrayList<Favorite>(getFavoritePlugin().getFavorites());
 
         for (Favorite fav : favs) {
             if (fav.getName().equals(name)) {

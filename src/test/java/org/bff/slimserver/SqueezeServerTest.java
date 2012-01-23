@@ -38,7 +38,7 @@ public class SqueezeServerTest {
     }
 
     @Test
-    public void testVersion() {
+    public void testVersion() throws ConnectionException {
         Assert.assertEquals(Controller.getVersion(), getSqueezeServer().getVersion());
     }
 

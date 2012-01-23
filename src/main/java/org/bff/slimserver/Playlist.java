@@ -8,11 +8,11 @@
  */
 package org.bff.slimserver;
 
+import org.bff.slimserver.domain.*;
 import org.bff.slimserver.events.PlaylistChangeEvent;
 import org.bff.slimserver.events.PlaylistChangeListener;
 import org.bff.slimserver.exception.ConnectionException;
 import org.bff.slimserver.exception.SqueezeException;
-import org.bff.slimserver.domain.*;
 
 import java.util.*;
 

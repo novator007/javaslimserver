@@ -8,14 +8,14 @@
  */
 package org.bff.slimserver;
 
+import org.apache.log4j.Logger;
+import org.bff.slimserver.domain.Folder;
+import org.bff.slimserver.exception.ResponseException;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Properties;
-
-import org.apache.log4j.Logger;
-import org.bff.slimserver.exception.ResponseException;
-import org.bff.slimserver.domain.Folder;
 
 /**
  * Represents the current playlist of the SqueezeServer

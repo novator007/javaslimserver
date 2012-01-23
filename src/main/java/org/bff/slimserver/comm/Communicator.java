@@ -21,8 +21,6 @@ public interface Communicator {
 
     public boolean isConnected();
 
-    public String getVersion();
-
     public String getEncoding();
 
 }

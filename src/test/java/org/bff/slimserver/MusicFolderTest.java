@@ -37,7 +37,7 @@ public class MusicFolderTest extends Base {
 
     @Test
     public void testAllFolders() throws SqueezeException {
-        List<Folder> folders = new ArrayList<Folder>(getFOLDER_BROWSER().getFolders());
+        List<Folder> folders = new ArrayList<Folder>(getFolderBrowser().getFolders());
 
         for (Folder folder : folders) {
             //System.out.println(folder.getId());

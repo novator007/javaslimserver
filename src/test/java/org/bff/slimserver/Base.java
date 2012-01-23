@@ -4,10 +4,6 @@
  */
 package org.bff.slimserver;
 
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import org.bff.slimserver.exception.SqueezeException;
 import org.bff.slimserver.monitor.EventListener;
 
@@ -16,85 +12,74 @@ import org.bff.slimserver.monitor.EventListener;
  */
 public abstract class Base {
 
-    private static final SqueezeServer SQUEEZE_SERVER = Controller.getInstance().getSqueezeServer();
-    private static final Player PLAYER = new ArrayList<Player>(Controller.getInstance().getSqueezeServer().getSlimPlayers()).get(0);
-    private static final Playlist PLAYLIST = new Playlist(getPLAYER());
-    private static final EventListener LISTENER = new EventListener(PLAYER);
-    private static final Database DATABASE = new Database(getSQUEEZE_SERVER());
-    private static final SavedPlaylistManager SAVED_PLAYLIST_MANAGER = new SavedPlaylistManager(SQUEEZE_SERVER);
-    private static final FavoritePlugin FAVORITE_PLUGIN = new FavoritePlugin(SQUEEZE_SERVER);
-    private static final FolderBrowser FOLDER_BROWSER = new FolderBrowser(getSQUEEZE_SERVER());
-    private static final RadioPlugin radioPlugin = new RadioPlugin(getSQUEEZE_SERVER());
-    ;
-
-    static {
+    public Base() {
         try {
             Controller.getInstance().loadSongs();
-        } catch (SqueezeException ex) {
-            Logger.getLogger(Base.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SqueezeException e) {
+            e.printStackTrace();
         }
     }
 
     /**
      * @return the DATABASE
      */
-    public static Database getDATABASE() {
-        return DATABASE;
+    public static Database getDatabase() {
+        return Controller.getInstance().getDatabase();
     }
 
     /**
      * @return the SQUEEZE_SERVER
      */
-    public static SqueezeServer getSQUEEZE_SERVER() {
-        return SQUEEZE_SERVER;
+    public static SqueezeServer getSqueezeServer() {
+        return Controller.getInstance().getSqueezeServer();
     }
 
     /**
      * @return the PLAYLIST
      */
-    public static Playlist getPLAYLIST() {
-        return PLAYLIST;
+    public static Playlist getPlaylist() {
+        return Controller.getInstance().getPlaylist();
     }
 
     /**
      * @return the LISTENER
      */
-    public static EventListener getLISTENER() {
-        return LISTENER;
+    public static EventListener getListener() {
+        return Controller.getInstance().getListener();
     }
 
     /**
      * @return the SAVED_PLAYLIST_MANAGER
      */
-    public static SavedPlaylistManager getSAVED_PLAYLIST_MANAGER() {
-        return SAVED_PLAYLIST_MANAGER;
+    public static SavedPlaylistManager getSavedPlaylistManager() {
+        return Controller.getInstance().getSavedPlaylistManager();
     }
 
     /**
      * @return the FAVORITE_PLUGIN
      */
-    public static FavoritePlugin getFAVORITE_PLUGIN() {
-        return FAVORITE_PLUGIN;
+    public static FavoritePlugin getFavoritePlugin() {
+        return Controller.getInstance().getFavoritePlugin();
     }
 
     /**
      * @return the PLAYER
      */
-    public static Player getPLAYER() {
-        return PLAYER;
+    public static Player getPlayer() {
+        return Controller.getInstance().getPlayer();
     }
 
     /**
      * @return the FOLDER_BROWSER
      */
-    public static FolderBrowser getFOLDER_BROWSER() {
-        return FOLDER_BROWSER;
+    public static FolderBrowser getFolderBrowser() {
+        return Controller.getInstance().getFolderBrowser();
     }
 
     /**
      * @return the radioPlugin
      */
     public static RadioPlugin getRadioPlugin() {
-        return radioPlugin;
+        return Controller.getInstance().getRadioPlugin();
     }
 }

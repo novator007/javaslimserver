@@ -4,15 +4,15 @@
  */
 package org.bff.slimserver.domain.app;
 
-import java.awt.Image;
+import org.bff.slimserver.domain.Album;
+import org.bff.slimserver.domain.Genre;
+import org.bff.slimserver.domain.XMLPlugin;
+
+import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import org.bff.slimserver.domain.Album;
-import org.bff.slimserver.domain.Genre;
-import org.bff.slimserver.domain.XMLPlugin;
 
 /**
  * @author bfindeisen

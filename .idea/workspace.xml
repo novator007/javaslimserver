@@ -2,15 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f39bfe5-775b-45e2-84a0-e1f96f62cf26" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/FavoriteItem.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/App.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPlugin.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppItem.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPluginItem.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/Radio.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPlugin.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioItem.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPluginItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/capture/CaptureSqueezeCenter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/mock/MockEventListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/mock/MockSqueezeServer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/Database.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/Database.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/Discoverer.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/Discoverer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/FavoritePlugin.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/FavoritePlugin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/Favorite.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/Favorite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/FolderBrowser.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/FolderBrowser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/Player.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/Playlist.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/Playlist.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/Plugin.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/Plugin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SavedPlaylistManager.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SavedPlaylistManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SearchResult.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SearchResult.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SqueezeServer.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SqueezeServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/comm/Communicator.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/comm/Communicator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/comm/CommunicatorCLI.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/comm/CommunicatorCLI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/Folder.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/Folder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/Playable.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/Playable.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/PlayableItem.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/PlayableItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/PodcastAudioDetails.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/PodcastAudioDetails.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/SavedPlaylist.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/SavedPlaylist.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppAudioDetails.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppAudioDetails.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPlugin.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPlugin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPluginItem.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPluginItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AvailableApp.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AvailableApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/AvailableRadio.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/AvailableRadio.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPlugin.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPlugin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPluginItem.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPluginItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/PlaylistChangeEvent.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/PlaylistChangeEvent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/SavedPlaylistChangeEvent.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/events/SavedPlaylistChangeEvent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/monitor/EventListener.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/monitor/EventListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/monitor/EventMonitor.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/monitor/EventMonitor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/monitor/StandAloneMonitor.java" afterPath="$PROJECT_DIR$/src/main/java/org/bff/slimserver/monitor/StandAloneMonitor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/JSONObject.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/JSONObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/json/Test.java" afterPath="$PROJECT_DIR$/src/main/java/org/json/Test.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/TestProperties.properties" afterPath="$PROJECT_DIR$/src/test/java/TestProperties.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/Base.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/Base.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/Controller.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/DatabaseTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/DatabaseTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/DiscovererTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/DiscovererTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/EventListenerTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/EventListenerTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/FavoritePluginTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/FavoritePluginTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/MusicFolderTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/MusicFolderTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/PlaylistTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/PlaylistTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SavedPlaylistManagerTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SavedPlaylistManagerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SlimFavoriteEventListenerTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SlimFavoriteEventListenerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SqueezeServerTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SqueezeServerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Albums.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Albums.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Artists.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Artists.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Genres.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Genres.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Songs.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Songs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Years.java" afterPath="$PROJECT_DIR$/src/test/java/org/bff/slimserver/test/data/Years.java" />
     </list>
     <ignored path="javaslimserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,6 +76,34 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <line_breakpoints>
+      <breakpoint url="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/SavedPlaylistManagerTest.java" line="41" class="org.bff.slimserver.SavedPlaylistManagerTest" package="org.bff.slimserver">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/SavedPlaylistManager.java" line="241" class="org.bff.slimserver.SavedPlaylistManager" package="org.bff.slimserver">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -46,8 +117,8 @@
         <option name="CONDITION_ENABLED" value="false" />
         <option name="CLASS_FILTERS_ENABLED" value="false" />
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -61,86 +132,129 @@
         <option name="CONDITION_ENABLED" value="false" />
         <option name="CLASS_FILTERS_ENABLED" value="false" />
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
     <breakpoint_rules />
-    <ui_properties />
+    <ui_properties>
+      <property name="line_breakpoints_groupByMethods" value="false" />
+      <property name="line_breakpoints_viewId" value="TABLE" />
+      <property name="exception_breakpoints_flattenPackages" value="true" />
+      <property name="method_breakpoints_flattenPackages" value="true" />
+      <property name="field_breakpoints_flattenPackages" value="true" />
+      <property name="exception_breakpoints_groupByMethods" value="false" />
+      <property name="line_breakpoints_groupByClasses" value="true" />
+      <property name="method_breakpoints_viewId" value="TABLE" />
+      <property name="field_breakpoints_groupByMethods" value="false" />
+      <property name="line_breakpoints_flattenPackages" value="true" />
+      <property name="field_breakpoints_groupByClasses" value="true" />
+      <property name="method_breakpoints_groupByClasses" value="true" />
+      <property name="exception_breakpoints_viewId" value="TABLE" />
+      <property name="field_breakpoints_viewId" value="TABLE" />
+      <property name="exception_breakpoints_groupByClasses" value="true" />
+      <property name="method_breakpoints_groupByMethods" value="false" />
+    </ui_properties>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="javaslimserver" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RadioPluginItem.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPluginItem.java">
+      <file leaf-file-name="Controller.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="13" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0">
+            <state line="122" column="23" selection-start="5078" selection-end="5082" vertical-scroll-proportion="-5.48">
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MockSqueezeServer.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/mock/MockSqueezeServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="47" selection-start="558" selection-end="558" vertical-scroll-proportion="0.6460905">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Favorite.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/Favorite.java">
+      <file leaf-file-name="CaptureSqueezeCenter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/capture/CaptureSqueezeCenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="45" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
+            <state line="35" column="18" selection-start="1223" selection-end="1223" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FavoritePlugin.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/FavoritePlugin.java">
+      <file leaf-file-name="TestProperties.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/TestProperties.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="418" column="63" selection-start="18444" selection-end="18444" vertical-scroll-proportion="0.0">
+            <state line="15" column="9" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SqueezeServerTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/SqueezeServerTest.java">
+      <file leaf-file-name="SavedPlaylistManagerTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/SavedPlaylistManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="19" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0">
+            <state line="41" column="0" selection-start="935" selection-end="935" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SavedPlaylistManager.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/SavedPlaylistManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="249" column="51" selection-start="10296" selection-end="10296" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FavoritePluginTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/FavoritePluginTest.java">
+      <file leaf-file-name="PlaylistTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/PlaylistTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="65" selection-start="2571" selection-end="2571" vertical-scroll-proportion="0.0">
+            <state line="35" column="0" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RadioPlugin.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPlugin.java">
+      <file leaf-file-name="Playlist.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/Playlist.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="32" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0">
+            <state line="738" column="0" selection-start="28643" selection-end="28643" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Command.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/Command.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="0" selection-start="608" selection-end="608" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RadioAudioDetails.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioAudioDetails.java">
+      <file leaf-file-name="Base.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/Base.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="13" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppPlugin.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPlugin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="43" selection-start="576" selection-end="576" vertical-scroll-proportion="0.2769231">
-              <folding />
+            <state line="54" column="0" selection-start="1207" selection-end="1207" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -160,22 +274,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/PodcastItem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/SavedPlaylist.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/PlaylistItem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/Folder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/FolderBrowser.java" />
-        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/MusicFolderTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/AppTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AvailableApp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/Favorite.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/FavoriteItem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/FavoritePlugin.java" />
-        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/FavoritePluginTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/App.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPlugin.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/Radio.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPlugin.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/capture/MockSqueezeServer.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/capture/RecordSqueezeCenter.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/Base.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/mock/MockEventListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/monitor/EventListener.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/EventListenerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/comm/Communicator.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/SqueezeServerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/comm/CommunicatorCLI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SqueezeServer.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/PlaylistTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/TestProperties.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/org/bff/slimserver/SavedPlaylistManager.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/capture/CaptureSqueezeCenter.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/bff/slimserver/mock/MockSqueezeServer.java" />
       </list>
     </option>
   </component>
@@ -218,8 +332,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -270,54 +382,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -345,223 +409,13 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="radio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="favorite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javaslimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slimserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="comm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -739,7 +593,13 @@
       </option>
       <envs />
       <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -761,30 +621,30 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1440" height="850" extended-state="0" />
+    <frame x="0" y="25" width="1440" height="850" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4409673" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299712" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3998559" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26080692" sideWeight="0.6700143" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.55277777" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26077586" sideWeight="0.44807965" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.55192035" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.58036983" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299712" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -844,86 +704,120 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPluginItem.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/comm/Communicator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="19" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.20827179" />
+        <state line="21" column="33" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/Plugin.java">
+    <entry file="jar:///usr/java/jdk-current/src.zip!/java/lang/StringBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="22" selection-start="544" selection-end="544" vertical-scroll-proportion="0.3276699" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/AppPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="33" selection-start="192" selection-end="192" vertical-scroll-proportion="0.13293944" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/RadioPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="27" selection-start="348" selection-end="348" vertical-scroll-proportion="0.2972561" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/Base.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="25" selection-start="2605" selection-end="2605" vertical-scroll-proportion="0.77134144" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/MusicFolderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="18" selection-start="749" selection-end="749" vertical-scroll-proportion="0.49695122" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/FolderBrowser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="70" selection-start="2237" selection-end="2237" vertical-scroll-proportion="0.27432218" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/XMLPluginItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="362" selection-end="362" vertical-scroll-proportion="0.17725259" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPluginItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="13" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/FavoritePlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="418" column="63" selection-start="18444" selection-end="18444" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/SqueezeServerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="19" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/FavoritePluginTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="65" selection-start="2571" selection-end="2571" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="32" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/radio/RadioAudioDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/favorite/Favorite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="45" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
+        <state line="91" column="0" selection-start="3622" selection-end="3622" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/domain/app/AppPlugin.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/comm/CommunicatorCLI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="43" selection-start="576" selection-end="576" vertical-scroll-proportion="0.2769231">
+        <state line="38" column="0" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/SqueezeServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="566" column="0" selection-start="19005" selection-end="19005" vertical-scroll-proportion="-8.4">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/SqueezeServerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="804" selection-end="804" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="23" selection-start="5078" selection-end="5082" vertical-scroll-proportion="-5.48">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/PlaylistTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.5/junit-4.5.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="40" selection-start="397" selection-end="397" vertical-scroll-proportion="0.46728972">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="608" selection-end="608" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/Playlist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="738" column="0" selection-start="28643" selection-end="28643" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestProperties.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="9" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/Base.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="0" selection-start="1207" selection-end="1207" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/SavedPlaylistManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="935" selection-end="935" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/bff/slimserver/SavedPlaylistManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="249" column="51" selection-start="10296" selection-end="10296" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/capture/CaptureSqueezeCenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="18" selection-start="1223" selection-end="1223" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/bff/slimserver/mock/MockSqueezeServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="47" selection-start="558" selection-end="558" vertical-scroll-proportion="0.6460905">
           <folding />
         </state>
       </provider>

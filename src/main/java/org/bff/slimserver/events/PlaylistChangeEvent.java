@@ -9,12 +9,12 @@
  */
 package org.bff.slimserver.events;
 
+import org.bff.slimserver.domain.Playable;
+import org.bff.slimserver.domain.PlaylistItem;
+
 import java.util.Collection;
 import java.util.EventObject;
 import java.util.List;
-
-import org.bff.slimserver.domain.Playable;
-import org.bff.slimserver.domain.PlaylistItem;
 
 /**
  * Represents a change in the status of a Slim Server playlist.

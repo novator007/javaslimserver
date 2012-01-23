@@ -4,12 +4,12 @@
  */
 package org.bff.slimserver.test.data;
 
+import org.bff.slimserver.domain.Album;
+import org.bff.slimserver.domain.Genre;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
-
-import org.bff.slimserver.domain.Album;
-import org.bff.slimserver.domain.Genre;
 
 /**
  * @author bfindeisen

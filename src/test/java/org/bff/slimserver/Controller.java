@@ -4,9 +4,13 @@
  */
 package org.bff.slimserver;
 
+import org.bff.slimserver.capture.CaptureSqueezeCenter;
+import org.bff.slimserver.domain.*;
 import org.bff.slimserver.exception.ConnectionException;
 import org.bff.slimserver.exception.SqueezeException;
-import org.bff.slimserver.domain.*;
+import org.bff.slimserver.mock.MockEventListener;
+import org.bff.slimserver.mock.MockSqueezeServer;
+import org.bff.slimserver.monitor.EventListener;
 import org.bff.slimserver.test.data.*;
 import org.junit.Assert;
 
@@ -35,12 +39,21 @@ public class Controller {
     public static final String FILE_PROPS = System.getProperty("user.dir") + "/src/test/java/TestProperties.properties";
     private static final String URL_PREFIX = "file://";
     private static final String PROP_VERSION = "slim.version";
+    private static final String PROP_MOCK = "mock";
+    private static final String PROP_CAPTURE = "capture";
     private String path;
     private String server;
+    private RadioPlugin radioPlugin;
+    private FavoritePlugin favoritePlugin;
+    private SavedPlaylistManager savedPlaylistManager;
+    private Playlist playlist;
+    private EventListener listener;
     private int webPort;
     private int cliPort;
     private String mp3Path;
     private String mp3Path2;
+    private boolean mock;
+    private boolean capture;
     private static Controller instance;
     private static final int INDEX_ARTIST = 0;
     private static final int INDEX_ALBUM = 1;
@@ -63,6 +76,7 @@ public class Controller {
     private static final String NULL_DISC_NUM = "";
     private SqueezeServer squeezeServer;
     private Database database;
+    private FolderBrowser folderBrowser;
     private List<Artist> databaseArtists;
     private List<PlayableItem> databaseSongs;
     private HashMap<Artist, Collection<Song>> artistSongMap = new HashMap<Artist, Collection<Song>>();
@@ -95,6 +109,8 @@ public class Controller {
             setMp3Path(props.getProperty(PROP_MP3_PATH));
             setMp3Path2(props.getProperty(PROP_MP3_PATH_2));
             version = props.getProperty(PROP_VERSION);
+            setMock(Boolean.parseBoolean(props.getProperty(PROP_MOCK, "true")));
+            setCapture(Boolean.parseBoolean(props.getProperty(PROP_CAPTURE, "false")));
         } finally {
             in.close();
         }
@@ -121,12 +137,31 @@ public class Controller {
         return null;
     }
 
-    private Controller() throws ConnectionException, IOException, SqueezeException {
+    private Controller() throws ConnectionException, IOException {
         loadProperties();
+        if (isMock()) {
+            setSqueezeServer(new MockSqueezeServer(getServer(), getCliPort(), getWebPort()));
+            setDatabase(new Database(getSqueezeServer()));
+            setPlaylist(new Playlist(getPlayer()));
+            setListener(new MockEventListener(getPlayer()));
+        } else {
+            if (isCapture()) {
+                setSqueezeServer(new CaptureSqueezeCenter(getServer(), getCliPort(), getWebPort()));
+            } else {
+                setSqueezeServer(new SqueezeServer(getServer(), getCliPort(), getWebPort()));
+            }
+            setDatabase(new Database(getSqueezeServer()));
+            setPlaylist(new Playlist(getPlayer()));
+            setListener(new EventListener(getPlayer()));
+        }
 
-        setSqueezeServer(new SqueezeServer(getServer(), getCliPort(), getWebPort()));
-        setDatabase(new Database(getSqueezeServer()));
         setGroupedByDisc(getDatabase().getSqueezeServer().isDiscsGroupedAsSingle());
+        setFolderBrowser(new FolderBrowser(getSqueezeServer()));
+        setRadioPlugin(new RadioPlugin(getSqueezeServer()));
+        setFavoritePlugin(new FavoritePlugin(getSqueezeServer()));
+        setSavedPlaylistManager(new SavedPlaylistManager(getSqueezeServer()));
+
+
     }
 
     public static Controller getInstance() {
@@ -319,10 +354,8 @@ public class Controller {
 
     public void loadSongs() throws SqueezeException {
         if (!songsLoaded) {
-            System.out.println(Calendar.getInstance().getTime() + "Loading");
             songs = new ArrayList<Song>();
             artists = new ArrayList<Artist>();
-//            artists.add()
             albums = new ArrayList<Album>();
             genres = new ArrayList<Genre>();
             years = new ArrayList<String>();
@@ -700,7 +733,7 @@ public class Controller {
         this.databaseSongs = databaseSongs;
     }
 
-    public Player getFirstPlayer() {
+    public Player getPlayer() {
         if (player == null) {
             player = new ArrayList<Player>(getSqueezeServer().getSlimPlayers()).get(0);
         }
@@ -735,5 +768,69 @@ public class Controller {
 
     public void setMp3Path2(String mp3Path2) {
         this.mp3Path2 = mp3Path2;
+    }
+
+    public boolean isMock() {
+        return mock;
+    }
+
+    public void setMock(boolean mock) {
+        this.mock = mock;
+    }
+
+    public FolderBrowser getFolderBrowser() {
+        return folderBrowser;
+    }
+
+    public void setFolderBrowser(FolderBrowser folderBrowser) {
+        this.folderBrowser = folderBrowser;
+    }
+
+    public RadioPlugin getRadioPlugin() {
+        return radioPlugin;
+    }
+
+    public void setRadioPlugin(RadioPlugin radioPlugin) {
+        this.radioPlugin = radioPlugin;
+    }
+
+    public FavoritePlugin getFavoritePlugin() {
+        return favoritePlugin;
+    }
+
+    public void setFavoritePlugin(FavoritePlugin favoritePlugin) {
+        this.favoritePlugin = favoritePlugin;
+    }
+
+    public SavedPlaylistManager getSavedPlaylistManager() {
+        return savedPlaylistManager;
+    }
+
+    public void setSavedPlaylistManager(SavedPlaylistManager savedPlaylistManager) {
+        this.savedPlaylistManager = savedPlaylistManager;
+    }
+
+    public Playlist getPlaylist() {
+        return playlist;
+    }
+
+    public void setPlaylist(Playlist playlist) {
+        this.playlist = playlist;
+    }
+
+    public EventListener getListener() {
+        return listener;
+    }
+
+    public void setListener(EventListener listener) {
+        this.listener = listener;
+    }
+
+    public boolean isCapture() {
+        return capture;
+    }
+
+    public void setCapture(boolean capture) {
+        this.capture = capture;
     }
 }

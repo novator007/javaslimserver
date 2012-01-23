@@ -9,9 +9,9 @@
  */
 package org.bff.slimserver.events;
 
-import java.util.EventObject;
-
 import org.bff.slimserver.domain.SavedPlaylist;
+
+import java.util.EventObject;
 
 /**
  * Represents a change in the status of a Slim Server playlist.

@@ -4,11 +4,7 @@
  */
 package org.bff.slimserver;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Properties;
-
+import org.bff.slimserver.domain.*;
 import org.bff.slimserver.events.PlaylistChangeEvent;
 import org.bff.slimserver.events.PlaylistChangeListener;
 import org.bff.slimserver.events.SavedPlaylistChangeEvent;
@@ -16,8 +12,11 @@ import org.bff.slimserver.events.SavedPlaylistChangeListener;
 import org.bff.slimserver.exception.ConnectionException;
 import org.bff.slimserver.exception.DatabaseException;
 import org.bff.slimserver.exception.SqueezeException;
-import org.bff.slimserver.domain.*;
-import org.bff.slimserver.domain.PlayableItem;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Properties;
 
 /**
  * Class used to add, delete, and manipulate saved playlists.
@@ -248,7 +247,7 @@ public class SavedPlaylistManager {
 
         String[] response = getSqueezeServer().sendCommand(command);
 
-        if (response != null) {
+        if (response != null && response[0] != null) {
             for (int i = 0; i < response.length; i++) {
                 if (response[i].startsWith(PREFIX_PLAYLIST_OVERWRRITEN_ID)) {
                     throw new DatabaseException("Playlist already exists.");

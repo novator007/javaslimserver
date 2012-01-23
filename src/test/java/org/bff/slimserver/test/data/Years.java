@@ -4,10 +4,10 @@
  */
 package org.bff.slimserver.test.data;
 
+import org.bff.slimserver.domain.Album;
+
 import java.util.Collection;
 import java.util.HashMap;
-
-import org.bff.slimserver.domain.Album;
 
 /**
  * @author bill

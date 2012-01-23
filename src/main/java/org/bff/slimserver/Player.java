@@ -1,18 +1,18 @@
 package org.bff.slimserver;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import org.bff.slimserver.events.PlayerChangeEvent;
 import org.bff.slimserver.events.PlayerChangeListener;
 import org.bff.slimserver.events.VolumeChangeEvent;
 import org.bff.slimserver.events.VolumeChangeListener;
 import org.bff.slimserver.exception.ConnectionException;
 import org.bff.slimserver.exception.PlayerException;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Represents a player

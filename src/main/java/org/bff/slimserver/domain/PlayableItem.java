@@ -1,14 +1,14 @@
 package org.bff.slimserver.domain;
 
-import java.awt.Image;
+import org.bff.slimserver.domain.radio.AvailableRadio;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-
-import org.bff.slimserver.domain.radio.AvailableRadio;
 
 /**
  * Represents a item in a SqueezeCenter

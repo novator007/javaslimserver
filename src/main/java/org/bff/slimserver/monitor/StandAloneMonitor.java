@@ -1,17 +1,17 @@
 package org.bff.slimserver.monitor;
 
+import org.bff.slimserver.Player;
+import org.bff.slimserver.events.ErrorEvent;
+import org.bff.slimserver.events.ErrorListener;
+import org.bff.slimserver.exception.ConnectionException;
+import org.bff.slimserver.exception.SqueezeException;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import org.bff.slimserver.Player;
-import org.bff.slimserver.events.ErrorEvent;
-import org.bff.slimserver.events.ErrorListener;
-import org.bff.slimserver.exception.ConnectionException;
-import org.bff.slimserver.exception.SqueezeException;
 
 /**
  * StandAloneMonitor monitors a SqueezeServer connection by querying the status and

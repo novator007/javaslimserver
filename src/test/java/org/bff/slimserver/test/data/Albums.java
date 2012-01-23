@@ -4,9 +4,9 @@
  */
 package org.bff.slimserver.test.data;
 
-import java.util.List;
-
 import org.bff.slimserver.domain.Album;
+
+import java.util.List;
 
 /**
  * @author bfindeisen

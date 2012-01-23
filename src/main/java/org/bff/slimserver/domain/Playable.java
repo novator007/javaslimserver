@@ -4,7 +4,7 @@
  */
 package org.bff.slimserver.domain;
 
-import java.awt.Image;
+import java.awt.*;
 import java.net.URL;
 
 /**

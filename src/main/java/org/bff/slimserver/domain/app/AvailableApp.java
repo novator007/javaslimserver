@@ -6,13 +6,11 @@ package org.bff.slimserver.domain.app;
 
 import org.bff.slimserver.domain.PlayableItem;
 
+import javax.swing.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 /**
  * @author bfindeisen

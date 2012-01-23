@@ -1,9 +1,9 @@
 package org.bff.slimserver;
 
 import org.apache.log4j.Logger;
+import org.bff.slimserver.domain.*;
 import org.bff.slimserver.exception.DatabaseException;
 import org.bff.slimserver.exception.SqueezeException;
-import org.bff.slimserver.domain.*;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -8,21 +8,19 @@
  */
 package org.bff.slimserver;
 
+import org.bff.slimserver.comm.Communicator;
+import org.bff.slimserver.comm.CommunicatorCLI;
+import org.bff.slimserver.domain.*;
+import org.bff.slimserver.exception.ConnectionException;
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.InetAddress;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import org.bff.slimserver.comm.Communicator;
-import org.bff.slimserver.comm.CommunicatorCLI;
-import org.bff.slimserver.exception.ConnectionException;
-import org.bff.slimserver.domain.*;
-import org.bff.slimserver.domain.Album;
-
-import java.io.InputStream;
-import java.net.InetAddress;
-import java.net.URL;
 
 /**
  * Represents the main communication object for all slimserver activities.
@@ -51,6 +49,7 @@ public class SqueezeServer {
     private static String CMD_SYNC_GROUPS;
     private static String CMD_PLAYER_COUNT;
     private static String CMD_PLAYER_QUERY;
+    private static String CMD_VERSION;
     /**
      * Command to listen on a slim connection
      */
@@ -95,9 +94,14 @@ public class SqueezeServer {
     private static final String RESULT_GROUP_MULTIPLE = Constants.RESULT_GROUP_MULTIPLE;
 
     private Communicator communicator;
+    private String version;
 
     static {
         loadProperties();
+    }
+
+    protected SqueezeServer() {
+
     }
 
     /**
@@ -134,6 +138,7 @@ public class SqueezeServer {
             this.webPort = webPort;
             this.server = server;
             this.communicator = new CommunicatorCLI(server, cliPort, user, password);
+
         } catch (Exception e) {
             throw new ConnectionException(e);
         }
@@ -160,6 +165,7 @@ public class SqueezeServer {
             CMD_LISTEN = prop.getProperty(Constants.PROP_CMD_LISTEN);
             CMD_SUBSCRIBE = prop.getProperty(Constants.PROP_CMD_SUBSCRIBE);
             CMD_SYNC_GROUPS = prop.getProperty(Constants.PROP_CMD_SYNC_GROUPS);
+            CMD_VERSION = prop.getProperty(Constants.PROP_CMD_VERSION);
             encoding = prop.getProperty(Constants.PROP_SERVER_ENCODING, Constants.DEFAULT_ENCODING);
         } catch (Exception e) {
             e.printStackTrace();
@@ -195,7 +201,7 @@ public class SqueezeServer {
 
     /**
      * Returns the raw disc grouping as returned by SqueezeServer.  Check out the
-     * convenience method #{@link isDiscGroupedAsSingle}.
+     * convenience method {@link #isDiscsGroupedAsSingle}.
      *
      * @return 1 if discs are grouped as a singe disc, 0 if multiple
      */
@@ -496,7 +502,7 @@ public class SqueezeServer {
         if (item.getImageUrl() == null) {
             try {
                 String url = Constants.IMAGE_URL;
-                url = url.replaceFirst(Constants.IMAGE_SERVER, getServer());
+                url = url.replaceFirst(Constants.IMAGE_SERVER, getServer() == null ? "" : getServer());
                 url = url.replaceFirst(Constants.IMAGE_PORT, Integer.toString(getWebPort()));
                 if (item instanceof Album && album.getArtworkTrackId() != null) {
                     url = url.replaceFirst(Constants.IMAGE_ID, album.getArtworkTrackId());
@@ -557,8 +563,8 @@ public class SqueezeServer {
         return (player);
     }
 
-    public String getVersion() {
-        return getCommunicator().getVersion();
+    public String getVersion() throws ConnectionException {
+        return sendCommand(new Command(CMD_VERSION))[0];
     }
 
     /**
@@ -613,5 +619,9 @@ public class SqueezeServer {
      */
     public int getServerPort() {
         return serverPort;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 }

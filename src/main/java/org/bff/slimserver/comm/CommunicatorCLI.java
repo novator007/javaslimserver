@@ -4,11 +4,13 @@
  */
 package org.bff.slimserver.comm;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import org.bff.slimserver.Command;
+import org.bff.slimserver.Constants;
+import org.bff.slimserver.SqueezeServer;
+import org.bff.slimserver.Utils;
+import org.bff.slimserver.exception.ConnectionException;
+
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -16,12 +18,6 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import org.bff.slimserver.Command;
-import org.bff.slimserver.Constants;
-import org.bff.slimserver.SqueezeServer;
-import org.bff.slimserver.Utils;
-import org.bff.slimserver.exception.ConnectionException;
 
 /**
  * @author bfindeisen
@@ -31,7 +27,6 @@ public class CommunicatorCLI implements Communicator {
     private Socket socket;
     private InetAddress serverAddress;
     private int serverPort;
-    private String version;
     private String user;
     private String password;
     private static String encoding;
@@ -54,7 +49,6 @@ public class CommunicatorCLI implements Communicator {
         this.serverPort = cliPort;
         loadProperties();
         connect();
-        this.version = loadVersion();
     }
 
     private synchronized void connect() throws ConnectionException {
@@ -238,7 +232,7 @@ public class CommunicatorCLI implements Communicator {
     }
 
     /**
-     * @param aEncoding the encoding to set
+     * @param serverEncoding the encoding to set
      */
     public static void setEncoding(String serverEncoding) {
         encoding = serverEncoding;
@@ -278,17 +272,5 @@ public class CommunicatorCLI implements Communicator {
         } else {
             return false;
         }
-    }
-
-    private String loadVersion() throws ConnectionException {
-        return sendCommand(new Command(CMD_VERSION))[0];
-    }
-
-    /**
-     * @return the version
-     */
-    @Override
-    public String getVersion() {
-        return version;
     }
 }

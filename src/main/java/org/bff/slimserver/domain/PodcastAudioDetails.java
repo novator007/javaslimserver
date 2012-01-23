@@ -4,12 +4,12 @@
  */
 package org.bff.slimserver.domain;
 
-import java.awt.Image;
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 
 /**
  * @author bfindeisen

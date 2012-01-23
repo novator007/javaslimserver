@@ -4,6 +4,10 @@
  */
 package org.bff.slimserver.domain.app;
 
+import org.bff.slimserver.domain.Album;
+import org.bff.slimserver.domain.Genre;
+
+import javax.swing.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -11,10 +15,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-
-import org.bff.slimserver.domain.Album;
-import org.bff.slimserver.domain.Genre;
 
 /**
  * @author bfindeisen
