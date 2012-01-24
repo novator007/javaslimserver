@@ -68,9 +68,10 @@ public class CaptureSqueezeCenter extends SqueezeServer {
 
         FileWriter fw = null;
         try {
-            fw = new FileWriter(file.getName(), true);
+            fw = new FileWriter(file.getPath(), true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(str + System.getProperty("line.separator"));
+            bw.write(str);
+            bw.newLine();
             bw.close();
         } catch (IOException e) {
             e.printStackTrace();

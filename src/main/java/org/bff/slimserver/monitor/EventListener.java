@@ -25,8 +25,8 @@ import java.util.logging.Logger;
 
 /**
  * The class uses the listen feature of SqueezeServer to receive events and forward
- * them to attached listeners.  The {@link start} method must be called to start listening.
- * Stop the thread gracefull by calling the {@link stop} method.
+ * them to attached listeners.  The {@link #start()} method must be called to start listening.
+ * Stop the thread gracefully by calling the {@link #stop()} method.
  * <p/>
  * <p>
  * Events dispatched from this class:
@@ -153,7 +153,7 @@ public class EventListener extends EventMonitor {
             new ArrayList<FavoriteChangeListener>();
 
     /**
-     * Creates a new EventListener instance.  To activate the listener call the {@link  listen()} method.
+     * Creates a new EventListener instance.  To activate the listener call the {@link  #start()} method.
      *
      * @param player
      * @throws IOException
@@ -195,7 +195,6 @@ public class EventListener extends EventMonitor {
 
     private synchronized void sendCommand(Command command) throws ConnectionException {
         byte[] bytesToSend = null;
-        //List<String> responseList = new ArrayList<String>();
         OutputStream outStream = null;
         BufferedReader in = null;
 
