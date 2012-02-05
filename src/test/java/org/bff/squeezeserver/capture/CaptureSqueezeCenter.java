@@ -1,10 +1,9 @@
-package org.bff.squeezeserver.capture;
+package org.bff.slimserver.capture;
 
-import org.bff.squeezeserver.Command;
-import org.bff.squeezeserver.MockUtils;
-import org.bff.squeezeserver.SqueezeServer;
-import org.bff.squeezeserver.exception.ConnectionException;
-import org.bff.squeezeserver.mock.MockSqueezeServer;
+import org.bff.slimserver.Command;
+import org.bff.slimserver.SqueezeServer;
+import org.bff.slimserver.exception.ConnectionException;
+import org.bff.slimserver.mock.MockSqueezeServer;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -19,10 +18,27 @@ public class CaptureSqueezeCenter extends SqueezeServer {
     }
 
     public String[] sendCommand(String command) throws ConnectionException {
-        writeToFile("Class: " + MockUtils.getClassName());
-        writeToFile("\tCommand: " + command);
+        writeToFile("Command: " + command);
         String[] response = null;
         response = super.sendCommand(command);
+        if (response == null) {
+            writeToFile("\tResponse:null");
+        } else {
+            for (int i = 0; i < response.length; i++) {
+                writeToFile("\tResponse:" + response[i]);
+            }
+        }
+        return response;
+    }
+
+    public String[] sendCommand(Command command) throws ConnectionException {
+        writeToFile("Command: " + command.getCommand());
+        String[] response = null;
+        response = super.sendCommand(command);
+
+        for (String s : command.getParams()) {
+            writeToFile("\tParam:" + s);
+        }
         if (response == null) {
             writeToFile("\t\tResponse:null");
         } else {
@@ -33,29 +49,9 @@ public class CaptureSqueezeCenter extends SqueezeServer {
         return response;
     }
 
-    public String[] sendCommand(Command command) throws ConnectionException {
-        writeToFile("Class: " + MockUtils.getClassName());
-        writeToFile("\tCommand: " + command.getCommand());
-        String[] response = null;
-        response = super.sendCommand(command);
-
-        for (String s : command.getParams()) {
-            writeToFile("\t\tParam:" + s);
-        }
-        if (response == null) {
-            writeToFile("\t\t\tResponse:null");
-        } else {
-            for (int i = 0; i < response.length; i++) {
-                writeToFile("\t\t\tResponse:" + response[i]);
-            }
-        }
-        return response;
-    }
-
     public void sendCommand(String command, String param) throws ConnectionException {
-        writeToFile("Class: " + MockUtils.getClassName());
-        writeToFile("\tCommand: " + command);
-        writeToFile("\t\tParam: " + param);
+        writeToFile("Command: " + command);
+        writeToFile("\tParam: " + param);
         String[] response = null;
         super.sendCommand(command, param);
     }
@@ -72,10 +68,9 @@ public class CaptureSqueezeCenter extends SqueezeServer {
 
         FileWriter fw = null;
         try {
-            fw = new FileWriter(file.getPath(), true);
+            fw = new FileWriter(file.getName(), true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(str);
-            bw.newLine();
+            bw.write(str + System.getProperty("line.separator"));
             bw.close();
         } catch (IOException e) {
             e.printStackTrace();
