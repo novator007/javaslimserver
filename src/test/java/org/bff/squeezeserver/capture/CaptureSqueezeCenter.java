@@ -1,9 +1,9 @@
-package org.bff.slimserver.capture;
+package org.bff.squeezeserver.capture;
 
-import org.bff.slimserver.Command;
-import org.bff.slimserver.SqueezeServer;
-import org.bff.slimserver.exception.ConnectionException;
-import org.bff.slimserver.mock.MockSqueezeServer;
+import org.bff.squeezeserver.Command;
+import org.bff.squeezeserver.SqueezeServer;
+import org.bff.squeezeserver.exception.ConnectionException;
+import org.bff.squeezeserver.mock.MockSqueezeServer;
 
 import java.io.BufferedWriter;
 import java.io.File;

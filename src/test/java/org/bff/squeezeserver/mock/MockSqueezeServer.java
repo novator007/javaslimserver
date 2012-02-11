@@ -1,8 +1,8 @@
-package org.bff.slimserver.mock;
+package org.bff.squeezeserver.mock;
 
-import org.bff.slimserver.Command;
-import org.bff.slimserver.SqueezeServer;
-import org.bff.slimserver.exception.ConnectionException;
+import org.bff.squeezeserver.Command;
+import org.bff.squeezeserver.SqueezeServer;
+import org.bff.squeezeserver.exception.ConnectionException;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -66,10 +66,15 @@ public class MockSqueezeServer extends SqueezeServer {
 
         int i = 0;
         while (i < array.length) {
-            if (array[i].startsWith("Command:")) {
+            if (array[i].startsWith("Class:")) {
                 TestData testData = new TestData();
-                testData.setCommand(array[i].replaceAll("Command:", "").trim());
+                testData.setClassName(array[i].replaceAll("Class:", "").trim());
                 ++i;
+
+                while (array[i].trim().startsWith("Command:")) {
+                    String command = array[i++].replaceAll("Command:", "").trim();
+                    testData.setCommand(command);
+                }
                 while (array[i].trim().startsWith("Param:")) {
                     String param = array[i++].replaceAll("Param:", "").trim();
                     testData.getParams().add(param.equals("null") ? null : param);
@@ -155,6 +160,7 @@ public class MockSqueezeServer extends SqueezeServer {
         private String command;
         private List<String> params;
         private List<String> result;
+        private String className;
 
         public TestData() {
             params = new ArrayList<String>();
@@ -183,6 +189,14 @@ public class MockSqueezeServer extends SqueezeServer {
 
         public void setResult(List<String> result) {
             this.result = result;
+        }
+
+        public String getClassName() {
+            return className;
+        }
+
+        public void setClassName(String className) {
+            this.className = className;
         }
     }
 }
