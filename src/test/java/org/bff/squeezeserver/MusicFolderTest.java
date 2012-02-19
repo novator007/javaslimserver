@@ -40,10 +40,9 @@ public class MusicFolderTest extends Base {
         List<Folder> folders = new ArrayList<Folder>(getFolderBrowser().getFolders());
 
         for (Folder folder : folders) {
-            //System.out.println(folder.getId());
-            //System.out.println(folder.getName());
-            //System.out.println(folder.getFileName());
-            //System.out.println(folder.getObjectType().getDescription());
+            System.out.println(folder.getId());
+            System.out.println("\t" + folder.getFileName());
+            System.out.println("\t" + folder.getFolderType().getDescription());
         }
     }
 

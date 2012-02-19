@@ -72,6 +72,11 @@ public class Folder extends PlayableItem {
     }
 
     @Override
+    public String getName() {
+        return getFileName();
+    }
+
+    @Override
     public boolean isRemote() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -144,5 +149,9 @@ public class Folder extends PlayableItem {
     @Override
     public String getType() {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public String toString() {
+        return getId() + " - " + getFileName();
     }
 }
