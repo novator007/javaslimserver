@@ -65,7 +65,7 @@ public class FolderBrowser {
         logger = Logger.getLogger("FolderLogger");
         setSqueezeServer(server);//current playlist
         setDatabase(new Database(getSqueezeServer()));
-        prop = getSqueezeServer().getSlimProperties();
+        prop = getSqueezeServer().getProperties();
 
         loadProperties();
     }

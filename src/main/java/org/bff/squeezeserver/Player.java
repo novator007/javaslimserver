@@ -24,7 +24,7 @@ public class Player {
 
     private String id;
     private SqueezeServer squeezeServer;
-    private static Properties prop = SqueezeServer.getSlimProperties();
+    private static Properties prop = SqueezeServer.getProperties();
     public static final String SLIM_PROP_PLAYER_IP;
     public static final String SLIM_PROP_PLAYER_MODEL;
     public static final String SLIM_PROP_PLAYER_DISPLAY_TYPE;

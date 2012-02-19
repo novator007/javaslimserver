@@ -183,7 +183,7 @@ public class XMLPluginItem extends PlayableItem {
         try {
             return new URL(imageUrl);
         } catch (MalformedURLException ex) {
-            Logger.getLogger(PodcastItem.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(XMLPluginItem.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return null;

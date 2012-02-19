@@ -1,5 +1,5 @@
 /*
- * SlimServer.java
+ * SqueezeServer.java
  *
  * Created on October 15, 2007, 10:15 AM
  *
@@ -51,7 +51,7 @@ public class SqueezeServer {
     private static String CMD_PLAYER_QUERY;
     private static String CMD_VERSION;
     /**
-     * Command to listen on a slim connection
+     * Command to listen on a squeeze connection
      */
     public static String CMD_LISTEN;
     public static String CMD_SUBSCRIBE;
@@ -178,7 +178,7 @@ public class SqueezeServer {
         }
     }
 
-    public Playlist getSlimPlaylist(Player player) {
+    public Playlist getPlaylist(Player player) {
         return new Playlist(player);
     }
 
@@ -275,7 +275,7 @@ public class SqueezeServer {
         return RESULT_GROUP_SINGLE.equalsIgnoreCase(getDiscGrouping());
     }
 
-    public Collection<Player> getSlimPlayers() {
+    public Collection<Player> getAllPlayers() {
         List<Player> playerList = new ArrayList<Player>();
         try {
             int playerCount = Integer.parseInt(sendCommand(
@@ -296,9 +296,9 @@ public class SqueezeServer {
      * {@code null} is there is no player matching the id.
      *
      * @param id
-     * @return the matching {@SlimPlayer}
+     * @return the matching {@Player}
      */
-    public Player getSlimPlayer(String id) {
+    public Player getPlayer(String id) {
         try {
             int playerCount = Integer.parseInt(sendCommand(
                     new Command(CMD_PLAYER_COUNT))[0]);
@@ -523,7 +523,7 @@ public class SqueezeServer {
      *
      * @return the command list properties file
      */
-    static Properties getSlimProperties() {
+    static Properties getProperties() {
         return (prop);
     }
 

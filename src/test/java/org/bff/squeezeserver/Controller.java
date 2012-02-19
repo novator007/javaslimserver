@@ -735,7 +735,7 @@ public class Controller {
 
     public Player getPlayer() {
         if (player == null) {
-            player = new ArrayList<Player>(getSqueezeServer().getSlimPlayers()).get(0);
+            player = new ArrayList<Player>(getSqueezeServer().getAllPlayers()).get(0);
         }
 
         return player;

@@ -9,6 +9,9 @@ import org.bff.squeezeserver.domain.XMLPluginItem;
 import javax.swing.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,6 +19,8 @@ import java.util.logging.Logger;
  * @author bfindeisen
  */
 public class Radio extends XMLPluginItem {
+    private String searchCriteria;
+
     /**
      * Constructor
      *
@@ -24,6 +29,15 @@ public class Radio extends XMLPluginItem {
      */
     public Radio(String id, String name) {
         super(id, name);
+    }
+
+    public Collection<Radio> getRadios() {
+        List<Radio> radios = new ArrayList<Radio>();
+        return radios;
+    }
+
+    public boolean isSearch() {
+        return false;
     }
 
     @Override
@@ -42,5 +56,13 @@ public class Radio extends XMLPluginItem {
     @Override
     public int hashCode() {
         return super.hashCode();
+    }
+
+    public String getSearchCriteria() {
+        return searchCriteria;
+    }
+
+    public void setSearchCriteria(String searchCriteria) {
+        this.searchCriteria = searchCriteria;
     }
 }

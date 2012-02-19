@@ -4,10 +4,14 @@
  */
 package org.bff.squeezeserver;
 
-import org.bff.squeezeserver.domain.Podcast;
-import org.bff.squeezeserver.domain.PodcastAudioDetails;
+import org.bff.squeezeserver.domain.podcast.Podcast;
+import org.bff.squeezeserver.domain.podcast.PodcastAudioDetails;
 import org.bff.squeezeserver.domain.XMLBrowserAudioDetails;
 import org.bff.squeezeserver.exception.NetworkException;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * @author bfindeisen
@@ -23,6 +27,16 @@ public class Podcaster extends Plugin {
      */
     public Podcaster(SqueezeServer squeezeServer) {
         super(squeezeServer);
+    }
+
+    public Collection<Podcast> getPodcasts() {
+        List<Podcast> podcasts = new ArrayList<Podcast>();
+
+        return podcasts;
+    }
+
+    public void loadPodcast(Podcast podcast) {
+
     }
 
     @Override

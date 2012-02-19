@@ -84,7 +84,7 @@ public class Database {
      */
     public Database(SqueezeServer squeezeServer) {
         this.squeezeServer = squeezeServer;
-        this.prop = SqueezeServer.getSlimProperties();
+        this.prop = SqueezeServer.getProperties();
         loadProperties();
     }
 

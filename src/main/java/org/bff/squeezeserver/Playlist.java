@@ -98,7 +98,7 @@ public class Playlist {
         setPlayer(player);
         setSqueezeServer(player.getSqueezeServer());//current playlist
         setDatabase(new Database(getSqueezeServer()));
-        prop = getSqueezeServer().getSlimProperties();
+        prop = getSqueezeServer().getProperties();
 
         playlistMap = new HashMap<String, PlaylistItem>();
 

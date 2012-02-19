@@ -2,7 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.bff.squeezeserver.domain;
+package org.bff.squeezeserver.domain.podcast;
+
+import org.bff.squeezeserver.domain.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

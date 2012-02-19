@@ -455,7 +455,7 @@ public class EventListener extends EventMonitor {
     }
 
     private void processSleepEvent(String inLine) throws SqueezeException {
-        Player pl = getSqueezeServer().getSlimPlayer(inLine.replaceAll(PREFIX_PLAYER_SLEEP + ".*$", "").trim());
+        Player pl = getSqueezeServer().getPlayer(inLine.replaceAll(PREFIX_PLAYER_SLEEP + ".*$", "").trim());
         if (inLine.endsWith(PREFIX_PLAYER_SLEEP + " " + OFF)) {
             fireSleepChangeEvent(pl, SleepChangeEvent.SLEEP_STOPPED);
         } else {

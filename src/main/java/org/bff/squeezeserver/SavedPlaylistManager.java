@@ -26,7 +26,7 @@ import java.util.Properties;
 public class SavedPlaylistManager {
 
     private SqueezeServer squeezeServer;
-    private static Properties prop = SqueezeServer.getSlimProperties();
+    private static Properties prop = SqueezeServer.getProperties();
     public static String SLIM_PROP_PLAYLIST_NEW;
     public static String SLIM_PROP_PLAYLIST_RENAME;
     public static String SLIM_PROP_PLAYLIST_EDIT;

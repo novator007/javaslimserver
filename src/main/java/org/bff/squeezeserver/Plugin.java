@@ -65,7 +65,7 @@ public abstract class Plugin {
 
     public Plugin(SqueezeServer squeezeServer) {
         this.squeezeServer = squeezeServer;
-        this.prop = SqueezeServer.getSlimProperties();
+        this.prop = SqueezeServer.getProperties();
         loadProperties();
     }
 

@@ -1,28 +1,37 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+package org.bff.squeezeserver.domain.podcast;
 
-package org.bff.squeezeserver.domain;
+import org.bff.squeezeserver.domain.XMLPluginItem;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * @author bfindeisen
+ * Represents a root level podcast
+ *
+ * @author Bill Findeisen
  */
-public class PodcastItem extends Podcast {
+public class Podcast extends XMLPluginItem {
     private boolean audio;
     private boolean containsItems;
     private String imageUrl;
     private String title;
     private String type;
 
-    public PodcastItem(String id, String name) {
+    /**
+     * Constructor
+     *
+     * @param id   podcast id
+     * @param name podcast name
+     */
+    public Podcast(String id, String name) {
         super(id, name);
     }
+
 
     /**
      * @return the audio
@@ -52,6 +61,12 @@ public class PodcastItem extends Podcast {
         this.containsItems = containsItems;
     }
 
+    public Collection<Podcast> getPodcasts() {
+        List<Podcast> Podcasts = new ArrayList<Podcast>();
+
+        return Podcasts;
+    }
+
     /**
      * @return the imageUrl
      */
@@ -60,7 +75,7 @@ public class PodcastItem extends Podcast {
         try {
             return new URL(imageUrl);
         } catch (MalformedURLException ex) {
-            Logger.getLogger(PodcastItem.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Podcast.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return null;
@@ -125,7 +140,7 @@ public class PodcastItem extends Podcast {
             return false;
         }
 
-        PodcastItem item = (PodcastItem) object;
+        Podcast item = (Podcast) object;
         if (this.getId().equals(item.getId())) {
             return (true);
         } else {

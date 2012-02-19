@@ -17,7 +17,7 @@ public class PlaylistItem extends PlayableItem {
     }
 
     /**
-     * Constructor taking a {@link SlimPlayableObject} to fill details.  Remember to
+     * Constructor taking a {@link Playable} to fill details.  Remember to
      * set the playlist index.
      *
      * @param playable {@link Playable} in the playlist

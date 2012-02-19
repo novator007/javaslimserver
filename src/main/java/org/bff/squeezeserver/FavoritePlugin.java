@@ -92,7 +92,7 @@ public class FavoritePlugin extends Plugin {
         super(squeezeServer);
         logger = Logger.getLogger("FavoritesLogger");
         this.squeezeServer = squeezeServer;
-        this.prop = SqueezeServer.getSlimProperties();
+        this.prop = SqueezeServer.getProperties();
         loadProperties();
 
         favoriteListeners = new ArrayList<FavoriteChangeListener>();
