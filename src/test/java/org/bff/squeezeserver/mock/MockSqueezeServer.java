@@ -1,6 +1,7 @@
 package org.bff.squeezeserver.mock;
 
 import org.bff.squeezeserver.Command;
+import org.bff.squeezeserver.MockUtils;
 import org.bff.squeezeserver.SqueezeServer;
 import org.bff.squeezeserver.exception.ConnectionException;
 
@@ -101,11 +102,15 @@ public class MockSqueezeServer extends SqueezeServer {
      * @return
      */
     private String[] lookupResponse(String command) {
+        String className = MockUtils.getClassName();
+
         for (TestData data : testDataList) {
-            if (data.command.equals(command)) {
-                if (data.getParams().size() == 0) {
-                    testDataList.remove(data);
-                    return (String[]) data.getResult().toArray(new String[0]);
+            if (className.equals(data.getClassName())) {
+                if (data.command.equals(command)) {
+                    if (data.getParams().size() == 0) {
+                        testDataList.remove(data);
+                        return (String[]) data.getResult().toArray(new String[0]);
+                    }
                 }
             }
         }

@@ -182,8 +182,6 @@ public abstract class Plugin {
         for (int k = 0; k < response.length; ) {
             logger.debug("GetXMLList response: " + response[k]);
             if (response[k].startsWith(PREFIX_ID)) {
-                System.out.println(response[k]);
-
                 XMLPluginItem xpi = new XMLPluginItem();
                 xpi.setId(response[k].replace(PREFIX_ID, ""));
                 ++k;

@@ -1,6 +1,7 @@
 package org.bff.squeezeserver.capture;
 
 import org.bff.squeezeserver.Command;
+import org.bff.squeezeserver.MockUtils;
 import org.bff.squeezeserver.SqueezeServer;
 import org.bff.squeezeserver.exception.ConnectionException;
 import org.bff.squeezeserver.mock.MockSqueezeServer;
@@ -18,6 +19,7 @@ public class CaptureSqueezeCenter extends SqueezeServer {
     }
 
     public String[] sendCommand(String command) throws ConnectionException {
+        writeToFile("Class: " + MockUtils.getClassName());
         writeToFile("Command: " + command);
         String[] response = null;
         response = super.sendCommand(command);
@@ -32,6 +34,7 @@ public class CaptureSqueezeCenter extends SqueezeServer {
     }
 
     public String[] sendCommand(Command command) throws ConnectionException {
+        writeToFile("Class: " + MockUtils.getClassName());
         writeToFile("Command: " + command.getCommand());
         String[] response = null;
         response = super.sendCommand(command);
@@ -50,6 +53,7 @@ public class CaptureSqueezeCenter extends SqueezeServer {
     }
 
     public void sendCommand(String command, String param) throws ConnectionException {
+        writeToFile("Class: " + MockUtils.getClassName());
         writeToFile("Command: " + command);
         writeToFile("\tParam: " + param);
         String[] response = null;
