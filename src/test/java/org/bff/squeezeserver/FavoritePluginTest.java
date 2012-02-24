@@ -195,6 +195,7 @@ public class FavoritePluginTest extends Base {
 
     getFavoritePlugin().loadFavorite(folder);
 
+
     Assert.assertTrue(folder.getXmlItems().size() == 2);
     }    
 

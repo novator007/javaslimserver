@@ -39,47 +39,15 @@ public class FavoritePlugin extends Plugin {
     private static String SS_PROP_FAVORITE_INSERT;
     private static String SS_PROP_FAVORITE_MOVE;
     private static final String PLUGIN_COMMAND = "favorites";
-    private static final String PREFIX_COUNT = "count:";
-    private static final String PREFIX_TITLE = "title:";
-    private static final String PREFIX_CMD = "cmd:";
-    private static final String PREFIX_WEIGHT = "weight:";
-    private static final String PREFIX_ICON = "icon:";
-    private static final String PREFIX_NAME = "name:";
-    private static final String PREFIX_ID = "id:";
-    private static final String PREFIX_TYPE = "type:";
-    private static final String PREFIX_BITRATE = "bitrate:";
-    private static final String PREFIX_VALUE = "value:";
-    private static final String PREFIX_URL = "url:";
-    private static final String PREFIX_ITEM_ID = "item_id:";
-    private static final String PREFIX_WANT_URL = "want_url:";
-    private static final String PREFIX_IS_AUDIO = "isaudio:";
-    private static final String PREFIX_HAS_ITEMS = "hasitems:";
     private static final String PREFIX_EXISTS = "exists:";
-    private static final String PREFIX_IMAGE = "image:";
-    private static final String PREFIX_SUB_TEXT = "subtext:";
     private static final String PREFIX_FROM_ID = "from_id:";
     private static final String PREFIX_TO_ID = "to_id:";
-    private static final String PREFIX_ENCLOSURE_LENGTH = "enclosure_length:";
-    private static final String PREFIX_ENCLOSURE_URL = "enclosure_url:";
-    private static final String PREFIX_ENCLOSURE_TYPE = "enclosure_type:";
-    private static final String PREFIX_PUB_DATE = "pubdate:";
-    private static final String PREFIX_DESCRIPTION = "description:";
-    private static final String PREFIX_LINK = "link:";
-    private static final String PREFIX_EXPLICIT = "explicit:";
-    private static final String PREFIX_DURATION = "duration:";
-    private static final String PREFIX_SUBTITLE = "subtitle:";
-    private static final String PREFIX_SUMMARY = "summary:";
-    private static final String PREFIX_NETWORK_ERROR = "networkerror:";
-    private static final String PARAM_COMMAND = Constants.CMD_PARAM_COMMAND;
     private static final String PARAM_MARKER = Constants.CMD_PARAM_MARKER;
     private static final String PARAM_START = Constants.CMD_PARAM_START;
     private static final String PARAM_ITEMS = Constants.CMD_PARAM_ITEMS_RESPONSE;
     private static final String PARAM_TAGS = Constants.CMD_PARAM_TAGGED_PARAMS;
-    private static final String PARAM_SEARCH = "search:";
     private static final long MAX_SEARCH_RESULTS = Constants.RESULTS_MAX;
     private static final String RESULT_TRUE = Constants.RESULT_TRUE;
-    public static List<String> detailPrefixes = new ArrayList<String>();
-    public static List<String> audioDetailPrefixes = new ArrayList<String>();
     private final Logger logger;
     private List<FavoriteChangeListener> favoriteListeners;
 
@@ -260,6 +228,12 @@ public class FavoritePlugin extends Plugin {
 
     }
 
+    /**
+     * Pass null for id to return all
+     * @param id
+     * @return
+     * @throws SqueezeException
+     */
     private Collection<Favorite> getFavorites(String id) throws SqueezeException {
         logger.trace("Starting GetFavorites");
         List<Favorite> favs = new ArrayList<Favorite>();
@@ -324,7 +298,7 @@ public class FavoritePlugin extends Plugin {
                 --i;
 
                 if (fav.isContainsItems() && !fav.isAudio()) {
-                    fav.setSlimType(XMLPluginItem.SQUEEZE_TYPE.FOLDER);
+                    fav.setSqueezeType(XMLPluginItem.SQUEEZE_TYPE.FOLDER);
                 }
 
                 favs.add(fav);
@@ -353,12 +327,6 @@ public class FavoritePlugin extends Plugin {
     @Override
     public String getCommand() {
         return PLUGIN_COMMAND;
-    }
-
-    private void checkResponse(String response) throws NetworkException {
-        if (response.startsWith(PREFIX_NETWORK_ERROR)) {
-            throw new NetworkException(response.replace(PREFIX_NETWORK_ERROR, ""));
-        }
     }
 
     public boolean addFolder(String folder) throws SqueezeException {

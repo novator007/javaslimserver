@@ -62,6 +62,10 @@ public abstract class Base {
         return Controller.getInstance().getFavoritePlugin();
     }
 
+    public static Podcaster getPodcaster() {
+        return Controller.getInstance().getPodcaster();
+    }
+
     /**
      * @return the PLAYER
      */

@@ -45,6 +45,7 @@ public class Controller {
     private String server;
     private RadioPlugin radioPlugin;
     private FavoritePlugin favoritePlugin;
+    private Podcaster podcaster;
     private SavedPlaylistManager savedPlaylistManager;
     private Playlist playlist;
     private EventListener listener;
@@ -159,9 +160,8 @@ public class Controller {
         setFolderBrowser(new FolderBrowser(getSqueezeServer()));
         setRadioPlugin(new RadioPlugin(getSqueezeServer()));
         setFavoritePlugin(new FavoritePlugin(getSqueezeServer()));
+        setPodcaster(new Podcaster(getSqueezeServer()));
         setSavedPlaylistManager(new SavedPlaylistManager(getSqueezeServer()));
-
-
     }
 
     public static Controller getInstance() {
@@ -632,7 +632,7 @@ public class Controller {
 
     public void fillSongId(Song song) {
         PlayableItem s = getDatabase().lookupItemByUrl(song.getUrl());
-        //songs.add(s);
+
         //this cast may need to be removed someday
         try {
             Songs.getTestDatabaseSongMap().put(s.getUrl(), (Song) s);
@@ -651,7 +651,6 @@ public class Controller {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        //}
     }
 
     List<Album> databaseAlbums;
@@ -832,5 +831,13 @@ public class Controller {
 
     public void setCapture(boolean capture) {
         this.capture = capture;
+    }
+
+    public Podcaster getPodcaster() {
+        return podcaster;
+    }
+
+    public void setPodcaster(Podcaster podcaster) {
+        this.podcaster = podcaster;
     }
 }

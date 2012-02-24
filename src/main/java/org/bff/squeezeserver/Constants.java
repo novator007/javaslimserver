@@ -170,8 +170,6 @@ public class Constants {
     public static final String PROP_DB_YEARS = "SS_DB_YEARS_QUERY";
     public static final String PROP_DB_TITLE = "SS_DB_TITLE_QUERY";
     public static final String PROP_DB_RESCAN_PROGRESS = "SS_DB_RESCAN_PROGRESS";
-    public static final String PROP_APP_QUERY = "SS_APP_QUERY";
-    public static final String PROP_APP_ITEMS = "SS_XML_BROWSER_ITEMS";
     /*
      * subscribe
      */

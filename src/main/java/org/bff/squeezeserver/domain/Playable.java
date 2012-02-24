@@ -5,6 +5,8 @@
 package org.bff.squeezeserver.domain;
 
 import java.awt.*;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
@@ -98,9 +100,9 @@ public interface Playable {
 
     public String getUrl();
 
-    public Image getImage();
+    public Image getImage() throws IOException;
 
-    public URL getImageUrl();
+    public URL getImageUrl() throws MalformedURLException;
 
     public String getType();
 }

@@ -16,11 +16,6 @@ import java.util.logging.Logger;
  * @author Bill Findeisen
  */
 public class Podcast extends XMLPluginItem {
-    private boolean audio;
-    private boolean containsItems;
-    private String imageUrl;
-    private String title;
-    private String type;
 
     /**
      * Constructor
@@ -32,91 +27,10 @@ public class Podcast extends XMLPluginItem {
         super(id, name);
     }
 
-
-    /**
-     * @return the audio
-     */
-    public boolean isAudio() {
-        return audio;
-    }
-
-    /**
-     * @param audio the audio to set
-     */
-    public void setAudio(boolean audio) {
-        this.audio = audio;
-    }
-
-    /**
-     * @return the containsItems
-     */
-    public boolean isContainsItems() {
-        return containsItems;
-    }
-
-    /**
-     * @param containsItems the containsItems to set
-     */
-    public void setContainsItems(boolean containsItems) {
-        this.containsItems = containsItems;
-    }
-
     public Collection<Podcast> getPodcasts() {
         List<Podcast> Podcasts = new ArrayList<Podcast>();
 
         return Podcasts;
-    }
-
-    /**
-     * @return the imageUrl
-     */
-    @Override
-    public URL getImageUrl() {
-        try {
-            return new URL(imageUrl);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Podcast.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return null;
-    }
-
-    /**
-     * @param imageUrl the imageUrl to set
-     */
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    /**
-     * @return the title
-     */
-    @Override
-    public String getTitle() {
-        return title;
-    }
-
-    /**
-     * @param title the title to set
-     */
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    /**
-     * @return the type
-     */
-    @Override
-    public String getType() {
-        return type;
-    }
-
-    /**
-     * @param type the type to set
-     */
-    @Override
-    public void setType(String type) {
-        this.type = type;
     }
 
     @Override

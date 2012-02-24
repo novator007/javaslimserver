@@ -10,6 +10,7 @@ import org.bff.squeezeserver.exception.SqueezeException;
 import org.bff.squeezeserver.test.data.*;
 import org.junit.*;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,5 +1,7 @@
 package org.bff.squeezeserver.domain;
 
+import java.net.MalformedURLException;
+
 /**
  * Represents an item in a playlist
  *
@@ -33,7 +35,11 @@ public class PlaylistItem extends PlayableItem {
         setTrack(playable.getTrack());
         setUrl(playable.getUrl());
         setYear(playable.getYear());
-        setImageUrl(playable.getImageUrl());
+        try {
+            setImageUrl(playable.getImageUrl());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         setRemote(playable.isRemote());
         setType(playable.getType());
     }

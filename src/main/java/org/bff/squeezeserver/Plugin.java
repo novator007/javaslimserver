@@ -32,33 +32,36 @@ public abstract class Plugin {
 
     private static Logger logger = Constants.LOGGER_XMLPLUGIN;
 
-    private static final String PREFIX_NETWORK_ERROR = Constants.RESPONSE_XML_PREFIX_NETWORK_ERROR;
-
     private static final String PARAM_START = Constants.CMD_PARAM_START;
     private static final String PARAM_ITEMS = Constants.CMD_PARAM_ITEMS_RESPONSE;
     private static final String PARAM_TAGS = Constants.CMD_PARAM_TAGGED_PARAMS;
     private static final String PARAM_COMMAND = Constants.CMD_PARAM_COMMAND;
-    private static final String PREFIX_ITEM_ID = Constants.RESPONSE_XML_PREFIX_ITEM_ID;
-    private static final String PREFIX_COUNT = Constants.RESPONSE_PREFIX_COUNT;
-    private static final String PREFIX_ENCLOSURE_LENGTH = Constants.RESPONSE_XML_PREFIX_ENCLOSURE_LENGTH;
-    private static final String PREFIX_ENCLOSURE_URL = Constants.RESPONSE_XML_PREFIX_ENCLOSURE_URL;
-    private static final String PREFIX_ENCLOSURE_TYPE = Constants.RESPONSE_XML_PREFIX_ENCLOSURE_TYPE;
-    private static final String PREFIX_PUB_DATE = Constants.RESPONSE_XML_PREFIX_PUB_DATE;
-    private static final String PREFIX_DESCRIPTION = Constants.RESPONSE_XML_PREFIX_DESCRIPTION;
-    private static final String PREFIX_LINK = Constants.RESPONSE_XML_PREFIX_LINK;
-    private static final String PREFIX_EXPLICIT = Constants.RESPONSE_XML_PREFIX_EXPLICIT;
-    private static final String PREFIX_DURATION = Constants.RESPONSE_XML_PREFIX_DURATION;
-    private static final String PREFIX_SUBTITLE = Constants.RESPONSE_XML_PREFIX_SUBTITLE;
-    private static final String PREFIX_SUMMARY = Constants.RESPONSE_XML_PREFIX_SUMMARY;
-    private static final String PREFIX_IMAGE = Constants.RESPONSE_XML_PREFIX_IMAGE;
-    private static final String PREFIX_TITLE = Constants.RESPONSE_XML_PREFIX_TITLE;
-    private static final String PREFIX_NAME = Constants.RESPONSE_XML_PREFIX_NAME;
-    private static final String PREFIX_ID = Constants.RESPONSE_XML_PREFIX_ID;
-    private static final String PREFIX_TYPE = Constants.RESPONSE_XML_PREFIX_TYPE;
-    private static final String PREFIX_IS_AUDIO = Constants.RESPONSE_XML_PREFIX_IS_AUDIO;
-    private static final String PREFIX_HAS_ITEMS = Constants.RESPONSE_XML_PREFIX_HAS_ITEMS;
-    private static final String PREFIX_URL = Constants.RESPONSE_XML_PREFIX_URL;
-    private static final String PREFIX_WANT_URL = Constants.RESPONSE_XML_PREFIX_WANT_URL;
+    private static final String PARAM_PLAYER = Constants.CMD_PARAM_PLAYER_ID;
+    protected static final String PREFIX_ITEM_ID = Constants.RESPONSE_XML_PREFIX_ITEM_ID;
+    protected static final String PREFIX_COUNT = Constants.RESPONSE_PREFIX_COUNT;
+    protected static final String PREFIX_ENCLOSURE_LENGTH = Constants.RESPONSE_XML_PREFIX_ENCLOSURE_LENGTH;
+    protected static final String PREFIX_ENCLOSURE_URL = Constants.RESPONSE_XML_PREFIX_ENCLOSURE_URL;
+    protected static final String PREFIX_ENCLOSURE_TYPE = Constants.RESPONSE_XML_PREFIX_ENCLOSURE_TYPE;
+    protected static final String PREFIX_PUB_DATE = Constants.RESPONSE_XML_PREFIX_PUB_DATE;
+    protected static final String PREFIX_DESCRIPTION = Constants.RESPONSE_XML_PREFIX_DESCRIPTION;
+    protected static final String PREFIX_LINK = Constants.RESPONSE_XML_PREFIX_LINK;
+    protected static final String PREFIX_EXPLICIT = Constants.RESPONSE_XML_PREFIX_EXPLICIT;
+    protected static final String PREFIX_DURATION = Constants.RESPONSE_XML_PREFIX_DURATION;
+    protected static final String PREFIX_SUBTITLE = Constants.RESPONSE_XML_PREFIX_SUBTITLE;
+    protected static final String PREFIX_SUMMARY = Constants.RESPONSE_XML_PREFIX_SUMMARY;
+    protected static final String PREFIX_IMAGE = Constants.RESPONSE_XML_PREFIX_IMAGE;
+    protected static final String PREFIX_TITLE = Constants.RESPONSE_XML_PREFIX_TITLE;
+    protected static final String PREFIX_NAME = Constants.RESPONSE_XML_PREFIX_NAME;
+    protected static final String PREFIX_ID = Constants.RESPONSE_XML_PREFIX_ID;
+    protected static final String PREFIX_TYPE = Constants.RESPONSE_XML_PREFIX_TYPE;
+    protected static final String PREFIX_IS_AUDIO = Constants.RESPONSE_XML_PREFIX_IS_AUDIO;
+    protected static final String PREFIX_HAS_ITEMS = Constants.RESPONSE_XML_PREFIX_HAS_ITEMS;
+    protected static final String PREFIX_URL = Constants.RESPONSE_XML_PREFIX_URL;
+    protected static final String PREFIX_WANT_URL = Constants.RESPONSE_XML_PREFIX_WANT_URL;
+    protected static final String PREFIX_BITRATE = Constants.RESPONSE_XML_PREFIX_BITRATE;
+    protected static final String PREFIX_ICON = Constants.RESPONSE_XML_PREFIX_ICON;
+    protected static final String PREFIX_VALUE = Constants.RESPONSE_XML_PREFIX_VALUE;
+    protected static final String PREFIX_NETWORK_ERROR = Constants.RESPONSE_XML_PREFIX_NETWORK_ERROR;
     private static final String SEARCH_RESULTS_START = Integer.toString(Constants.RESULTS_START);
     private static final String SEARCH_RESULTS_MAX = Integer.toString(Constants.RESULTS_MAX);
     private static final String RESULT_TRUE = Constants.RESULT_TRUE;
@@ -163,10 +166,11 @@ public abstract class Plugin {
         String command = SS_PROP_XML_ITEMS.replaceAll(PARAM_START, SEARCH_RESULTS_START);
         command = command.replaceAll(PARAM_ITEMS, SEARCH_RESULTS_MAX);
         command = command.replaceAll(PARAM_TAGS, PREFIX_WANT_URL + RESULT_TRUE);
+        command = command.replaceAll(PARAM_COMMAND, getCommand());
 
         logger.debug("GetXMLList command: " + command);
 
-        List<XMLPluginItem> podItems = new ArrayList<XMLPluginItem>();
+        List<XMLPluginItem> xmlItems = new ArrayList<XMLPluginItem>();
 
         String[] response = sendCommand(command);
 
@@ -178,36 +182,38 @@ public abstract class Plugin {
         for (int k = 0; k < response.length; ) {
             logger.debug("GetXMLList response: " + response[k]);
             if (response[k].startsWith(PREFIX_ID)) {
-                XMLPluginItem spi = new XMLPluginItem();
-                spi.setId(response[k].replace(PREFIX_ID, ""));
+                System.out.println(response[k]);
+
+                XMLPluginItem xpi = new XMLPluginItem();
+                xpi.setId(response[k].replace(PREFIX_ID, ""));
                 ++k;
                 while (k < response.length && !response[k].startsWith(PREFIX_ID)) {
                     logger.debug("GetXMLList response: " + response[k]);
                     if (response[k].startsWith(PREFIX_NAME)) {
-                        spi.setName(response[k].replace(PREFIX_NAME, ""));
+                        xpi.setName(response[k].replace(PREFIX_NAME, ""));
                     } else if (response[k].startsWith(PREFIX_IS_AUDIO)) {
-                        spi.setAudio(RESULT_TRUE.equalsIgnoreCase(response[k].replace(PREFIX_IS_AUDIO, "")) ? true : false);
+                        xpi.setAudio(RESULT_TRUE.equalsIgnoreCase(response[k].replace(PREFIX_IS_AUDIO, "")) ? true : false);
                     } else if (response[k].startsWith(PREFIX_HAS_ITEMS)) {
-                        spi.setContainsItems(RESULT_TRUE.equalsIgnoreCase(response[k].replace(PREFIX_HAS_ITEMS, "")) ? true : false);
+                        xpi.setContainsItems(RESULT_TRUE.equalsIgnoreCase(response[k].replace(PREFIX_HAS_ITEMS, "")) ? true : false);
                     } else if (response[k].startsWith(PREFIX_TITLE)) {
-                        spi.setTitle(response[k].replace(PREFIX_TITLE, ""));
+                        xpi.setTitle(response[k].replace(PREFIX_TITLE, ""));
                     } else if (response[k].startsWith(PREFIX_TYPE)) {
-                        spi.setType(response[k].replace(PREFIX_TYPE, ""));
+                        xpi.setType(response[k].replace(PREFIX_TYPE, ""));
                     } else if (response[k].startsWith(PREFIX_URL)) {
-                        spi.setUrl(response[k].replace(PREFIX_URL, ""));
+                        xpi.setUrl(response[k].replace(PREFIX_URL, ""));
                     }
                     ++k;
                 }
 
-                if (spi.getTitle() == null) {
-                    spi.setTitle(spi.getName());
+                if (xpi.getTitle() == null) {
+                    xpi.setTitle(xpi.getName());
                 }
-                podItems.add(spi);
+                xmlItems.add(xpi);
             } else {
                 ++k;
             }
         }
-        return podItems;
+        return xmlItems;
     }
 
     public void loadAudioDetails(String[] response, XMLBrowserAudioDetails details) {
@@ -254,11 +260,10 @@ public abstract class Plugin {
 
     public int getCount() {
         String command = SS_PROP_XML_COUNT.replaceAll(PARAM_COMMAND, getCommand());
-
         return (Integer.parseInt(sendCommand(command)[0].replace(PREFIX_COUNT, "")));
     }
 
-    private void checkResponse(String response) throws NetworkException {
+    protected void checkResponse(String response) throws NetworkException {
         if (response.startsWith(PREFIX_NETWORK_ERROR)) {
             throw new NetworkException(response.replace(PREFIX_NETWORK_ERROR, ""));
         }
@@ -300,5 +305,62 @@ public abstract class Plugin {
      */
     public void setSqueezeServer(SqueezeServer squeezeServer) {
         this.squeezeServer = squeezeServer;
+    }
+
+    /**
+     * Copies the properties from the fromItem to the toItem
+     *
+     * @param fromItem the item to copy from
+     * @param toItem   the item to copy to
+     */
+    public void copyItem(XMLPluginItem fromItem, XMLPluginItem toItem) {
+        toItem.setId(fromItem.getId());
+        toItem.setName(fromItem.getName());
+        toItem.setAlbum(fromItem.getAlbum());
+        toItem.setBitrate(fromItem.getBitrate());
+        toItem.setAudio(fromItem.isAudio());
+        toItem.setComment(fromItem.getComment());
+        toItem.setContainsItems(fromItem.isContainsItems());
+        toItem.setCount(fromItem.getCount());
+        toItem.setError(fromItem.isError());
+        toItem.setErrorMessage(fromItem.getErrorMessage());
+        toItem.setGenre(fromItem.getGenre());
+        toItem.setImageUrl(fromItem.getImageUrl());
+        toItem.setLength(fromItem.getLength());
+        toItem.setRating(fromItem.getRating());
+        toItem.setRemote(fromItem.isRemote());
+        toItem.setSqueezeType(fromItem.getSqueezeType());
+        toItem.setTitle(fromItem.getTitle());
+        toItem.setType(fromItem.getType());
+        toItem.setUrl(fromItem.getUrl());
+        toItem.setYear(fromItem.getYear());
+    }
+
+    public void copyAudioDetails(XMLBrowserAudioDetails fromDetails, XMLBrowserAudioDetails toDetails) {
+        toDetails.setAlbum(fromDetails.getAlbum());
+        toDetails.setLength(fromDetails.getLength());
+        toDetails.setName(fromDetails.getName());
+        toDetails.setRating(fromDetails.getRating());
+        toDetails.setBitrate(fromDetails.getBitrate());
+        toDetails.setComment(fromDetails.getComment());
+        toDetails.setCount(fromDetails.getCount());
+        toDetails.setDescription(fromDetails.getDescription());
+        toDetails.setEnclosureLength(fromDetails.getEnclosureLength());
+        toDetails.setEnclosureType(fromDetails.getEnclosureType());
+        toDetails.setEnclosureUrl(fromDetails.getEnclosureUrl());
+        toDetails.setExplicit(fromDetails.getExplicit());
+        toDetails.setGenre(fromDetails.getGenre());
+        toDetails.setImageUrl(fromDetails.getImageUrl());
+        toDetails.setPubDate(fromDetails.getPubDate());
+        toDetails.setSubTitle(fromDetails.getSubTitle());
+        toDetails.setSummary(fromDetails.getSummary());
+        toDetails.setTitle(fromDetails.getTitle());
+        toDetails.setTotalDuration(fromDetails.getTotalDuration());
+        toDetails.setTrack(fromDetails.getTrack());
+        toDetails.setType(fromDetails.getType());
+        toDetails.setUrl(fromDetails.getUrl());
+        toDetails.setValue(fromDetails.getValue());
+        toDetails.setXmlId(fromDetails.getXmlId());
+        toDetails.setYear(fromDetails.getYear());
     }
 }

@@ -6,6 +6,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -242,18 +243,6 @@ public class PlayableItem implements Playable {
 
     /**
      * Returns the url link to the cover art for this item's album
-     * <b>This on is very buggy</b>
-     * @param dimension the desired dimension
-     * @return the image url
-
-    public String getImageUrl(int dimension) {
-    String dim = Integer.toString(dimension);
-
-    return getImageUrl().replaceAll(".jpg", "_" + dim + "x" + dim + "_o");
-    }
-     */
-    /**
-     * Returns the url link to the cover art for this item's album
      *
      * @return the image url
      */
@@ -271,18 +260,19 @@ public class PlayableItem implements Playable {
         this.imageUrl = imageUrl;
     }
 
+    /**
+     * Returns the image.  Returns null if the image cannot be generated.
+     *
+     * @return
+     * @throws IOException
+     */
     @Override
-    public Image getImage() {
+    public Image getImage() throws IOException {
 
         if (image == null && getImageUrl() != null) {
-            try {
-                return ImageIO.read(getImageUrl());
-            } catch (IOException ex) {
-                Logger.getLogger(PlayableItem.class.getName()).log(Level.SEVERE, null, ex);
-                return null;
-            }
+            image = ImageIO.read(getImageUrl());
         }
-        return null;
+        return image;
     }
 
     /**
@@ -302,7 +292,15 @@ public class PlayableItem implements Playable {
         return smallIcon;
     }
 
+    /**
+     * Returns the url for a small icon.  Will return null if the image url is null.
+     *
+     * @return
+     */
     public String getSmallIconURL() {
+        if (getImageUrl() == null) {
+            return null;
+        }
         String replace = getImageUrl().toString().substring(getImageUrl().toString().lastIndexOf("."));
         return getImageUrl().toString().replace(replace, "_25x25_f" + replace);
     }

@@ -18,14 +18,13 @@ public class XMLPluginItem extends PlayableItem {
 
     private boolean audio;
     private boolean containsItems;
-    private String imageUrl;
     private String title;
     private String type;
     private int count;
     private Collection<XMLPluginItem> xmlItems;
     private boolean error;
     private String errorMessage;
-    private SQUEEZE_TYPE slimType;
+    private SQUEEZE_TYPE squeezeType;
     private String url;
 
     public XMLPluginItem() {
@@ -38,20 +37,20 @@ public class XMLPluginItem extends PlayableItem {
     }
 
     /**
-     * @return the slimType
+     * @return the squeezeType
      */
-    public SQUEEZE_TYPE getSlimType() {
-        if (slimType == null) {
-            slimType = SQUEEZE_TYPE.OTHER;
+    public SQUEEZE_TYPE getSqueezeType() {
+        if (squeezeType == null) {
+            squeezeType = SQUEEZE_TYPE.OTHER;
         }
-        return slimType;
+        return squeezeType;
     }
 
     /**
-     * @param slimType the slimType to set
+     * @param squeezeType the squeezeType to set
      */
-    public void setSlimType(SQUEEZE_TYPE slimType) {
-        this.slimType = slimType;
+    public void setSqueezeType(SQUEEZE_TYPE squeezeType) {
+        this.squeezeType = squeezeType;
     }
 
     /**
@@ -131,15 +130,15 @@ public class XMLPluginItem extends PlayableItem {
     public void setUrl(String url) {
         this.url = url;
         if (getUrl().startsWith(URL_PREFIX_ARTIST)) {
-            setSlimType(SQUEEZE_TYPE.ARTIST);
+            setSqueezeType(SQUEEZE_TYPE.ARTIST);
         } else if (getUrl().startsWith(URL_PREFIX_ALBUM)) {
-            setSlimType(SQUEEZE_TYPE.ALBUM);
+            setSqueezeType(SQUEEZE_TYPE.ALBUM);
         } else if (getUrl().startsWith(URL_PREFIX_GENRE)) {
-            setSlimType(SQUEEZE_TYPE.GENRE);
+            setSqueezeType(SQUEEZE_TYPE.GENRE);
         } else if (getUrl().startsWith(URL_PREFIX_YEAR)) {
-            setSlimType(SQUEEZE_TYPE.YEAR);
+            setSqueezeType(SQUEEZE_TYPE.YEAR);
         } else {
-            setSlimType(SQUEEZE_TYPE.OTHER);
+            setSqueezeType(SQUEEZE_TYPE.OTHER);
         }
     }
 
@@ -173,27 +172,6 @@ public class XMLPluginItem extends PlayableItem {
 
     public void addXMLItem(XMLPluginItem item) {
         getXmlItems().add(item);
-    }
-
-    /**
-     * @return the imageUrl
-     */
-    @Override
-    public URL getImageUrl() {
-        try {
-            return new URL(imageUrl);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(XMLPluginItem.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return null;
-    }
-
-    /**
-     * @param imageUrl the imageUrl to set
-     */
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
     }
 
     /**

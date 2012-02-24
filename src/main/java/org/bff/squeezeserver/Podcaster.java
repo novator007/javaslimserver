@@ -4,10 +4,14 @@
  */
 package org.bff.squeezeserver;
 
+import org.apache.log4j.Logger;
+import org.bff.squeezeserver.domain.XMLPluginItem;
+import org.bff.squeezeserver.domain.favorite.Favorite;
 import org.bff.squeezeserver.domain.podcast.Podcast;
 import org.bff.squeezeserver.domain.podcast.PodcastAudioDetails;
 import org.bff.squeezeserver.domain.XMLBrowserAudioDetails;
 import org.bff.squeezeserver.exception.NetworkException;
+import org.bff.squeezeserver.exception.ResponseException;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,6 +23,7 @@ import java.util.List;
 public class Podcaster extends Plugin {
 
     private static final String PLUGIN_COMMAND = Constants.CMD_PODCAST;
+    private static Logger logger = Constants.LOGGER_PODCAST;
 
     /**
      * Creates a new instance of Database
@@ -29,9 +34,14 @@ public class Podcaster extends Plugin {
         super(squeezeServer);
     }
 
-    public Collection<Podcast> getPodcasts() {
+    public Collection<Podcast> getPodcasts() throws NetworkException {
         List<Podcast> podcasts = new ArrayList<Podcast>();
-
+        for (XMLPluginItem xmlItem : getXMLList()) {
+            Podcast podcast = new Podcast(xmlItem.getId(), xmlItem.getName());
+            podcast.setSqueezeType(XMLPluginItem.SQUEEZE_TYPE.PODCAST);
+            super.copyItem(xmlItem, podcast);
+            podcasts.add(podcast);
+        }
         return podcasts;
     }
 
@@ -46,36 +56,8 @@ public class Podcaster extends Plugin {
 
     public PodcastAudioDetails getPodcastAudioDetails(Podcast podcast) throws NetworkException {
         XMLBrowserAudioDetails xmlAudioDetails = super.getXMLAudioDetails(podcast);
-        return convertDetails(xmlAudioDetails);
-    }
-
-    private PodcastAudioDetails convertDetails(XMLBrowserAudioDetails xmlAudioDetails) {
         PodcastAudioDetails pad = new PodcastAudioDetails(xmlAudioDetails.getId(), PLUGIN_COMMAND);
-        pad.setAlbum(xmlAudioDetails.getAlbum());
-        pad.setLength(xmlAudioDetails.getLength());
-        pad.setName(xmlAudioDetails.getName());
-        pad.setRating(xmlAudioDetails.getRating());
-        pad.setBitrate(xmlAudioDetails.getBitrate());
-        pad.setComment(xmlAudioDetails.getComment());
-        pad.setCount(xmlAudioDetails.getCount());
-        pad.setDescription(xmlAudioDetails.getDescription());
-        pad.setEnclosureLength(xmlAudioDetails.getEnclosureLength());
-        pad.setEnclosureType(xmlAudioDetails.getEnclosureType());
-        pad.setEnclosureUrl(xmlAudioDetails.getEnclosureUrl());
-        pad.setExplicit(xmlAudioDetails.getExplicit());
-        pad.setGenre(xmlAudioDetails.getGenre());
-        pad.setImageUrl(xmlAudioDetails.getImageUrl());
-        pad.setPubDate(xmlAudioDetails.getPubDate());
-        pad.setSubTitle(xmlAudioDetails.getSubTitle());
-        pad.setSummary(xmlAudioDetails.getSummary());
-        pad.setTitle(xmlAudioDetails.getTitle());
-        pad.setTotalDuration(xmlAudioDetails.getTotalDuration());
-        pad.setTrack(xmlAudioDetails.getTrack());
-        pad.setType(xmlAudioDetails.getType());
-        pad.setUrl(xmlAudioDetails.getUrl());
-        pad.setValue(xmlAudioDetails.getValue());
-        pad.setXmlId(xmlAudioDetails.getXmlId());
-        pad.setYear(xmlAudioDetails.getYear());
+        super.copyAudioDetails(xmlAudioDetails, pad);
         return pad;
     }
 }
