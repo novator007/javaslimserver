@@ -21,19 +21,16 @@ public class XMLPluginItem extends PlayableItem {
     private String title;
     private String type;
     private int count;
-    private Collection<XMLPluginItem> xmlItems;
     private boolean error;
     private String errorMessage;
     private SQUEEZE_TYPE squeezeType;
     private String url;
 
     public XMLPluginItem() {
-        xmlItems = new ArrayList<XMLPluginItem>();
     }
 
     public XMLPluginItem(String id, String name) {
         super(id, name);
-        xmlItems = new ArrayList<XMLPluginItem>();
     }
 
     /**
@@ -59,13 +56,6 @@ public class XMLPluginItem extends PlayableItem {
     @Override
     public String getUrl() {
         return url;
-    }
-
-    /**
-     * @return the xmlItems
-     */
-    public Collection<XMLPluginItem> getXmlItems() {
-        return xmlItems;
     }
 
     /**
@@ -129,16 +119,18 @@ public class XMLPluginItem extends PlayableItem {
     @Override
     public void setUrl(String url) {
         this.url = url;
-        if (getUrl().startsWith(URL_PREFIX_ARTIST)) {
-            setSqueezeType(SQUEEZE_TYPE.ARTIST);
-        } else if (getUrl().startsWith(URL_PREFIX_ALBUM)) {
-            setSqueezeType(SQUEEZE_TYPE.ALBUM);
-        } else if (getUrl().startsWith(URL_PREFIX_GENRE)) {
-            setSqueezeType(SQUEEZE_TYPE.GENRE);
-        } else if (getUrl().startsWith(URL_PREFIX_YEAR)) {
-            setSqueezeType(SQUEEZE_TYPE.YEAR);
-        } else {
-            setSqueezeType(SQUEEZE_TYPE.OTHER);
+        if (url != null) {
+            if (getUrl().startsWith(URL_PREFIX_ARTIST)) {
+                setSqueezeType(SQUEEZE_TYPE.ARTIST);
+            } else if (getUrl().startsWith(URL_PREFIX_ALBUM)) {
+                setSqueezeType(SQUEEZE_TYPE.ALBUM);
+            } else if (getUrl().startsWith(URL_PREFIX_GENRE)) {
+                setSqueezeType(SQUEEZE_TYPE.GENRE);
+            } else if (getUrl().startsWith(URL_PREFIX_YEAR)) {
+                setSqueezeType(SQUEEZE_TYPE.YEAR);
+            } else {
+                setSqueezeType(SQUEEZE_TYPE.OTHER);
+            }
         }
     }
 
@@ -168,10 +160,6 @@ public class XMLPluginItem extends PlayableItem {
      */
     public void setContainsItems(boolean containsItems) {
         this.containsItems = containsItems;
-    }
-
-    public void addXMLItem(XMLPluginItem item) {
-        getXmlItems().add(item);
     }
 
     /**

@@ -12,7 +12,6 @@ import org.bff.squeezeserver.domain.favorite.FavoriteAudioDetails;
 import org.bff.squeezeserver.events.FavoriteChangeEvent;
 import org.bff.squeezeserver.events.FavoriteChangeListener;
 import org.bff.squeezeserver.events.PlaylistChangeListener;
-import org.bff.squeezeserver.exception.NetworkException;
 import org.bff.squeezeserver.exception.ResponseException;
 import org.bff.squeezeserver.exception.SqueezeException;
 
@@ -164,7 +163,7 @@ public class FavoritePlugin extends Plugin {
             } else if (response[i].startsWith(PREFIX_COUNT)) {
                 details.setCount(Integer.parseInt(response[i].replace(PREFIX_COUNT, "")));
             } else if (response[i].startsWith(PREFIX_DURATION)) {
-                details.setTotalDuration(response[i].replace(PREFIX_DURATION, ""));
+                details.setDuration(response[i].replace(PREFIX_DURATION, ""));
             } else if (response[i].startsWith(PREFIX_ENCLOSURE_LENGTH)) {
                 details.setEnclosureLength(Integer.parseInt(response[i].replace(PREFIX_ENCLOSURE_LENGTH, "")));
             } else if (response[i].startsWith(PREFIX_ENCLOSURE_TYPE)) {
@@ -217,15 +216,6 @@ public class FavoritePlugin extends Plugin {
 
     public Collection<Favorite> getFavorites(Favorite favorite) throws SqueezeException {
         return getFavorites(favorite.getId());
-    }
-
-    public void loadFavorite(Favorite item) throws SqueezeException {
-        logger.trace("Starting LoadFavorite  for " + item.getName());
-
-        for (Favorite sfi : getFavorites(item.getId())) {
-            item.addFavorite(sfi);
-        }
-
     }
 
     /**

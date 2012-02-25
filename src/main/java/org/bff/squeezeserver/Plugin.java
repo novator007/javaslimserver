@@ -72,9 +72,9 @@ public abstract class Plugin {
         loadProperties();
     }
 
-    public void loadXMLItem(XMLPluginItem item) {
+    public Collection<XMLPluginItem> getXMLItems(XMLPluginItem item) {
         logger.trace("Starting LoadXMLItem  for " + item.getName());
-
+                                   List<XMLPluginItem> xmlItems = new ArrayList<XMLPluginItem>();
         String command = SS_PROP_XML_ITEMS.replaceAll(PARAM_START, SEARCH_RESULTS_START);
         command = command.replaceAll(PARAM_ITEMS, SEARCH_RESULTS_MAX);
         command = command.replaceAll(PARAM_COMMAND, getCommand());
@@ -92,25 +92,25 @@ public abstract class Plugin {
                 logger.trace("LoadXMLItem response:" + response[k]);
 
                 if (response[k].startsWith(PREFIX_ID)) {
-                    XMLPluginItem spi = new XMLPluginItem();
-                    spi.setId(response[k].replace(PREFIX_ID, ""));
+                    XMLPluginItem xmlItem = new XMLPluginItem();
+                    xmlItem.setId(response[k].replace(PREFIX_ID, ""));
                     ++k;
                     while (k < response.length && !response[k].startsWith(PREFIX_ID)) {
                         logger.trace("LoadXMLItem response:" + response[k]);
                         if (response[k].startsWith(PREFIX_NAME)) {
-                            spi.setName(response[k].replace(PREFIX_NAME, ""));
+                            xmlItem.setName(response[k].replace(PREFIX_NAME, ""));
                         } else if (response[k].startsWith(PREFIX_IS_AUDIO)) {
-                            spi.setAudio(RESULT_TRUE.equalsIgnoreCase(response[k].replace(PREFIX_IS_AUDIO, "")) ? true : false);
+                            xmlItem.setAudio(RESULT_TRUE.equalsIgnoreCase(response[k].replace(PREFIX_IS_AUDIO, "")) ? true : false);
                         } else if (response[k].startsWith(PREFIX_HAS_ITEMS)) {
-                            spi.setContainsItems(RESULT_TRUE.equalsIgnoreCase(response[k].replace(PREFIX_HAS_ITEMS, "")) ? true : false);
+                            xmlItem.setContainsItems(RESULT_TRUE.equalsIgnoreCase(response[k].replace(PREFIX_HAS_ITEMS, "")) ? true : false);
                         } else if (response[k].startsWith(PREFIX_TITLE)) {
-                            spi.setTitle(response[k].replace(PREFIX_TITLE, ""));
+                            xmlItem.setTitle(response[k].replace(PREFIX_TITLE, ""));
                         } else if (response[k].startsWith(PREFIX_TYPE)) {
-                            spi.setType(response[k].replace(PREFIX_TYPE, ""));
+                            xmlItem.setType(response[k].replace(PREFIX_TYPE, ""));
                         }
                         ++k;
                     }
-                    item.addXMLItem(spi);
+                    xmlItems.add(xmlItem);
                 } else {
                     ++k;
                 }
@@ -121,8 +121,10 @@ public abstract class Plugin {
             xmlItem.setId("0");
             xmlItem.setError(true);
             xmlItem.setErrorMessage(ex.getMessage());
-            item.addXMLItem(xmlItem);
+            xmlItems.add(xmlItem);
         }
+
+        return xmlItems;
     }
 
     /**
@@ -140,6 +142,7 @@ public abstract class Plugin {
             String command = SS_PROP_XML_ITEMS.replaceAll(PARAM_START, SEARCH_RESULTS_START);
             command = command.replaceAll(PARAM_ITEMS, SEARCH_RESULTS_MAX);
             command = command.replaceAll(PARAM_TAGS, PREFIX_ITEM_ID + item.getId());
+            command = command.replaceAll(PARAM_COMMAND, getCommand());
 
             logger.debug("GetXMLAudioDetails command " + command);
 
@@ -225,7 +228,7 @@ public abstract class Plugin {
             } else if (response[i].startsWith(PREFIX_COUNT)) {
                 details.setCount(Integer.parseInt(response[i].replace(PREFIX_COUNT, "")));
             } else if (response[i].startsWith(PREFIX_DURATION)) {
-                details.setTotalDuration(response[i].replace(PREFIX_DURATION, ""));
+                details.setDuration(response[i].replace(PREFIX_DURATION, ""));
             } else if (response[i].startsWith(PREFIX_ENCLOSURE_LENGTH)) {
                 details.setEnclosureLength(Integer.parseInt(response[i].replace(PREFIX_ENCLOSURE_LENGTH, "")));
             } else if (response[i].startsWith(PREFIX_ENCLOSURE_TYPE)) {
@@ -353,7 +356,7 @@ public abstract class Plugin {
         toDetails.setSubTitle(fromDetails.getSubTitle());
         toDetails.setSummary(fromDetails.getSummary());
         toDetails.setTitle(fromDetails.getTitle());
-        toDetails.setTotalDuration(fromDetails.getTotalDuration());
+        toDetails.setDuration(fromDetails.getDuration());
         toDetails.setTrack(fromDetails.getTrack());
         toDetails.setType(fromDetails.getType());
         toDetails.setUrl(fromDetails.getUrl());

@@ -2,12 +2,11 @@ package org.bff.squeezeserver;
 
 import org.bff.squeezeserver.domain.XMLPluginItem;
 import org.bff.squeezeserver.domain.podcast.Podcast;
+import org.bff.squeezeserver.domain.podcast.PodcastAudioDetails;
 import org.bff.squeezeserver.exception.NetworkException;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.net.MalformedURLException;
-import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +37,7 @@ public class PodcasterTest extends Base {
 
     @Test
     public void testGetPodcasts() throws NetworkException {
-        List<Podcast> podcasts = new ArrayList<Podcast>(getPodcaster().getPodcasts());
+        List<Podcast> podcasts = new ArrayList<Podcast>(getPodcaster().getAllPodcasts());
         boolean contains = false;
         Podcast podcast = null;
         for (Podcast pod : podcasts) {
@@ -64,5 +63,33 @@ public class PodcasterTest extends Base {
         Assert.assertEquals(podcast.isContainsItems(), podcastJavaPosse.isContainsItems());
         Assert.assertEquals(podcast.isRemote(), podcastJavaPosse.isRemote());
         Assert.assertEquals(podcast.isError(), podcastJavaPosse.isError());
+    }
+
+    @Test
+    public void testPodcastAudioDetails() throws NetworkException {
+        List<Podcast> podcasts = new ArrayList<Podcast>(getPodcaster().getAllPodcasts());
+        Podcast podcast = null;
+        for (Podcast pod : podcasts) {
+            if (pod.getName().equals(podcastJavaPosse.getName())) {
+                podcast = pod;
+            }
+        }
+
+        PodcastAudioDetails audioDetails = getPodcaster().getPodcastAudioDetails(podcast);
+
+
+    }
+
+    @Test
+    public void testGetPodcast() throws NetworkException {
+        List<Podcast> podcasts = new ArrayList<Podcast>(getPodcaster().getAllPodcasts());
+        Podcast podcast = null;
+        for (Podcast pod : podcasts) {
+            if (pod.getName().equals(podcastJavaPosse.getName())) {
+                podcast = pod;
+            }
+        }
+
+        getPodcaster().getPodcasts(podcast);
     }
 }

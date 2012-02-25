@@ -4,30 +4,17 @@
  */
 package org.bff.squeezeserver.domain;
 
-import org.bff.squeezeserver.domain.radio.Radio;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
-import java.io.IOException;
 import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author bfindeisen
  */
 public class XMLBrowserAudioDetails extends XMLPlugin {
-
     private int count;
     private boolean audio;
-    private String bitrate;
     private String value;
-    private String url;
-    private String type;
     private String itemId;
     private String subText;
-    private URL imageUrl;
     private String title;
     private String command;
     private int enclosureLength;
@@ -37,13 +24,11 @@ public class XMLBrowserAudioDetails extends XMLPlugin {
     private String description;
     private String link;
     private String explicit;
-    private String totalDuration;
+    private String duration;
     private String subTitle;
     private String summary;
     private URL iconUrl;
     private boolean remote;
-    private Image image;
-    private ImageIcon smallIcon;
     private String xmlId;
 
     public XMLBrowserAudioDetails(String id, String command) {
@@ -80,20 +65,6 @@ public class XMLBrowserAudioDetails extends XMLPlugin {
     }
 
     /**
-     * @return the bitrate
-     */
-    public String getBitrate() {
-        return bitrate;
-    }
-
-    /**
-     * @param bitrate the bitrate to set
-     */
-    public void setBitrate(String bitrate) {
-        this.bitrate = bitrate;
-    }
-
-    /**
      * @return the value
      */
     public String getValue() {
@@ -105,35 +76,6 @@ public class XMLBrowserAudioDetails extends XMLPlugin {
      */
     public void setValue(String value) {
         this.value = value;
-    }
-
-    /**
-     * @return the url
-     */
-    public String getUrl() {
-        return url;
-    }
-
-    /**
-     * @param url the url to set
-     */
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    /**
-     * @return the type
-     */
-    @Override
-    public String getType() {
-        return type;
-    }
-
-    /**
-     * @param type the type to set
-     */
-    public void setType(String type) {
-        this.type = type;
     }
 
     /**
@@ -173,89 +115,6 @@ public class XMLBrowserAudioDetails extends XMLPlugin {
     @Override
     public boolean isRemote() {
         return this.remote;
-    }
-
-    @Override
-    public Genre getGenre() {
-        return null;
-    }
-
-    @Override
-    public void setGenre(Genre genre) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public String getComment() {
-        return null;
-    }
-
-    @Override
-    public void setComment(String comment) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public String getYear() {
-        return null;
-    }
-
-    @Override
-    public void setYear(String year) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public int getTrack() {
-        return -1;
-    }
-
-    @Override
-    public void setTrack(int track) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public URL getImageUrl() {
-        return this.imageUrl;
-    }
-
-    @Override
-    public Image getImage() {
-
-        if (image == null && getImageUrl() != null) {
-            try {
-                image = ImageIO.read(getImageUrl());
-            } catch (IOException ex) {
-                Logger.getLogger(PlayableItem.class.getName()).log(Level.SEVERE, null, ex);
-                return null;
-            }
-        }
-        return this.image;
-    }
-
-    /**
-     * Returns the small (25x25) icon for the radio.  There is some performance overhead with
-     * this method the first time it is called.
-     *
-     * @return the {@link ImageIcon} for this radio
-     */
-    public ImageIcon getSmallIcon() {
-        if (smallIcon == null) {
-            try {
-                smallIcon = new ImageIcon(new URL(getSmallIconURL()));
-            } catch (Exception ex) {
-                Logger.getLogger(Radio.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return smallIcon;
-    }
-
-    /**
-     * @param imageURL the imageURL to set
-     */
-    public void setImageUrl(URL imageURL) {
-        this.imageUrl = imageURL;
     }
 
     /**
@@ -392,17 +251,17 @@ public class XMLBrowserAudioDetails extends XMLPlugin {
     }
 
     /**
-     * @return the totalDuration
+     * @return the duration
      */
-    public String getTotalDuration() {
-        return totalDuration;
+    public String getDuration() {
+        return duration;
     }
 
     /**
-     * @param totalDuration the totalDuration to set
+     * @param duration the duration to set
      */
-    public void setTotalDuration(String totalDuration) {
-        this.totalDuration = totalDuration;
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 
     /**

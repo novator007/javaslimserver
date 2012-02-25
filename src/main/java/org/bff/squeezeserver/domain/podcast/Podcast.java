@@ -27,12 +27,6 @@ public class Podcast extends XMLPluginItem {
         super(id, name);
     }
 
-    public Collection<Podcast> getPodcasts() {
-        List<Podcast> Podcasts = new ArrayList<Podcast>();
-
-        return Podcasts;
-    }
-
     @Override
     public String toString() {
         return getName() == null ? getTitle() : getName();

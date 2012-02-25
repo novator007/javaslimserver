@@ -17,8 +17,4 @@ public class Favorite extends XMLPluginItem {
     public Favorite(String id, String name) {
         super(id, name);
     }
-
-    public void addFavorite(Favorite favorite) {
-        super.addXMLItem(favorite);
-    }
 }

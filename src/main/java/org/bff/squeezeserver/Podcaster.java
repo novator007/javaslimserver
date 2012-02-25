@@ -34,7 +34,7 @@ public class Podcaster extends Plugin {
         super(squeezeServer);
     }
 
-    public Collection<Podcast> getPodcasts() throws NetworkException {
+    public Collection<Podcast> getAllPodcasts() throws NetworkException {
         List<Podcast> podcasts = new ArrayList<Podcast>();
         for (XMLPluginItem xmlItem : getXMLList()) {
             Podcast podcast = new Podcast(xmlItem.getId(), xmlItem.getName());
@@ -45,8 +45,16 @@ public class Podcaster extends Plugin {
         return podcasts;
     }
 
-    public void loadPodcast(Podcast podcast) {
 
+    public Collection<Podcast> getPodcasts(Podcast podcast) throws NetworkException {
+        List<Podcast> podcasts = new ArrayList<Podcast>();
+        for (XMLPluginItem xmlItem : getXMLItems(podcast)) {
+            Podcast p = new Podcast(xmlItem.getId(), xmlItem.getName());
+            p.setSqueezeType(XMLPluginItem.SQUEEZE_TYPE.PODCAST);
+            super.copyItem(xmlItem, p);
+            podcasts.add(p);
+        }
+        return podcasts;
     }
 
     @Override
