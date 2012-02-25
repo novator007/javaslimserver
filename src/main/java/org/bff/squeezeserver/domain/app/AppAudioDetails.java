@@ -151,11 +151,6 @@ public class AppAudioDetails extends XMLPlugin {
     }
 
     @Override
-    public String getTitle() {
-        return title == null ? getName() : getTitle();
-    }
-
-    @Override
     public boolean isRemote() {
         throw new UnsupportedOperationException("Not supported yet.");
     }

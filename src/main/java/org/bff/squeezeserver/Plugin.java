@@ -74,7 +74,7 @@ public abstract class Plugin {
 
     public Collection<XMLPluginItem> getXMLItems(XMLPluginItem item) {
         logger.trace("Starting LoadXMLItem  for " + item.getName());
-                                   List<XMLPluginItem> xmlItems = new ArrayList<XMLPluginItem>();
+        List<XMLPluginItem> xmlItems = new ArrayList<XMLPluginItem>();
         String command = SS_PROP_XML_ITEMS.replaceAll(PARAM_START, SEARCH_RESULTS_START);
         command = command.replaceAll(PARAM_ITEMS, SEARCH_RESULTS_MAX);
         command = command.replaceAll(PARAM_COMMAND, getCommand());

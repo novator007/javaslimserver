@@ -108,11 +108,6 @@ public class XMLBrowserAudioDetails extends XMLPlugin {
     }
 
     @Override
-    public String getTitle() {
-        return title == null ? getName() : title;
-    }
-
-    @Override
     public boolean isRemote() {
         return this.remote;
     }

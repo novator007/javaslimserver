@@ -41,11 +41,6 @@ public class Artist extends PlayableItem {
     }
 
     @Override
-    public String getTitle() {
-        return getName();
-    }
-
-    @Override
     public String getUrl() {
         return URL_PREFIX_ARTIST + getName();
     }

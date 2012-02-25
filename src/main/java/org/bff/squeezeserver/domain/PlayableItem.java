@@ -33,6 +33,7 @@ public class PlayableItem implements Playable {
     private String type;
     private Image image;
     private ImageIcon smallIcon;
+    private String title;
 
     public static final String URL_PREFIX_ALBUM = "db:album.titlesearch=";
     public static final String URL_PREFIX_ARTIST = "db:contributor.namesearch=";
@@ -306,13 +307,18 @@ public class PlayableItem implements Playable {
     }
 
     /**
-     * Same as name.
-     *
      * @return the title
      */
     @Override
     public String getTitle() {
-        return getName();
+        return title == null ? this.name : this.title;
+    }
+
+    /**
+     * @param title the title to set
+     */
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     @Override
@@ -408,7 +414,7 @@ public class PlayableItem implements Playable {
      * @return the name
      */
     public String getName() {
-        return name;
+        return this.name != null ? this.name : this.title;
     }
 
     /**

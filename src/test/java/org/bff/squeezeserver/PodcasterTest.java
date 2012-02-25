@@ -47,7 +47,7 @@ public class PodcasterTest extends Base {
             }
         }
         Assert.assertTrue(contains);
-        
+
         Assert.assertEquals(podcast.getName(), podcastJavaPosse.getName());
         Assert.assertEquals(podcast.getCount(), podcastJavaPosse.getCount());
         Assert.assertEquals(podcast.getImageUrl(), podcastJavaPosse.getImageUrl());

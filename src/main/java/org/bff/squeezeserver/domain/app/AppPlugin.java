@@ -82,11 +82,6 @@ class AppPlugin extends XMLPlugin {
     }
 
     @Override
-    public String getTitle() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public boolean isRemote() {
         throw new UnsupportedOperationException("Not supported yet.");
     }

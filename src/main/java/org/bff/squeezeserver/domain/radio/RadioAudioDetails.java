@@ -15,7 +15,7 @@ public class RadioAudioDetails extends XMLBrowserAudioDetails {
 
     private Radio radio;
 
-    public RadioAudioDetails(Radio radio,String command) {
+    public RadioAudioDetails(Radio radio, String command) {
         super(radio.getId(), command);
         setRadio(radio);
         setItemId(radio.getId());

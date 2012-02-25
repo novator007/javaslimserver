@@ -220,6 +220,7 @@ public class FavoritePlugin extends Plugin {
 
     /**
      * Pass null for id to return all
+     *
      * @param id
      * @return
      * @throws SqueezeException

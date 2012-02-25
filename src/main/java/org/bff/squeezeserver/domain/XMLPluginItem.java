@@ -18,7 +18,6 @@ public class XMLPluginItem extends PlayableItem {
 
     private boolean audio;
     private boolean containsItems;
-    private String title;
     private String type;
     private int count;
     private boolean error;
@@ -111,8 +110,6 @@ public class XMLPluginItem extends PlayableItem {
         OTHER
     }
 
-    ;
-
     /**
      * @param url the url to set
      */
@@ -160,21 +157,6 @@ public class XMLPluginItem extends PlayableItem {
      */
     public void setContainsItems(boolean containsItems) {
         this.containsItems = containsItems;
-    }
-
-    /**
-     * @return the title
-     */
-    @Override
-    public String getTitle() {
-        return title;
-    }
-
-    /**
-     * @param title the title to set
-     */
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     /**

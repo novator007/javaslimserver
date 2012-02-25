@@ -168,11 +168,6 @@ public class Album extends PlayableItem {
     }
 
     @Override
-    public String getTitle() {
-        return getName();
-    }
-
-    @Override
     public String getUrl() {
         return URL_PREFIX_ALBUM + getName();
     }

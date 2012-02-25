@@ -67,11 +67,6 @@ public class Folder extends PlayableItem {
     }
 
     @Override
-    public String getTitle() {
-        return getName();
-    }
-
-    @Override
     public String getName() {
         return getFileName();
     }

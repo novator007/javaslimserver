@@ -40,11 +40,6 @@ public class Genre extends PlayableItem {
     }
 
     @Override
-    public String getTitle() {
-        return getName();
-    }
-
-    @Override
     public Genre getGenre() {
         return this;
     }
