@@ -16,6 +16,19 @@ public class CaptureSqueezeCenter extends SqueezeServer {
 
     public CaptureSqueezeCenter(String server, int port, int webPort) throws ConnectionException {
         super(server, port, webPort);
+        createTestFile();
+    }
+
+    private void createTestFile() {
+        File file = new File(TEST_FILE);
+        if (!file.exists()) {
+            try {
+                file.delete();
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public String[] sendCommand(String command) throws ConnectionException {
@@ -61,18 +74,9 @@ public class CaptureSqueezeCenter extends SqueezeServer {
     }
 
     private void writeToFile(String str) {
-        File file = new File(TEST_FILE);
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
         FileWriter fw = null;
         try {
-            fw = new FileWriter(file.getPath(), true);
+            fw = new FileWriter(TEST_FILE, true);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(str + System.getProperty("line.separator"));
             bw.close();

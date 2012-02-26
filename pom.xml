@@ -19,11 +19,6 @@
                 <role>developer</role>
             </roles>
             <timezone>-6</timezone>
-            <!--
-            <properties>
-                <picUrl>http://tinyurl.com/prv4t</picUrl>
-            </properties>
-            -->
         </developer>
     </developers>
     <issueManagement>
