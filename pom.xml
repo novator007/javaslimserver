@@ -26,9 +26,9 @@
         <url>http://code.google.com/p/javaslimserver/issues/list</url>
     </issueManagement>
     <scm>
-        <developerConnection>scm:svn:https://javaslimserver.googlecode.com/svn/trunk</developerConnection>
-        <connection>scm:svn:http://javaslimserver.googlecode.com/svn/trunk</connection>
-        <url>http://javaslimserver.googlecode.com/svn/trunk</url>
+        <developerConnection>scm:git:https://bjj%40thejavashop.net@code.google.com/p/javaslimserver</developerConnection>
+        <connection>scm:git:http://code.google.com/p/javaslimserver</connection>
+        <url>http://http://code.google.com/p/javaslimserver/source/browse/</url>
     </scm>
     <ciManagement>
         <system>hudson</system>
