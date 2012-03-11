@@ -27,7 +27,7 @@
     </issueManagement>
     <scm>
         <developerConnection>
-            scm:git:https://bjj%40thejavashop.net@code.google.com/p/javaslimserver
+            scm:git:https://code.google.com/p/javaslimserver
         </developerConnection>
         <connection>scm:git:http://code.google.com/p/javaslimserver</connection>
         <url>http://code.google.com/p/javaslimserver/source/browse/</url>
