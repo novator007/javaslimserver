@@ -8,6 +8,8 @@ import java.awt.*;
 import java.net.URL;
 
 /**
+ * Represents a file system folder within the music directory.
+ * 
  * @author Bill
  */
 public class Folder extends PlayableItem {
@@ -32,8 +34,6 @@ public class Folder extends PlayableItem {
             return description;
         }
     }
-
-    ;
 
     public String getFileName() {
         return fileName;
