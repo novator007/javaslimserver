@@ -5,6 +5,7 @@
 package org.bff.squeezeserver;
 
 import org.junit.*;
+import org.junit.experimental.categories.Category;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -13,7 +14,7 @@ import java.util.logging.Logger;
 /**
  * @author Bill
  */
-@Ignore
+@Category(IntegrationTest.class)
 public class DiscovererTest {
 
     public DiscovererTest() {

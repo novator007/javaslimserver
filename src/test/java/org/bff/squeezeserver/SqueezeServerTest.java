@@ -6,6 +6,7 @@ package org.bff.squeezeserver;
 
 import org.bff.squeezeserver.exception.ConnectionException;
 import org.junit.*;
+import org.junit.experimental.categories.Category;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 /**
  * @author bfindeisen
  */
+@Category(IntegrationTest.class)
 public class SqueezeServerTest {
 
     private static SqueezeServer squeezeServer;

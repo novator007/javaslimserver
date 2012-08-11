@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * @author bfindeisen
  */
-public class MusicFolderTest extends Base {
+public class MusicFolderTest extends BaseTest {
 
     public MusicFolderTest() {
     }

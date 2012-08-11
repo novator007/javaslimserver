@@ -10,9 +10,9 @@ import org.bff.squeezeserver.monitor.EventListener;
 /**
  * @author bill
  */
-public abstract class Base {
+public abstract class BaseTest {
 
-    public Base() {
+    public BaseTest() {
         try {
             Controller.getInstance().loadSongs();
         } catch (SqueezeException e) {

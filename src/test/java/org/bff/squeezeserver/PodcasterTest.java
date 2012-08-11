@@ -6,6 +6,7 @@ import org.bff.squeezeserver.domain.podcast.PodcastAudioDetails;
 import org.bff.squeezeserver.exception.NetworkException;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,8 @@ import java.util.List;
  * Time: 9:15 PM
  * To change this template use File | Settings | File Templates.
  */
-public class PodcasterTest extends Base {
+@Category(IntegrationTest.class)
+public class PodcasterTest extends BaseTest {
     private static final Podcast podcastJavaPosse = new Podcast("", "The Java Posse");
 
     static {

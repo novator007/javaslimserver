@@ -6,11 +6,13 @@ package org.bff.squeezeserver;
 
 import org.bff.squeezeserver.exception.SqueezeException;
 import org.junit.*;
+import org.junit.experimental.categories.Category;
 
 /**
  * @author bfindeisen
  */
-public class PlaylistTest extends Base {
+@Category(IntegrationTest.class)
+public class PlaylistTest extends BaseTest {
 
     public PlaylistTest() {
     }

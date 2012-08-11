@@ -7,17 +7,18 @@ package org.bff.squeezeserver;
 import org.bff.squeezeserver.domain.*;
 import org.bff.squeezeserver.exception.DatabaseException;
 import org.bff.squeezeserver.exception.SqueezeException;
-import org.bff.squeezeserver.test.data.*;
+import org.bff.squeezeserver.test.integrationdata.*;
 import org.junit.*;
+import org.junit.experimental.categories.Category;
 
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author bfindeisen
  */
-public class DatabaseTest extends Base {
+@Category(IntegrationTest.class)
+public class DatabaseTest extends BaseTest {
 
     private static List<Artist> artistList;
     private static List<Album> albumList;

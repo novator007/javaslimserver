@@ -8,6 +8,7 @@ import org.bff.squeezeserver.domain.Artist;
 import org.bff.squeezeserver.events.FavoriteChangeEvent;
 import org.bff.squeezeserver.events.FavoriteChangeListener;
 import org.junit.*;
+import org.junit.experimental.categories.Category;
 
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -16,7 +17,8 @@ import java.util.logging.Logger;
 /**
  * @author bfindeisen
  */
-public class SlimFavoriteEventListenerTest extends Base {
+@Category(IntegrationTest.class)
+public class SlimFavoriteEventListenerTest extends BaseTest {
     private String TEST_ARTIST = "Artist0";
 
     public SlimFavoriteEventListenerTest() {

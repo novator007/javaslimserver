@@ -11,6 +11,7 @@ import org.bff.squeezeserver.exception.ConnectionException;
 import org.bff.squeezeserver.exception.PlayerException;
 import org.bff.squeezeserver.exception.SqueezeException;
 import org.junit.*;
+import org.junit.experimental.categories.Category;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,8 +46,8 @@ import java.util.logging.Logger;
  *
  * @author bfindeisen
  */
-@Ignore
-public class EventListenerTest extends Base {
+@Category(IntegrationTest.class)
+public class EventListenerTest extends BaseTest {
 
     public EventListenerTest() {
     }

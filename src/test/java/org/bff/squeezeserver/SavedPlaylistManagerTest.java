@@ -8,13 +8,15 @@ import org.bff.squeezeserver.domain.SavedPlaylist;
 import org.bff.squeezeserver.exception.DatabaseException;
 import org.bff.squeezeserver.exception.SqueezeException;
 import org.junit.*;
+import org.junit.experimental.categories.Category;
 
 import java.util.ArrayList;
 
 /**
  * @author bfindeisen
  */
-public class SavedPlaylistManagerTest extends Base {
+@Category(IntegrationTest.class)
+public class SavedPlaylistManagerTest extends BaseTest {
 
     public SavedPlaylistManagerTest() {
     }

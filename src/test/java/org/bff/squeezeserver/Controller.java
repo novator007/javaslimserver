@@ -4,14 +4,11 @@
  */
 package org.bff.squeezeserver;
 
-import org.bff.squeezeserver.capture.CaptureSqueezeCenter;
 import org.bff.squeezeserver.domain.*;
 import org.bff.squeezeserver.exception.ConnectionException;
 import org.bff.squeezeserver.exception.SqueezeException;
-import org.bff.squeezeserver.mock.MockEventListener;
-import org.bff.squeezeserver.mock.MockSqueezeServer;
 import org.bff.squeezeserver.monitor.EventListener;
-import org.bff.squeezeserver.test.data.*;
+import org.bff.squeezeserver.test.integrationdata.*;
 import org.junit.Assert;
 
 import java.io.File;
@@ -39,8 +36,6 @@ public class Controller {
     public static final String FILE_PROPS = System.getProperty("user.dir") + "/src/test/java/TestProperties.properties";
     private static final String URL_PREFIX = "file://";
     private static final String PROP_VERSION = "slim.version";
-    private static final String PROP_MOCK = "mock";
-    private static final String PROP_CAPTURE = "capture";
     private String path;
     private String server;
     private RadioPlugin radioPlugin;
@@ -110,8 +105,6 @@ public class Controller {
             setMp3Path(props.getProperty(PROP_MP3_PATH));
             setMp3Path2(props.getProperty(PROP_MP3_PATH_2));
             version = props.getProperty(PROP_VERSION);
-            setMock(Boolean.parseBoolean(props.getProperty(PROP_MOCK, "true")));
-            setCapture(Boolean.parseBoolean(props.getProperty(PROP_CAPTURE, "false")));
         } finally {
             in.close();
         }
@@ -140,22 +133,12 @@ public class Controller {
 
     private Controller() throws ConnectionException, IOException {
         loadProperties();
-        if (isMock()) {
-            setSqueezeServer(new MockSqueezeServer(getServer(), getCliPort(), getWebPort()));
-            setDatabase(new Database(getSqueezeServer()));
-            setPlaylist(new Playlist(getPlayer()));
-            setListener(new MockEventListener(getPlayer()));
-        } else {
-            if (isCapture()) {
-                setSqueezeServer(new CaptureSqueezeCenter(getServer(), getCliPort(), getWebPort()));
-            } else {
-                setSqueezeServer(new SqueezeServer(getServer(), getCliPort(), getWebPort()));
-            }
-            setDatabase(new Database(getSqueezeServer()));
-            setPlaylist(new Playlist(getPlayer()));
-            setListener(new EventListener(getPlayer()));
-        }
+        setSqueezeServer(new SqueezeServer(getServer(), getCliPort(), getWebPort()));
+        setDatabase(new Database(getSqueezeServer()));
+        setPlaylist(new Playlist(getPlayer()));
+        setListener(new EventListener(getPlayer()));
 
+        setSqueezeServer(new SqueezeServer(getServer(), getCliPort(), getWebPort()));
         setGroupedByDisc(getDatabase().getSqueezeServer().isDiscsGroupedAsSingle());
         setFolderBrowser(new FolderBrowser(getSqueezeServer()));
         setRadioPlugin(new RadioPlugin(getSqueezeServer()));

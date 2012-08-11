@@ -13,6 +13,7 @@ import org.bff.squeezeserver.events.FavoriteChangeListener;
 import org.bff.squeezeserver.exception.DatabaseException;
 import org.bff.squeezeserver.exception.SqueezeException;
 import org.junit.*;
+import org.junit.experimental.categories.Category;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,8 @@ import static org.junit.Assert.*;
 /**
  * @author bfindeisen
  */
-public class FavoritePluginTest extends Base {
+@Category(IntegrationTest.class)
+public class FavoritePluginTest extends BaseTest {
 
     private static Artist testArtist;
     private static Artist testArtist2;
