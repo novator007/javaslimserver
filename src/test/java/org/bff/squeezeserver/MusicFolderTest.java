@@ -7,6 +7,7 @@ package org.bff.squeezeserver;
 import org.bff.squeezeserver.domain.Folder;
 import org.bff.squeezeserver.exception.SqueezeException;
 import org.junit.*;
+import org.junit.experimental.categories.Category;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 /**
  * @author bfindeisen
  */
+@Category(IntegrationTest.class)
 public class MusicFolderTest extends BaseTest {
 
     public MusicFolderTest() {
