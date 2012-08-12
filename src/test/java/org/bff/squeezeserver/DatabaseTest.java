@@ -7,7 +7,7 @@ package org.bff.squeezeserver;
 import org.bff.squeezeserver.domain.*;
 import org.bff.squeezeserver.exception.DatabaseException;
 import org.bff.squeezeserver.exception.SqueezeException;
-import org.bff.squeezeserver.test.integrationdata.*;
+import org.bff.squeezeserver.integrationdata.*;
 import org.junit.*;
 import org.junit.experimental.categories.Category;
 

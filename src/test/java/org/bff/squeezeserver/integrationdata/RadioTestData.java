@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package org.bff.squeezeserver.test.integrationdata;
+package org.bff.squeezeserver.integrationdata;
 
 /**
  * @author Bill

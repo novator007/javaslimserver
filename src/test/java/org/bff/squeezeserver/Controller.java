@@ -8,7 +8,7 @@ import org.bff.squeezeserver.domain.*;
 import org.bff.squeezeserver.exception.ConnectionException;
 import org.bff.squeezeserver.exception.SqueezeException;
 import org.bff.squeezeserver.monitor.EventListener;
-import org.bff.squeezeserver.test.integrationdata.*;
+import org.bff.squeezeserver.integrationdata.*;
 import org.junit.Assert;
 
 import java.io.File;
