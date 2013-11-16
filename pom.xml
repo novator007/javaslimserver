@@ -240,11 +240,11 @@
     <distributionManagement>
         <repository>
             <id>thejavashopftp</id>
-            <url>ftp://ftp.thejavashop.net</url>
+            <url>ftp://ftp.thejavashop.net:2453</url>
         </repository>
         <site>
             <id>javaslimserversiteftp</id>
-            <url>ftp://ftp.thejavashop.net</url>
+            <url>ftp://ftp.thejavashop.net:2453</url>
         </site>
     </distributionManagement>
 </project>
