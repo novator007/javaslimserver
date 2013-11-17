@@ -52,7 +52,7 @@ public class SqueezeServerTest {
     @Test
     public void testGetAudioDirectory1() throws ConnectionException {
         List<String> mediaList = new ArrayList<String>(getSqueezeServer().getMediaDirectories());
-        Assert.assertTrue(mediaList.contains(Controller.getInstance().getMp3Path()));
+        Assert.assertTrue(mediaList.contains(Controller.getInstance().getMp3Path1()));
     }
 
     @Test

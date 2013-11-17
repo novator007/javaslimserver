@@ -7,8 +7,8 @@ package org.bff.squeezeserver;
 import org.bff.squeezeserver.domain.*;
 import org.bff.squeezeserver.exception.ConnectionException;
 import org.bff.squeezeserver.exception.SqueezeException;
-import org.bff.squeezeserver.monitor.EventListener;
 import org.bff.squeezeserver.integrationdata.*;
+import org.bff.squeezeserver.monitor.EventListener;
 import org.junit.Assert;
 
 import java.io.File;
@@ -31,6 +31,7 @@ public class Controller {
     private static final String PROP_PORT_WEB = "port.web";
     private static final String PROP_PORT_CLI = "port.cli";
     private static final String PROP_MP3_PATH = "path.server.mp3";
+    private static final String PROP_MP3_PATH_1 = "path.server.mp3Path1";
     private static final String PROP_MP3_PATH_2 = "path.server.mp3Path2";
     public static final String EXTENSION = ".mp3";
     public static final String FILE_PROPS = System.getProperty("user.dir") + "/src/test/java/TestProperties.properties";
@@ -89,6 +90,7 @@ public class Controller {
     private Player player;
     private static String version;
     private boolean songsLoaded;
+    private String mp3Path1;
 
     private void loadProperties() throws IOException {
         Properties props = new Properties();
@@ -103,6 +105,7 @@ public class Controller {
             setWebPort(Integer.parseInt(props.getProperty(PROP_PORT_WEB)));
             setCliPort(Integer.parseInt(props.getProperty(PROP_PORT_CLI)));
             setMp3Path(props.getProperty(PROP_MP3_PATH));
+            setMp3Path1(props.getProperty(PROP_MP3_PATH_1));
             setMp3Path2(props.getProperty(PROP_MP3_PATH_2));
             version = props.getProperty(PROP_VERSION);
         } finally {
@@ -822,5 +825,13 @@ public class Controller {
 
     public void setPodcaster(Podcaster podcaster) {
         this.podcaster = podcaster;
+    }
+
+    public void setMp3Path1(String mp3Path1) {
+        this.mp3Path1 = mp3Path1;
+    }
+
+    public String getMp3Path1() {
+        return mp3Path1;
     }
 }
