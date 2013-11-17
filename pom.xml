@@ -13,7 +13,7 @@
             <id>bill</id>
             <name>Bill</name>
             <email>bjj@thejavashop.net</email>
-            <url>http://www.billfindeisen.com</url>
+            <url>http://www.thejavashop.net</url>
             <roles>
                 <role>architect</role>
                 <role>developer</role>
@@ -34,7 +34,7 @@
     </scm>
     <ciManagement>
         <system>hudson</system>
-        <url>http://hudson.thejavashop.net:8080/hudson</url>
+        <url>http://bjj.is-a-player.com:8080/hudson</url>
     </ciManagement>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
